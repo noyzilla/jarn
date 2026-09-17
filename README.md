@@ -25,30 +25,37 @@ An AI-driven software development blueprint and baseline environment designed fo
 Create a new project directory initialized with the complete Jarn blueprint:
 
 ```bash
-# In an empty directory
+# Public / HTTP (Default)
 curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh
-
-# Or specify a target directory name
 curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh -s -- my-new-project
+
+# Private Repository (via GitHub CLI `gh`)
+gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
+gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh my-new-project
 ```
 
 ### Adopt into an Existing Project (Brownfield)
 Safely adopt Jarn standards into an active project without clobbering existing code or documentation:
 
 ```bash
-# In your existing project directory
+# Public / HTTP (Default)
 curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/adopt.sh | sh
+
+# Private Repository (via GitHub CLI `gh`)
+gh api repos/noyzilla/jarn/contents/scripts/adopt.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
 ```
 
 ### Update Jarn Standards & Skills (.agents Only)
 In any existing downstream project, pull the latest `.agents/rules/jarn/` invariants and `jarn-*` skills:
 
 ```bash
-# Local execution (if .agents already exists)
+# Local execution (Default HTTP / Private gh parameter)
 ./.agents/scripts/jarn-update.sh
+./.agents/scripts/jarn-update.sh gh
 
-# Or remote one-liner execution
+# Remote one-liner execution (Default HTTP / Private gh parameter)
 curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-update.sh | sh
+gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-update.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
 ```
 
 ---

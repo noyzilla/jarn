@@ -2,15 +2,28 @@
 # Initialize a new project with the complete Jarn AI-Driven Software Development Blueprint.
 # Pure basic shell (POSIX sh) with zero external runtime dependencies.
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh
-#   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh -s -- <project-directory>
+#   Public / HTTP (Default):
+#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh
+#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh -s -- <project-directory>
+#   Private / GitHub CLI (gh):
+#     gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
+#     gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh <project-directory>
 
 set -eu
 
 REPO="${JARN_REPO:-noyzilla/jarn}"
 BRANCH="${JARN_BRANCH:-main}"
-TARGET_DIR="${1:-.}"
 TARBALL_URL="https://github.com/${REPO}/archive/refs/heads/${BRANCH}.tar.gz"
+
+METHOD="${JARN_METHOD:-curl}"
+TARGET_DIR="."
+
+if [ "${1:-}" = "gh" ] || [ "${1:-}" = "--gh" ]; then
+  METHOD="gh"
+  TARGET_DIR="${2:-.}"
+elif [ -n "${1:-}" ]; then
+  TARGET_DIR="${1}"
+fi
 
 echo "Initializing new project from ${REPO}@${BRANCH}..."
 
@@ -42,8 +55,24 @@ if [ -d "${TARGET_DIR}" ]; then
   fi
 fi
 
-echo "Downloading Jarn blueprint archive..."
-curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TARGET_DIR}" --strip-components 1
+if [ "${METHOD}" = "gh" ]; then
+  if ! command -v gh >/dev/null 2>&1; then
+    echo "Error: GitHub CLI 'gh' is required for gh mode but is not installed or not in PATH." >&2
+    exit 1
+  fi
+  echo "Downloading Jarn blueprint archive via GitHub CLI (gh api)..."
+  gh api "repos/${REPO}/tarball/${BRANCH}" | tar -xz -C "${TARGET_DIR}" --strip-components 1
+else
+  echo "Downloading Jarn blueprint archive via HTTP (curl)..."
+  curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TARGET_DIR}" --strip-components 1 || true
+fi
+
+if [ ! -f "${TARGET_DIR}/AGENTS.md" ]; then
+  echo "Error: Failed to download Jarn blueprint archive from '${REPO}'." >&2
+  echo "  If '${REPO}' is a private repository, run with GitHub CLI (gh) mode:" >&2
+  echo "    gh api repos/${REPO}/contents/scripts/init.sh -H \"Accept: application/vnd.github.raw+json\" | sh -s -- gh" >&2
+  exit 1
+fi
 
 cd "${TARGET_DIR}"
 

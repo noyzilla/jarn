@@ -2,16 +2,29 @@
 # Adopt the Jarn AI-Driven Software Development Blueprint into an existing project.
 # Pure basic shell (POSIX sh) with zero external runtime dependencies.
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/adopt.sh | sh
-#   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/adopt.sh | sh -s -- <project-directory>
+#   Public / HTTP (Default):
+#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/adopt.sh | sh
+#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/adopt.sh | sh -s -- <project-directory>
+#   Private / GitHub CLI (gh):
+#     gh api repos/noyzilla/jarn/contents/scripts/adopt.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
+#     gh api repos/noyzilla/jarn/contents/scripts/adopt.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh <project-directory>
 
 set -eu
 
 REPO="${JARN_REPO:-noyzilla/jarn}"
 BRANCH="${JARN_BRANCH:-main}"
-TARGET_DIR="${1:-.}"
 SUFFIX="pending-merge"
 TARBALL_URL="https://github.com/${REPO}/archive/refs/heads/${BRANCH}.tar.gz"
+
+METHOD="${JARN_METHOD:-curl}"
+TARGET_DIR="."
+
+if [ "${1:-}" = "gh" ] || [ "${1:-}" = "--gh" ]; then
+  METHOD="gh"
+  TARGET_DIR="${2:-.}"
+elif [ -n "${1:-}" ]; then
+  TARGET_DIR="${1}"
+fi
 
 mkdir -p "${TARGET_DIR}"
 TARGET_ABS_DIR=$(cd "${TARGET_DIR}" && pwd)
@@ -25,9 +38,23 @@ trap 'rm -rf "${TMP_DIR}" "${RECORD_DIR}"' EXIT INT TERM
 if [ -n "${JARN_LOCAL_DIR:-}" ] && [ -d "${JARN_LOCAL_DIR}" ]; then
   echo "Copying blueprint from local source: ${JARN_LOCAL_DIR}..."
   cp -R "${JARN_LOCAL_DIR}/." "${TMP_DIR}/"
+elif [ "${METHOD}" = "gh" ]; then
+  if ! command -v gh >/dev/null 2>&1; then
+    echo "Error: GitHub CLI 'gh' is required for gh mode but is not installed or not in PATH." >&2
+    exit 1
+  fi
+  echo "Downloading blueprint archive via GitHub CLI (gh api)..."
+  gh api "repos/${REPO}/tarball/${BRANCH}" | tar -xz -C "${TMP_DIR}" --strip-components 1
 else
-  echo "Downloading blueprint archive..."
-  curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components 1
+  echo "Downloading blueprint archive via HTTP (curl)..."
+  curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components 1 || true
+fi
+
+if [ ! -f "${TMP_DIR}/AGENTS.md" ]; then
+  echo "Error: Failed to download Jarn blueprint archive from '${REPO}'." >&2
+  echo "  If '${REPO}' is a private repository, run with GitHub CLI (gh) mode:" >&2
+  echo "    gh api repos/${REPO}/contents/scripts/adopt.sh -H \"Accept: application/vnd.github.raw+json\" | sh -s -- gh" >&2
+  exit 1
 fi
 
 # 1. Synchronize core .agents/ directory (rules, skills, updater)

@@ -2,8 +2,12 @@
 # Update all Jarn standards and skills from GitHub upstream repository.
 # Pure basic shell (POSIX sh) with zero external runtime dependencies.
 # Usage:
-#   ./.agents/scripts/jarn-update.sh
-#   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-update.sh | sh
+#   Public / HTTP (Default):
+#     ./.agents/scripts/jarn-update.sh
+#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-update.sh | sh
+#   Private / GitHub CLI (gh):
+#     ./.agents/scripts/jarn-update.sh gh
+#     gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-update.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
 
 set -eu
 
@@ -12,12 +16,34 @@ BRANCH="${JARN_BRANCH:-main}"
 TARBALL_URL="https://github.com/${REPO}/archive/refs/heads/${BRANCH}.tar.gz"
 AGENTS_DIR=".agents"
 
+METHOD="${JARN_METHOD:-curl}"
+if [ "${1:-}" = "gh" ] || [ "${1:-}" = "--gh" ]; then
+  METHOD="gh"
+fi
+
 echo "Updating Jarn standards and skills from ${REPO}@${BRANCH}..."
 
 TMP_DIR=$(mktemp -d)
 trap 'rm -rf "${TMP_DIR}"' EXIT INT TERM
 
-curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components=1
+if [ "${METHOD}" = "gh" ]; then
+  if ! command -v gh >/dev/null 2>&1; then
+    echo "Error: GitHub CLI 'gh' is required for gh mode but is not installed or not in PATH." >&2
+    exit 1
+  fi
+  echo "Fetching updates via GitHub CLI (gh api)..."
+  gh api "repos/${REPO}/tarball/${BRANCH}" | tar -xz -C "${TMP_DIR}" --strip-components=1
+else
+  echo "Fetching updates via HTTP (curl)..."
+  curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components=1 || true
+fi
+
+if [ ! -d "${TMP_DIR}/.agents/rules/jarn" ]; then
+  echo "Error: Failed to download Jarn updates from '${REPO}'." >&2
+  echo "  If '${REPO}' is a private repository, run with GitHub CLI (gh) mode:" >&2
+  echo "    ./.agents/scripts/jarn-update.sh gh" >&2
+  exit 1
+fi
 
 # 1. Synchronize Jarn core rules
 if [ -d "${TMP_DIR}/.agents/rules/jarn" ]; then
