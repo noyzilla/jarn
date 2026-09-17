@@ -1,0 +1,32 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
+
+## [Unreleased]
+
+## [0.1.0] - 2026-09-18
+
+### Added
+- Official **Jarn (`jarn`)** identity: AI-Driven Software Development Blueprint & Baseline Environment.
+- Companion Test Invariant and Zero-Regression Guarantee in `AGENTS.md` and `REVIEW.md` requiring AI agents to automatically create unit/integration tests alongside logic modifications and verify zero breakage via Terminal logs before handoff.
+- Architectural Decision Record `docs/decisions/0001-project-identity-jarn.md` documenting Jarn identity adoption.
+- **Why Jarn (จารย์)** philosophy and background section in `README.md`.
+- Jarn Skills Suite under `.agents/skills/jarn-*/`:
+  - `jarn-spec`: Interactive runbook to debate, author, and maintain vertical slice living specifications (`docs/specs/`) with Code-Spec Parity and blast-radius matrices.
+  - `jarn-decisions`: Manage the lifecycle of Architectural Decision Records (`docs/decisions/`) with zero-token filtering.
+  - `jarn-review`: Autonomous quality gate audit runbook to inspect `git status`, map touched surfaces to the Change Routing Matrix, execute targeted verification, audit commit conventions, and synthesize pre-merge evidence.
+  - `jarn-diagnostics`: Isolated defect investigation procedure bounded strictly to the living spec's blast-radius matrix without blind codebase scans.
+- Jarn Update Utility script under `.agents/scripts/jarn-update.sh` for atomic downstream synchronization.
+- Brownfield Adoption Command in `scripts/adopt.sh` providing a non-destructive installation workflow for existing projects: synchronizes core `.agents/` invariants, scaffolds missing governance files, stages conflicting files as `*.pending-merge`, and outputs an AI Adoption Directive for automated semantic merge.
+- Non-Empty Safety Guard in `scripts/init.sh` to prevent accidental clobbering of existing codebases, rejecting non-empty targets and guiding developers to use `scripts/adopt.sh`.
+- Mandatory Pre-Flight Action Guard in `AGENTS.md`, `safety.md`, and `workflow.md` strictly enforcing Step 0 Branch Isolation (`git checkout -b`) before any codebase modifications can take place.
+- Mandatory Pre-Merge Audit Execution trigger in `AGENTS.md` requiring AI agents to activate `jarn-review` before declaring task completion.
+- Universal Code Review & Pre-Merge Standard in `.agents/rules/jarn/review.md` extracting project-agnostic quality gates, safety invariants, targeted verification, and AI accountability rules into the syncable governance kernel.
+- Targeted Verification Policy in `REVIEW.md`, `AGENTS.md`, and `.agents/rules/jarn/workflow.md` requiring verification commands to strictly match modified surfaces via `git status`.
+- Semantic Numbering Invariant and Stable References Standard in `.agents/rules/jarn/standards.md`.
+- System Documentation Taxonomy in `docs/README.md` (`architecture/`, `design/`, `specs/`, `decisions/`, `development/`).
+- Default-to-Consultation State Machine in `AGENTS.md` and `.agents/rules/jarn/workflow.md`.
+- Change Taxonomy Protocol distinguishing Spec-Altering Changes from Spec-Conforming Bug Fixes.
+- Domain Glossary and Ubiquitous Language specification template in `CONTEXT.md`.

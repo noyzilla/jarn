@@ -1,0 +1,32 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Editor & IDE Directories
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build & Dependency Artifacts
+build/
+dist/
+bin/
+node_modules/
+vendor/
+target/
+*.out
+
+# Logs & Temporary Files
+*.log
+*.tmp
+tmp/
+scratch/
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
