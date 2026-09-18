@@ -12,7 +12,7 @@
 set -eu
 
 REPO="${JARN_REPO:-noyzilla/jarn}"
-BRANCH="${JARN_BRANCH:-latest}"
+VERSION="${JARN_VERSION:-latest}"
 SUFFIX="pending-merge"
 
 METHOD="${JARN_METHOD:-curl}"
@@ -25,27 +25,27 @@ elif [ -n "${1:-}" ]; then
   TARGET_DIR="${1}"
 fi
 
-if [ "${BRANCH}" = "latest" ]; then
+if [ "${VERSION}" = "latest" ]; then
   if [ "${METHOD}" = "gh" ]; then
-    BRANCH=$(gh api "repos/${REPO}/tags" -q '.[0].name' 2>/dev/null || echo "")
+    VERSION=$(gh api "repos/${REPO}/tags" -q '.[0].name' 2>/dev/null || echo "")
   else
-    BRANCH=$(curl -s "https://api.github.com/repos/${REPO}/tags" | grep '"name":' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)
+    VERSION=$(curl -s "https://api.github.com/repos/${REPO}/tags" | grep '"name":' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)
   fi
   
-  if [ -z "${BRANCH}" ] || [ "${BRANCH}" = "null" ]; then
+  if [ -z "${VERSION}" ] || [ "${VERSION}" = "null" ]; then
     echo "Warning: Could not resolve latest tag. Falling back to 'main'." >&2
-    BRANCH="main"
+    VERSION="main"
   else
-    echo "Resolved latest tag: ${BRANCH}"
+    echo "Resolved latest tag: ${VERSION}"
   fi
 fi
 
-TARBALL_URL="https://github.com/${REPO}/tarball/${BRANCH}"
+TARBALL_URL="https://github.com/${REPO}/tarball/${VERSION}"
 
 mkdir -p "${TARGET_DIR}"
 TARGET_ABS_DIR=$(cd "${TARGET_DIR}" && pwd)
 
-echo "Adopting jarn blueprint from ${REPO}@${BRANCH} into ${TARGET_DIR}..."
+echo "Adopting jarn blueprint from ${REPO}@${VERSION} into ${TARGET_DIR}..."
 
 TMP_DIR=$(mktemp -d)
 RECORD_DIR=$(mktemp -d)
@@ -60,7 +60,7 @@ elif [ "${METHOD}" = "gh" ]; then
     exit 1
   fi
   echo "Downloading blueprint archive via GitHub CLI (gh api)..."
-  gh api "repos/${REPO}/tarball/${BRANCH}" | tar -xz -C "${TMP_DIR}" --strip-components 1
+  gh api "repos/${REPO}/tarball/${VERSION}" | tar -xz -C "${TMP_DIR}" --strip-components 1
 else
   echo "Downloading blueprint archive via HTTP (curl)..."
   curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components 1 || true

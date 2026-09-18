@@ -12,7 +12,7 @@
 set -eu
 
 REPO="${JARN_REPO:-noyzilla/jarn}"
-BRANCH="${JARN_BRANCH:-latest}"
+VERSION="${JARN_VERSION:-latest}"
 AGENTS_DIR=".agents"
 
 METHOD="${JARN_METHOD:-curl}"
@@ -20,24 +20,24 @@ if [ "${1:-}" = "gh" ] || [ "${1:-}" = "--gh" ]; then
   METHOD="gh"
 fi
 
-if [ "${BRANCH}" = "latest" ]; then
+if [ "${VERSION}" = "latest" ]; then
   if [ "${METHOD}" = "gh" ]; then
-    BRANCH=$(gh api "repos/${REPO}/tags" -q '.[0].name' 2>/dev/null || echo "")
+    VERSION=$(gh api "repos/${REPO}/tags" -q '.[0].name' 2>/dev/null || echo "")
   else
-    BRANCH=$(curl -s "https://api.github.com/repos/${REPO}/tags" | grep '"name":' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)
+    VERSION=$(curl -s "https://api.github.com/repos/${REPO}/tags" | grep '"name":' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)
   fi
   
-  if [ -z "${BRANCH}" ] || [ "${BRANCH}" = "null" ]; then
+  if [ -z "${VERSION}" ] || [ "${VERSION}" = "null" ]; then
     echo "Warning: Could not resolve latest tag. Falling back to 'main'." >&2
-    BRANCH="main"
+    VERSION="main"
   else
-    echo "Resolved latest tag: ${BRANCH}"
+    echo "Resolved latest tag: ${VERSION}"
   fi
 fi
 
-TARBALL_URL="https://github.com/${REPO}/tarball/${BRANCH}"
+TARBALL_URL="https://github.com/${REPO}/tarball/${VERSION}"
 
-echo "Updating Jarn standards and skills from ${REPO}@${BRANCH}..."
+echo "Updating Jarn standards and skills from ${REPO}@${VERSION}..."
 
 TMP_DIR=$(mktemp -d)
 trap 'rm -rf "${TMP_DIR}"' EXIT INT TERM
@@ -48,7 +48,7 @@ if [ "${METHOD}" = "gh" ]; then
     exit 1
   fi
   echo "Fetching updates via GitHub CLI (gh api)..."
-  gh api "repos/${REPO}/tarball/${BRANCH}" | tar -xz -C "${TMP_DIR}" --strip-components=1
+  gh api "repos/${REPO}/tarball/${VERSION}" | tar -xz -C "${TMP_DIR}" --strip-components=1
 else
   echo "Fetching updates via HTTP (curl)..."
   curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components=1 || true
