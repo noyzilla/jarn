@@ -6,6 +6,19 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-19
+
+### Features
+- **Core Architecture Overhaul**: Flattened AI rules from `.agents/rules/jarn/*.md` to `.agents/rules/jarn-*.md` for shallow scan compatibility.
+- **Template Modernization**: Standardized ADR and Specs templates with YAML frontmatter.
+- **Update Engine Enhancements**: Upgraded `jarn-update.sh` with `.pending-merge` template synchronization.
+- Unified `init.sh` and `adopt.sh` workflows.
+- Introduced centralized `UPDATE_NOTES.md` to feed AI Directives for automated downstream migrations.
+
+### Fixes
+- Updated legacy rule paths in remaining docs (`CONTRIBUTING.md`, `README.md`, `CHANGELOG.md`).
+- Fixed broken rule path references in Jarn skills.
+
 ## [0.2.4] - 2026-09-18
 
 ### Features

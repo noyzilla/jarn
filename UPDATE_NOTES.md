@@ -1,6 +1,6 @@
 # Jarn Update Notes
 
-## [v0.1.2] - Core Rules Architecture Overhaul
+## [v0.3.0] - Core Rules Architecture Overhaul
 This update provides critical migration instructions for downstream projects to align with the new Jarn rules architecture.
 
 ### Rule Directory Flattening (Shallow Scan Compatibility)
