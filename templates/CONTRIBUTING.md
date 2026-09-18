@@ -11,11 +11,6 @@ Contributions prepared with the assistance of generative AI tools are welcomed, 
 - **Focused Scope**: Submit single, focused changes linked to an approved issue or task. Do not include unrelated reformatting or stylistic churn.
 - **Verification Mandatory**: All contributions must include test coverage and pass all automated verification checks before submission.
 
-### Jarn Specific Guidelines
-When contributing to this specific repository (`jarn`), please note:
-- **Root `*.md` Files**: Describe the Jarn project itself.
-- **`templates/` Directory**: Contains the generic versions of files that get copied to downstream projects when running `init.sh`. If you add a new project-level generic `.md` file, place it in `templates/` to prevent Jarn-specific metadata from leaking into downstream projects.
-
 ## Engineering Standards
 
 This repository enforces unified engineering conventions:

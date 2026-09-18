@@ -23,12 +23,12 @@ Agents MUST strictly comply with universal standards defined in `.agents/rules/j
 Configure the active lifecycle commands below for your specific tech stack. Run verification checks before completing any task.
 
 ### Active Commands (Update for your project)
-- **Setup Dependencies**: `N/A`
-- **Run Unit Tests**: `N/A`
-- **Run UI / E2E Tests**: `N/A`
-- **Run Linter / Style**: `shellcheck scripts/*.sh .agents/scripts/*.sh`
-- **Build Project**: `N/A`
-- **Run Local Dev**: `N/A`
+- **Setup Dependencies**: `<setup command, e.g. pnpm install, ./gradlew build, go mod download>`
+- **Run Unit Tests**: `<unit test command, e.g. pnpm test, ./gradlew test, go test ./...>`
+- **Run UI / E2E Tests**: `<ui test command, e.g. pnpm test:ui, ./gradlew e2eTest, bunx playwright test, or N/A (Visual Proof via Browser Agent)>`
+- **Run Linter / Style**: `<lint command, e.g. pnpm lint, ./gradlew check, golangci-lint run>`
+- **Build Project**: `<build command, e.g. pnpm build, ./gradlew assemble, go build ./...>`
+- **Run Local Dev**: `<dev command, e.g. pnpm dev, ./gradlew bootRun, go run main.go>`
 
 ## Change Routing Matrix
 
@@ -56,15 +56,59 @@ When modifying specific layers or subsystems, update the designated locations an
 - **Mandatory Pre-Merge Audit Execution**: Before declaring any task complete or concluding a branch, the agent MUST activate and fulfill [.agents/skills/jarn-review](.agents/skills/jarn-review/SKILL.md).
 - **Pre-Merge Audit Checklist**: Ensure all items in [REVIEW.md](REVIEW.md) are satisfied.
 
+---
 
+## Language & Framework Presets
+
+Select and copy the relevant command preset into the Active Commands section above:
+
+### Node.js / TypeScript (npm, pnpm, bun)
+- **Setup**: `pnpm install` (or `bun install` / `npm install`)
+- **Unit Test**: `pnpm test` (or `bun test`)
+- **UI / E2E Test**: `pnpm test:e2e` (or `bunx playwright test` / `npx cypress run`)
+- **Lint**: `pnpm run lint`
+- **Build**: `pnpm run build`
+- **Run**: `pnpm run dev`
+
+### Java / Kotlin / Groovy (Gradle / Maven)
+- **Setup**: `./gradlew build -PskipTests` (or `./mvnw compile`)
+- **Unit Test**: `./gradlew test` (or `./mvnw test`)
+- **UI / E2E Test**: `./gradlew e2eTest` (or Selenium / Playwright-Java runner)
+- **Lint**: `./gradlew codeStyle` (or `./gradlew check`)
+- **Build**: `./gradlew assemble`
+- **Run**: `./gradlew bootRun`
+
+### Python (uv / poetry / pytest)
+- **Setup**: `uv sync` (or `poetry install`)
+- **Unit Test**: `uv run pytest`
+- **UI / E2E Test**: `uv run pytest tests/e2e/` (or Playwright-Python runner)
+- **Lint**: `uv run ruff check && uv run ruff format --check`
+- **Build**: `uv build`
+- **Run**: `uv run python -m app`
+
+### Go (Go Modules)
+- **Setup**: `go mod download && go mod verify`
+- **Unit Test**: `go test -v -race ./...`
+- **UI / E2E Test**: `go test -v ./e2e/...` (or chromedp / Rod runner)
+- **Lint**: `golangci-lint run`
+- **Build**: `go build -v -o bin/app ./...`
+- **Run**: `go run ./cmd/app`
+
+### Rust (Cargo)
+- **Setup**: `cargo check`
+- **Unit Test**: `cargo test`
+- **UI / E2E Test**: `cargo test --test e2e` (or headless browser integration runner)
+- **Lint**: `cargo clippy --all-targets -- -D warnings && cargo fmt --check`
+- **Build**: `cargo build --release`
+- **Run**: `cargo run`
 
 ---
 
 ## Project Context
 
-- **Project Name**: jarn
-- **Primary Language / Runtime**: Language-agnostic AI-driven development blueprint
-- **Architecture Pattern**: Modularity, contract-first design, progressive documentation disclosure
+- **Project Name**: <project_name>
+- **Primary Language / Runtime**: <primary_language>
+- **Architecture Pattern**: <architecture_pattern>
 
 ## Available Modular Skills
 

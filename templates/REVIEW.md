@@ -54,6 +54,5 @@ It inherits the **Universal Code Review & Pre-Merge Standard** from [.agents/rul
 
 Add custom review gates, domain compliance checks, performance budgets, or security audits specific to this project below:
 
-- [ ] **Shell Script Compatibility**: Tested `init.sh`, `adopt.sh`, and `jarn-update.sh` on both macOS (`zsh`) and Linux (`bash`).
-- [ ] **No Unbound Variables**: Checked that all variables are correctly quoted and scripts run safely under `set -e`.
-- [ ] **Template Sanitization**: Ensured that any new `.md` files that are project-specific are also placed into `templates/` as blank generics so downstream users don't inherit Jarn-specific metadata.
+- [ ] **UI Visual Proof (When Applicable)**: For user-visible UI changes, before and after screenshots or recordings are attached in the PR description, complying with tokens in `DESIGN.md`.
+- [ ] **Domain Invariants**: Business constraints and state transitions match the subsystem specification in `docs/specs/`.

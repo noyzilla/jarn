@@ -8,7 +8,24 @@ This document governs the visual tokens, UI components, and output styling acros
 
 ## Design Tokens
 
+### Color Palette
+- **Background**: `#0a0a0c` (Dark), `#ffffff` (Light)
+- **Foreground**: `#f4f4f6` (Dark), `#111113` (Light)
+- **Primary Brand**: `#3b82f6` (Accent Blue)
+- **Muted Surface**: `#18181b` (Dark border/card), `#f4f4f5` (Light surface)
+- **Semantic Success**: `#10b981`
+- **Semantic Warning**: `#f59e0b`
+- **Semantic Danger**: `#ef4444`
 
+### Typography Scale
+- **Display**: System sans-serif / Inter, 32px, font-weight 600
+- **Heading**: System sans-serif / Inter, 20px, font-weight 600
+- **Body**: System sans-serif / Inter, 14px, font-weight 400, line-height 1.5
+- **Monospace**: JetBrains Mono / Fira Code, 13px, font-weight 400
+
+### Spacing & Layout
+- **Base Unit**: 4px grid system (`4px`, `8px`, `12px`, `16px`, `24px`, `32px`)
+- **Border Radius**: `4px` (Inputs, Badges), `8px` (Cards, Modals)
 
 ## Headless & CLI Output Guidelines
 For CLI tools, background workers, or backend services without graphical interfaces, this document governs terminal output formatting:
