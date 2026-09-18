@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-09-18
+
+### Fixes
+- Added clean `README.md` and `CONTEXT.md` to `templates/` to prevent leaking Jarn-specific documentation into downstream projects during initialization.
+
 ## [0.2.1] - 2026-09-18
 
 ### Fixes
