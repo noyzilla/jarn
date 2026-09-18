@@ -81,6 +81,12 @@ if [ ! -f "${TMP_DIR}/AGENTS.md" ]; then
   exit 1
 fi
 
+# Replace Jarn-specific root files with clean templates before synchronization
+if [ -d "${TMP_DIR}/templates" ]; then
+  cp -r "${TMP_DIR}/templates/"* "${TMP_DIR}/" 2>/dev/null || true
+  rm -rf "${TMP_DIR}/templates"
+fi
+
 # 1. Synchronize core .agents/ directory (rules, skills, updater)
 if [ -d "${TMP_DIR}/.agents/rules/jarn" ]; then
   mkdir -p "${TARGET_ABS_DIR}/.agents/rules/jarn"
@@ -115,7 +121,6 @@ touch "${CREATED_RECORD}" "${PENDING_RECORD}"
   case "${rel_path}" in
     .agents/*) continue ;;
     scripts/*) continue ;;
-    templates/*) continue ;;
     .git|.git/*|*/.git|*/.git/*) continue ;;
     .gemini|.gemini/*|*/.gemini|*/.gemini/*) continue ;;
     .DS_Store*|*/.DS_Store*) continue ;;
