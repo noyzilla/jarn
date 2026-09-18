@@ -1,9 +1,14 @@
+---
+title: Adopt Jarn as AI-Driven Software Development Blueprint Identity
+status: active
+tags: [identity, branding, cli]
+synapses: []
+---
+
 # ADR 0001: Adopt Jarn as AI-Driven Software Development Blueprint Identity
 
 - **Date**: 2026-09-18
 - **Status**: Accepted
-- **Filename Lifecycle**:
-  - Active: `0001-project-identity-jarn.md`
 
 ## Context & Problem Statement
 

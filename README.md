@@ -21,28 +21,17 @@ An AI-driven software development blueprint and baseline environment designed fo
 
 ## Quick Commands
 
-### Initialize a New Project (Greenfield)
-Create a new project directory initialized with the complete Jarn blueprint:
+### Install / Adopt Jarn (Greenfield & Brownfield)
+Create a new project directory initialized with the complete Jarn blueprint, or safely adopt Jarn standards into an existing active project without clobbering existing code or documentation (uses a smart `*.pending-merge` system):
 
 ```bash
 # Public / HTTP (Default)
 curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh -s -- my-new-project
+curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh -s -- my-project-dir
 
 # Private Repository (via GitHub CLI `gh`)
 gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh
-gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- my-new-project
-```
-
-### Adopt into an Existing Project (Brownfield)
-Safely adopt Jarn standards into an active project without clobbering existing code or documentation:
-
-```bash
-# Public / HTTP (Default)
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/adopt.sh | sh
-
-# Private Repository (via GitHub CLI `gh`)
-gh api repos/noyzilla/jarn/contents/scripts/adopt.sh -H "Accept: application/vnd.github.raw+json" | sh
+gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- my-project-dir
 ```
 
 ### Update Jarn Standards & Skills (.agents Only)
@@ -78,9 +67,9 @@ Jarn establishes a disciplined, reproducible foundation for software development
 Adopting into an active project follows a safe **2-Stage AI Adoption Flow**:
 
 1. **Stage 1 (Deterministic Scaffolding)**:
-   Run the adoption script in your project root:
+   Run the installation script in your project root:
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/adopt.sh | sh
+   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh
    ```
    - Unconditionally synchronizes `.agents/` (rules, `jarn-*` skills, and updater).
    - Creates missing files (`REVIEW.md`, `TASK.md`, `CONTEXT.md`, `docs/specs/`, `docs/decisions/`).
@@ -131,5 +120,4 @@ This repository is organized into distinct communication and governance layers:
 | **`CHANGELOG.md`** | Releases & Stakeholders | Historical log of releases following Keep a Changelog |
 | **`.agents/`** | Agent Governance & Skills | Universal rules kernel, Jarn skills (`jarn-*`), and `.agents/scripts/jarn-update.sh` |
 | **`docs/`** | System Documentation Repository | Architecture, design system, living specs, ADR decisions, and runbooks |
-| **`scripts/init.sh`** | Project Scaffolding | One-liner command to initialize a full new project |
-| **`scripts/adopt.sh`** | Project Adoption | One-liner command to adopt blueprint into an existing project with non-destructive staging |
+| **`scripts/init.sh`** | Project Initialization & Adoption | Universal one-liner command to initialize a full new project or safely adopt the blueprint into an existing project with non-destructive staging |

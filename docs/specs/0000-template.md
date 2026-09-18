@@ -1,3 +1,10 @@
+---
+title: [Subsystem or Feature Name]
+status: draft
+tags: [spec, template]
+synapses: []
+---
+
 # Specification: [Subsystem or Feature Name]
 
 - **Status**: Active | Draft

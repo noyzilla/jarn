@@ -14,17 +14,32 @@ set -eu
 REPO="${JARN_REPO:-noyzilla/jarn}"
 VERSION="${JARN_VERSION:-latest}"
 AGENTS_DIR=".agents"
+VERSION_FILE="${AGENTS_DIR}/.jarn-version"
 
 RESUME_TMP_DIR=""
-if [ "${1:-}" = "--internal-resume" ]; then
-  RESUME_TMP_DIR="$2"
-  shift 2
-fi
-
+FORCE_UPDATE=0
 METHOD="${JARN_METHOD:-curl}"
-if [ "${1:-}" = "gh" ] || [ "${1:-}" = "--gh" ]; then
-  METHOD="gh"
-fi
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --internal-resume)
+      RESUME_TMP_DIR="$2"
+      shift 2
+      ;;
+    --force|-f)
+      FORCE_UPDATE=1
+      shift
+      ;;
+    gh|--gh)
+      METHOD="gh"
+      shift
+      ;;
+    *)
+      # Ignore other arguments if piped from curl/gh
+      shift
+      ;;
+  esac
+done
 
 if [ -z "${RESUME_TMP_DIR}" ]; then
   if [ "${METHOD}" = "curl" ]; then
@@ -50,6 +65,16 @@ if [ -z "${RESUME_TMP_DIR}" ]; then
     fi
   fi
 
+  # Version Check
+  if [ "${FORCE_UPDATE}" -eq 0 ] && [ -f "${VERSION_FILE}" ]; then
+    CURRENT_VERSION=$(cat "${VERSION_FILE}")
+    if [ "${CURRENT_VERSION}" = "${VERSION}" ]; then
+      echo "Jarn is already up-to-date (version ${VERSION})."
+      echo "To force an update, run: ./.agents/scripts/jarn-update.sh --force"
+      exit 0
+    fi
+  fi
+
   TARBALL_URL="https://github.com/${REPO}/tarball/${VERSION}"
 
   echo "Updating Jarn standards and skills from ${REPO}@${VERSION}..."
@@ -69,7 +94,7 @@ if [ -z "${RESUME_TMP_DIR}" ]; then
     curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components=1 || true
   fi
 
-  if [ ! -d "${TMP_DIR}/.agents/rules/jarn" ]; then
+  if [ ! -f "${TMP_DIR}/.agents/rules/jarn-standards.md" ]; then
     echo "Error: Failed to download Jarn updates from '${REPO}'." >&2
     echo "  If '${REPO}' is a private repository, run with GitHub CLI (gh) mode:" >&2
     echo "    ./.agents/scripts/jarn-update.sh gh" >&2
@@ -92,14 +117,16 @@ else
   trap 'rm -rf "${TMP_DIR}"' EXIT INT TERM
 fi
 
-# 1. Synchronize Jarn core rules
-if [ -d "${TMP_DIR}/.agents/rules/jarn" ]; then
-  mkdir -p "${AGENTS_DIR}/rules/jarn"
-  cp -R "${TMP_DIR}/.agents/rules/jarn/." "${AGENTS_DIR}/rules/jarn/"
-  echo "  - Jarn rules updated in ${AGENTS_DIR}/rules/jarn/"
-fi
+# Synchronize Jarn core rules
+mkdir -p "${AGENTS_DIR}/rules"
+for rule_file in "${TMP_DIR}/.agents/rules/jarn-"*; do
+  if [ -f "${rule_file}" ]; then
+    cp "${rule_file}" "${AGENTS_DIR}/rules/"
+  fi
+done
+echo "  - Jarn rules updated in ${AGENTS_DIR}/rules/jarn-*.md"
 
-# 2. Synchronize Jarn skills (matching jarn-*)
+# Synchronize Jarn skills (matching jarn-*)
 for skill_dir in "${TMP_DIR}/${AGENTS_DIR}/skills/jarn-"*; do
   if [ -d "${skill_dir}" ]; then
     skill_name="${skill_dir##*/}"
@@ -109,12 +136,55 @@ for skill_dir in "${TMP_DIR}/${AGENTS_DIR}/skills/jarn-"*; do
   fi
 done
 
-# 3. Synchronize this updater script itself
+# Synchronize this updater script itself
 if [ -f "${TMP_DIR}/.agents/scripts/jarn-update.sh" ]; then
   mkdir -p "${AGENTS_DIR}/scripts"
   cp "${TMP_DIR}/.agents/scripts/jarn-update.sh" "${AGENTS_DIR}/scripts/jarn-update.sh"
   chmod +x "${AGENTS_DIR}/scripts/jarn-update.sh" 2>/dev/null || true
   echo "  - Jarn updater updated in ${AGENTS_DIR}/scripts/jarn-update.sh"
+fi
+
+# Synchronize Blueprint Templates via pending-merge
+SUFFIX="pending-merge"
+echo "  - Synchronizing templates and docs (using .${SUFFIX} for conflicts)..."
+for target_dir in "docs" "templates"; do
+  if [ -d "${TMP_DIR}/${target_dir}" ]; then
+    (
+      cd "${TMP_DIR}"
+      find "${target_dir}" -type f
+    ) | while IFS= read -r file_path; do
+      case "${file_path}" in
+        */.DS_Store*) continue ;;
+      esac
+      
+      dest_file="./${file_path}"
+      dest_dir=$(dirname "${dest_file}")
+      mkdir -p "${dest_dir}"
+
+      if [ ! -f "${dest_file}" ]; then
+        cp "${TMP_DIR}/${file_path}" "${dest_file}"
+        echo "    + Created ${file_path}"
+      elif ! cmp -s "${TMP_DIR}/${file_path}" "${dest_file}"; then
+        pending_file="${dest_file}.${SUFFIX}"
+        cp "${TMP_DIR}/${file_path}" "${pending_file}"
+        echo "    * Staged ${file_path}.${SUFFIX} for AI merge"
+      fi
+    done
+  fi
+done
+
+# Record new version
+echo "${VERSION}" > "${VERSION_FILE}"
+
+# Display Update Notes (Migration instructions for AI/User)
+if [ -f "${TMP_DIR}/UPDATE_NOTES.md" ]; then
+  echo ""
+  echo "================================================================="
+  echo "  JARN UPDATE NOTES & AI DIRECTIVE"
+  echo "================================================================="
+  cat "${TMP_DIR}/UPDATE_NOTES.md"
+  echo "================================================================="
+  echo ""
 fi
 
 echo "Update complete. All Jarn components are up to date."

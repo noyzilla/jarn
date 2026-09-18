@@ -24,13 +24,8 @@ This repository enforces unified engineering conventions:
 ### Branch Isolation & Lifecycle
 All work must be conducted within isolated branches branched from `main`. Direct commits or pushes to `main` are strictly forbidden (Step 0 Invariant). See [.agents/rules/jarn/safety.md](.agents/rules/jarn/safety.md).
 
-- Features: `feat/<feature-name>`
-- Bug Fixes: `fix/<bug-name>`
-- Documentation: `docs/<doc-name>`
-- Maintenance: `chore/<chore-name>`
-
 ### Incremental Micro-Commits
-Commit frequently at logical, atomic checkpoints rather than making a single massive commit. See [.agents/rules/jarn/standards.md](.agents/rules/jarn/standards.md#commit-frequency--granularity-micro-commit-strategy).
+See [.agents/rules/jarn/standards.md](.agents/rules/jarn/standards.md#commit-frequency--granularity-micro-commit-strategy).
 
 ### Pre-Submission Verification
 Before opening a pull request, run the active verification commands configured for this project in [AGENTS.md](AGENTS.md#project-execution-commands).

@@ -1,10 +1,14 @@
+---
+title: [Decision Title]
+status: proposed
+tags: [architecture, template]
+synapses: []
+---
+
 # ADR 0000: [Decision Title]
 
 - **Date**: [YYYY-MM-DD]
 - **Status**: Proposed | Accepted | Deprecated | Superseded by ADR-[XXXX]
-- **Filename Lifecycle**:
-  - Active: Keep filename as `[ID]-[slug].md` (e.g., `0001-postgresql.md`).
-  - Inactive: Rename to `[ID]-[slug].deprecated.md` or `[ID]-[slug].superseded.md` when no longer active to allow automated zero-token filtering by AI agents.
 
 ## Context & Problem Statement
 Describe the architectural context, business drivers, performance requirements, and technical forces necessitating this decision.
