@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-09-19
+
+### Fixes
+- **Strict Template Whitelisting**: Updated `init.sh` and `jarn-update.sh` to use an exact filename whitelist for `docs/` and root templates, preventing internal Jarn project files (like ADRs) from leaking into downstream projects.
+
 ## [0.3.0] - 2026-09-19
 
 ### Features
