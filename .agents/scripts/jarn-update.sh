@@ -20,6 +20,13 @@ if [ "${1:-}" = "gh" ] || [ "${1:-}" = "--gh" ]; then
   METHOD="gh"
 fi
 
+if [ "${METHOD}" = "curl" ]; then
+  HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}" "https://api.github.com/repos/${REPO}" || echo "000")
+  if [ "${HTTP_STATUS}" != "200" ] && command -v gh >/dev/null 2>&1; then
+    METHOD="gh"
+  fi
+fi
+
 if [ "${VERSION}" = "latest" ]; then
   if [ "${METHOD}" = "gh" ]; then
     VERSION=$(gh api "repos/${REPO}/releases/latest" -q '.tag_name' 2>/dev/null || echo "")
