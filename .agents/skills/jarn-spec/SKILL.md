@@ -31,7 +31,7 @@ Do NOT use this workflow when:
 ## Operational Execution Runbook
 
 ### Phase: Classification & Discovery
-- Verify the change classification against the Change Taxonomy in `.agents/rules/jarn/workflow.md`.
+- Verify the change classification against the Change Taxonomy in `.agents/rules/jarn-workflow.md`.
 - Ensure the task is Spec-Altering (introduces or changes observable behavior).
 - Check `docs/specs/` to determine if a specification for this subsystem already exists.
 - If it exists, prepare to edit the file in place. If new, create `docs/specs/<feature-slug>.md` using [docs/specs/0000-template.md](../../../docs/specs/0000-template.md).
