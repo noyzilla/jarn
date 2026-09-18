@@ -95,6 +95,7 @@ touch "${CREATED_RECORD}" "${PENDING_RECORD}"
     .gemini|.gemini/*|*/.gemini|*/.gemini/*) continue ;;
     .DS_Store*|*/.DS_Store*) continue ;;
     *.list) continue ;;
+    docs/decisions/0001-project-identity-jarn.md) continue ;;
   esac
 
   dest_file="${TARGET_ABS_DIR}/${rel_path}"

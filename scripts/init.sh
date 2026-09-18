@@ -80,6 +80,9 @@ cd "${TARGET_DIR}"
 rm -f scripts/init.sh scripts/adopt.sh
 rmdir scripts 2>/dev/null || true
 
+# Remove Jarn-specific architectural decisions
+rm -f docs/decisions/0001-project-identity-jarn.md
+
 if command -v git >/dev/null 2>&1 && [ ! -d ".git" ]; then
   git init -q
   echo "Initialized empty Git repository in $(pwd)/.git/"
