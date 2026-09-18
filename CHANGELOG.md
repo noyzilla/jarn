@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.2.4] - 2026-09-18
+
+### Features
+- support self-updating via internal exec state using `cmp` in `jarn-update.sh`
+
 ## [0.2.3] - 2026-09-18
 
 ### Changed
