@@ -164,11 +164,13 @@ touch "${CREATED_RECORD}" "${PENDING_RECORD}"
 ) | while IFS= read -r file_path; do
   rel_path="${file_path#./}"
 
+  ALLOW_MERGE=1
   case "${rel_path}" in
-    docs/README.md) ;;
-    docs/specs/0000-template.md) ;;
-    docs/decisions/0000-template.md) ;;
-    AGENTS.md|ARCHITECTURE.md|CHANGELOG.md|CONTEXT.md|CONTRIBUTING.md|DESIGN.md|README.md|REVIEW.md|TASK.md) ;;
+    docs/README.md|docs/specs/0000-template.md|docs/decisions/0000-template.md) ;;
+    AGENTS.md|REVIEW.md|CONTRIBUTING.md) ;;
+    ARCHITECTURE.md|CHANGELOG.md|CONTEXT.md|DESIGN.md|README.md|TASK.md) 
+      ALLOW_MERGE=0
+      ;;
     *) continue ;;
   esac
   
@@ -179,7 +181,7 @@ touch "${CREATED_RECORD}" "${PENDING_RECORD}"
   if [ ! -f "${dest_file}" ]; then
     cp "${TMP_DIR}/${rel_path}" "${dest_file}"
     echo "    + Created ${rel_path}"
-  elif ! cmp -s "${TMP_DIR}/${rel_path}" "${dest_file}"; then
+  elif [ "${ALLOW_MERGE}" -eq 1 ] && ! cmp -s "${TMP_DIR}/${rel_path}" "${dest_file}"; then
     pending_file="${dest_file}.${SUFFIX}"
     cp "${TMP_DIR}/${rel_path}" "${pending_file}"
     echo "    * Staged ${rel_path}.${SUFFIX} for AI merge"
