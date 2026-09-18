@@ -32,8 +32,9 @@ if [ "${VERSION}" = "latest" ]; then
   fi
   
   if [ -z "${VERSION}" ] || [ "${VERSION}" = "null" ]; then
-    echo "Warning: Could not resolve latest tag. Falling back to 'main'." >&2
-    VERSION="main"
+    echo "Error: Could not resolve latest tag for ${REPO}." >&2
+    echo "  Ensure that the repository has at least one Git tag (release)." >&2
+    exit 1
   else
     echo "Resolved latest tag: ${VERSION}"
   fi
