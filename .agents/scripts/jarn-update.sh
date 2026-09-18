@@ -12,14 +12,30 @@
 set -eu
 
 REPO="${JARN_REPO:-noyzilla/jarn}"
-BRANCH="${JARN_BRANCH:-main}"
-TARBALL_URL="https://github.com/${REPO}/archive/refs/heads/${BRANCH}.tar.gz"
+BRANCH="${JARN_BRANCH:-latest}"
 AGENTS_DIR=".agents"
 
 METHOD="${JARN_METHOD:-curl}"
 if [ "${1:-}" = "gh" ] || [ "${1:-}" = "--gh" ]; then
   METHOD="gh"
 fi
+
+if [ "${BRANCH}" = "latest" ]; then
+  if [ "${METHOD}" = "gh" ]; then
+    BRANCH=$(gh api "repos/${REPO}/tags" -q '.[0].name' 2>/dev/null || echo "")
+  else
+    BRANCH=$(curl -s "https://api.github.com/repos/${REPO}/tags" | grep '"name":' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)
+  fi
+  
+  if [ -z "${BRANCH}" ] || [ "${BRANCH}" = "null" ]; then
+    echo "Warning: Could not resolve latest tag. Falling back to 'main'." >&2
+    BRANCH="main"
+  else
+    echo "Resolved latest tag: ${BRANCH}"
+  fi
+fi
+
+TARBALL_URL="https://github.com/${REPO}/tarball/${BRANCH}"
 
 echo "Updating Jarn standards and skills from ${REPO}@${BRANCH}..."
 

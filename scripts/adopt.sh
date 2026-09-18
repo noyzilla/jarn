@@ -12,9 +12,8 @@
 set -eu
 
 REPO="${JARN_REPO:-noyzilla/jarn}"
-BRANCH="${JARN_BRANCH:-main}"
+BRANCH="${JARN_BRANCH:-latest}"
 SUFFIX="pending-merge"
-TARBALL_URL="https://github.com/${REPO}/archive/refs/heads/${BRANCH}.tar.gz"
 
 METHOD="${JARN_METHOD:-curl}"
 TARGET_DIR="."
@@ -25,6 +24,23 @@ if [ "${1:-}" = "gh" ] || [ "${1:-}" = "--gh" ]; then
 elif [ -n "${1:-}" ]; then
   TARGET_DIR="${1}"
 fi
+
+if [ "${BRANCH}" = "latest" ]; then
+  if [ "${METHOD}" = "gh" ]; then
+    BRANCH=$(gh api "repos/${REPO}/tags" -q '.[0].name' 2>/dev/null || echo "")
+  else
+    BRANCH=$(curl -s "https://api.github.com/repos/${REPO}/tags" | grep '"name":' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)
+  fi
+  
+  if [ -z "${BRANCH}" ] || [ "${BRANCH}" = "null" ]; then
+    echo "Warning: Could not resolve latest tag. Falling back to 'main'." >&2
+    BRANCH="main"
+  else
+    echo "Resolved latest tag: ${BRANCH}"
+  fi
+fi
+
+TARBALL_URL="https://github.com/${REPO}/tarball/${BRANCH}"
 
 mkdir -p "${TARGET_DIR}"
 TARGET_ABS_DIR=$(cd "${TARGET_DIR}" && pwd)
