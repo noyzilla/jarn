@@ -83,6 +83,12 @@ rmdir scripts 2>/dev/null || true
 # Remove Jarn-specific architectural decisions
 rm -f docs/decisions/0001-project-identity-jarn.md
 
+# Deploy clean templates
+if [ -d "templates" ]; then
+  cp templates/* . 2>/dev/null || true
+  rm -rf templates
+fi
+
 if command -v git >/dev/null 2>&1 && [ ! -d ".git" ]; then
   git init -q
   echo "Initialized empty Git repository in $(pwd)/.git/"

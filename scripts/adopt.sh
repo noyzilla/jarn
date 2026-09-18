@@ -91,6 +91,7 @@ touch "${CREATED_RECORD}" "${PENDING_RECORD}"
   case "${rel_path}" in
     .agents/*) continue ;;
     scripts/*) continue ;;
+    templates/*) continue ;;
     .git|.git/*|*/.git|*/.git/*) continue ;;
     .gemini|.gemini/*|*/.gemini|*/.gemini/*) continue ;;
     .DS_Store*|*/.DS_Store*) continue ;;

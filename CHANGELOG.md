@@ -6,6 +6,13 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-09-18
+
+### Added
+- Created `templates/` directory to distribute clean stateful files (e.g., `TASK.md`, `CHANGELOG.md`) without polluting downstream projects.
+- Updated `scripts/init.sh` to automatically deploy templates and remove the directory.
+- Updated `scripts/adopt.sh` to safely exclude the `templates/` directory during integration.
+
 ## [0.1.1] - 2026-09-18
 
 ### Added
