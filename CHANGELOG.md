@@ -6,6 +6,12 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-09-18
+
+### Changed
+- Separated Jarn-specific documentation into root `*.md` files and provided generic templates in `templates/`.
+- Fixed `adopt.sh` to correctly prioritize generic templates over root files during synchronization.
+
 ## [0.2.2] - 2026-09-18
 
 ### Fixes
