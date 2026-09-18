@@ -11,6 +11,7 @@ Human collaborators interact naturally and conversationally without being burden
 - **Inquiry Mode (Default State / Consultation)**: All conversational requests, questions, or ideas are treated as Inquiry Mode by default. The agent is strictly prohibited from executing code-altering tools on application source files. The agent remains in read-only analysis, design debate, or living spec drafting mode.
 - **Directive Mode (Explicit Execution Trigger)**: The agent may only transition to Directive Mode when the human lead provides an explicit execution directive (such as "ทำเลย", "เริ่มแก้ได้", "อนุมัติ", "proceed", or approving an implementation plan). Without an explicit directive, the agent must continue the consultation and refine specifications.
 - **Inquiry Trade-offs**: When discussing architectural or non-trivial implementations, the agent must present at least two viable implementation options with technical trade-offs before requesting an execution directive.
+- **Ambiguous Directive Fallback (Safety Brake)**: If the human lead provides a vague execution directive (e.g., "fix it", "แก้เลย") without a clearly established context, specific file scope, or prior approved plan, the agent must treat the directive as a potential high-blast-radius risk. The agent MUST fall back to Inquiry Mode and ask for clarification or propose a specific scoped plan before proceeding.
 
 ## Collaborative Spec Protocol & Change Taxonomy [ข้อตกลงสเปกและจำแนกประเภทการเปลี่ยนผ่าน]
 
