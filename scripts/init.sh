@@ -26,9 +26,9 @@ fi
 
 if [ "${VERSION}" = "latest" ]; then
   if [ "${METHOD}" = "gh" ]; then
-    VERSION=$(gh api "repos/${REPO}/tags" -q '.[0].name' 2>/dev/null || echo "")
+    VERSION=$(gh api "repos/${REPO}/releases/latest" -q '.tag_name' 2>/dev/null || echo "")
   else
-    VERSION=$(curl -s "https://api.github.com/repos/${REPO}/tags" | grep '"name":' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)
+    VERSION=$(curl -s "https://api.github.com/repos/${REPO}/releases/latest" | grep '"tag_name":' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)
   fi
   
   if [ -z "${VERSION}" ] || [ "${VERSION}" = "null" ]; then

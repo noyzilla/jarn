@@ -117,3 +117,4 @@ When specialized expertise or operational procedures are required, activate the 
 - [jarn-decisions](.agents/skills/jarn-decisions/SKILL.md): Manage the lifecycle of Architectural Decision Records (`docs/decisions/`) with zero-token filtering.
 - [jarn-review](.agents/skills/jarn-review/SKILL.md): Autonomous quality gate runbook to inspect git status, run targeted verification, audit commit conventions, and synthesize pre-merge evidence.
 - [jarn-diagnostics](.agents/skills/jarn-diagnostics/SKILL.md): Isolated defect investigation procedure bounded strictly to the living spec's blast-radius matrix without blind codebase scans.
+- [jarn-release](.agents/skills/jarn-release/SKILL.md): End-to-end automated GitHub Release lifecycle, including SemVer calculation, CHANGELOG drafting, and tag publishing.
