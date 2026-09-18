@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.3.2] - 2026-09-19
+
+### Fixes
+- **Scripts**: Skip `pending-merge` for project-specific root files.
+
 ## [0.3.1] - 2026-09-19
 
 ### Fixes
