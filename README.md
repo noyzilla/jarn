@@ -30,8 +30,8 @@ curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh 
 curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh -s -- my-new-project
 
 # Private Repository (via GitHub CLI `gh`)
-gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
-gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh my-new-project
+gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh
+gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- my-new-project
 ```
 
 ### Adopt into an Existing Project (Brownfield)
@@ -42,20 +42,21 @@ Safely adopt Jarn standards into an active project without clobbering existing c
 curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/adopt.sh | sh
 
 # Private Repository (via GitHub CLI `gh`)
-gh api repos/noyzilla/jarn/contents/scripts/adopt.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
+gh api repos/noyzilla/jarn/contents/scripts/adopt.sh -H "Accept: application/vnd.github.raw+json" | sh
 ```
 
 ### Update Jarn Standards & Skills (.agents Only)
 In any existing downstream project, pull the latest `.agents/rules/jarn/` invariants and `jarn-*` skills:
 
 ```bash
-# Local execution (Default HTTP / Private gh parameter)
+# Local execution
 ./.agents/scripts/jarn-update.sh
-./.agents/scripts/jarn-update.sh gh
 
-# Remote one-liner execution (Default HTTP / Private gh parameter)
+# Remote one-liner execution (Public / HTTP)
 curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-update.sh | sh
-gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-update.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
+
+# Remote one-liner execution (Private Repository via GitHub CLI)
+gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-update.sh -H "Accept: application/vnd.github.raw+json" | sh
 ```
 
 ---
