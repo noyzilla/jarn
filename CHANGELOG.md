@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-09-18
+
+### Fixes
+- **Docs**: Simplified installation instructions in `README.md` by removing the explicit `-- gh` flags, as the scripts now automatically detect private repositories and fallback to the GitHub CLI.
+
 ## [0.2.0] - 2026-09-18
 
 ### Features
