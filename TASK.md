@@ -38,7 +38,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Unified documentation into the System Documentation Taxonomy in `docs/README.md`.
 - Reintroduced Architectural Decision Records (`docs/decisions/`) with explicit filename lifecycle (`.deprecated.md` and `.superseded.md`) for zero-token AI filtering.
 - Formalized On-Demand (JIT) Directory Creation protocol, eliminating empty placeholder directories and ghost `.gitkeep` files.
-- Codified Stable References standard and Semantic Numbering Invariant in `.agents/rules/jarn/standards.md`.
+- Codified Stable References standard and Semantic Numbering Invariant in `.agents/rules/jarn-standards.md`.
 - Codified Targeted Verification Policy requiring blast-radius scoping via `git status`.
 - Established the Jarn Skills suite (`jarn-spec`, `jarn-decisions`, `jarn-review`, `jarn-diagnostics`) under `.agents/skills/jarn-*/`.
 

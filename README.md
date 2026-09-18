@@ -35,7 +35,7 @@ gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.
 ```
 
 ### Update Jarn Standards & Skills (.agents Only)
-In any existing downstream project, pull the latest `.agents/rules/jarn/` invariants and `jarn-*` skills:
+In any existing downstream project, pull the latest `.agents/rules/jarn-` invariants and `jarn-*` skills:
 
 ```bash
 # Local execution

@@ -47,7 +47,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 ## [0.1.1] - 2026-09-18
 
 ### Added
-- **Ambiguous Directive Fallback (Safety Brake)** rule in `.agents/rules/jarn/workflow.md` to prevent execution of vague commands without prior context or explicit scoping.
+- **Ambiguous Directive Fallback (Safety Brake)** rule in `.agents/rules/jarn-workflow.md` to prevent execution of vague commands without prior context or explicit scoping.
 
 ## [0.1.0] - 2026-09-18
 
@@ -66,10 +66,10 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Non-Empty Safety Guard in `scripts/init.sh` to prevent accidental clobbering of existing codebases, rejecting non-empty targets and guiding developers to use `scripts/adopt.sh`.
 - Mandatory Pre-Flight Action Guard in `AGENTS.md`, `safety.md`, and `workflow.md` strictly enforcing Step 0 Branch Isolation (`git checkout -b`) before any codebase modifications can take place.
 - Mandatory Pre-Merge Audit Execution trigger in `AGENTS.md` requiring AI agents to activate `jarn-review` before declaring task completion.
-- Universal Code Review & Pre-Merge Standard in `.agents/rules/jarn/review.md` extracting project-agnostic quality gates, safety invariants, targeted verification, and AI accountability rules into the syncable governance kernel.
-- Targeted Verification Policy in `REVIEW.md`, `AGENTS.md`, and `.agents/rules/jarn/workflow.md` requiring verification commands to strictly match modified surfaces via `git status`.
-- Semantic Numbering Invariant and Stable References Standard in `.agents/rules/jarn/standards.md`.
+- Universal Code Review & Pre-Merge Standard in `.agents/rules/jarn-review.md` extracting project-agnostic quality gates, safety invariants, targeted verification, and AI accountability rules into the syncable governance kernel.
+- Targeted Verification Policy in `REVIEW.md`, `AGENTS.md`, and `.agents/rules/jarn-workflow.md` requiring verification commands to strictly match modified surfaces via `git status`.
+- Semantic Numbering Invariant and Stable References Standard in `.agents/rules/jarn-standards.md`.
 - System Documentation Taxonomy in `docs/README.md` (`architecture/`, `design/`, `specs/`, `decisions/`, `development/`).
-- Default-to-Consultation State Machine in `AGENTS.md` and `.agents/rules/jarn/workflow.md`.
+- Default-to-Consultation State Machine in `AGENTS.md` and `.agents/rules/jarn-workflow.md`.
 - Change Taxonomy Protocol distinguishing Spec-Altering Changes from Spec-Conforming Bug Fixes.
 - Domain Glossary and Ubiquitous Language specification template in `CONTEXT.md`.
