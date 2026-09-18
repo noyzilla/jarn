@@ -6,6 +6,16 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-18
+
+### Features
+- Added `jarn-release` AI skill to automate the GitHub Release lifecycle (SemVer calculation, CHANGELOG generation, and tag publishing).
+- Switched default version targeting in `init.sh`, `adopt.sh`, and `jarn-update.sh` to rely on the GitHub `releases/latest` API instead of raw tags for safer consumption.
+- Implemented auto-detection in installation scripts to seamlessly fallback to the `gh` CLI if the target repository is private or requires authentication.
+
+### Fixes
+- Removed fallback to `main` when tags/releases are missing; the installation scripts now fail safely with an explicit error message instead.
+
 ## [0.1.2] - 2026-09-18
 
 ### Added
