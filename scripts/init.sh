@@ -118,14 +118,11 @@ touch "${CREATED_RECORD}" "${PENDING_RECORD}"
   rel_path="${file_path#./}"
 
   case "${rel_path}" in
-    .agents/*) continue ;;
-    scripts/*) continue ;;
-    .git|.git/*|*/.git|*/.git/*) continue ;;
-    .gemini|.gemini/*|*/.gemini|*/.gemini/*) continue ;;
-    .DS_Store*|*/.DS_Store*) continue ;;
-    *.list) continue ;;
-    UPDATE_NOTES.md) continue ;;
-    docs/decisions/0001-project-identity-jarn.md) continue ;;
+    docs/README.md) ;;
+    docs/specs/0000-template.md) ;;
+    docs/decisions/0000-template.md) ;;
+    AGENTS.md|ARCHITECTURE.md|CHANGELOG.md|CONTEXT.md|CONTRIBUTING.md|DESIGN.md|README.md|REVIEW.md|TASK.md) ;;
+    *) continue ;;
   esac
 
   dest_file="${TARGET_ABS_DIR}/${rel_path}"

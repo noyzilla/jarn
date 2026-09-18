@@ -147,29 +147,42 @@ fi
 # Synchronize Blueprint Templates via pending-merge
 SUFFIX="pending-merge"
 echo "  - Synchronizing templates and docs (using .${SUFFIX} for conflicts)..."
-for target_dir in "docs" "templates"; do
-  if [ -d "${TMP_DIR}/${target_dir}" ]; then
-    (
-      cd "${TMP_DIR}"
-      find "${target_dir}" -type f
-    ) | while IFS= read -r file_path; do
-      case "${file_path}" in
-        */.DS_Store*) continue ;;
-      esac
-      
-      dest_file="./${file_path}"
-      dest_dir=$(dirname "${dest_file}")
-      mkdir -p "${dest_dir}"
 
-      if [ ! -f "${dest_file}" ]; then
-        cp "${TMP_DIR}/${file_path}" "${dest_file}"
-        echo "    + Created ${file_path}"
-      elif ! cmp -s "${TMP_DIR}/${file_path}" "${dest_file}"; then
-        pending_file="${dest_file}.${SUFFIX}"
-        cp "${TMP_DIR}/${file_path}" "${pending_file}"
-        echo "    * Staged ${file_path}.${SUFFIX} for AI merge"
-      fi
-    done
+# Map templates/ to root in TMP_DIR
+if [ -d "${TMP_DIR}/templates" ]; then
+  cp -r "${TMP_DIR}/templates/"* "${TMP_DIR}/" 2>/dev/null || true
+  rm -rf "${TMP_DIR}/templates"
+fi
+
+CREATED_RECORD="${TMP_DIR}/created.list"
+PENDING_RECORD="${TMP_DIR}/pending.list"
+touch "${CREATED_RECORD}" "${PENDING_RECORD}"
+
+(
+  cd "${TMP_DIR}"
+  find . -type f
+) | while IFS= read -r file_path; do
+  rel_path="${file_path#./}"
+
+  case "${rel_path}" in
+    docs/README.md) ;;
+    docs/specs/0000-template.md) ;;
+    docs/decisions/0000-template.md) ;;
+    AGENTS.md|ARCHITECTURE.md|CHANGELOG.md|CONTEXT.md|CONTRIBUTING.md|DESIGN.md|README.md|REVIEW.md|TASK.md) ;;
+    *) continue ;;
+  esac
+  
+  dest_file="./${rel_path}"
+  dest_dir=$(dirname "${dest_file}")
+  mkdir -p "${dest_dir}"
+
+  if [ ! -f "${dest_file}" ]; then
+    cp "${TMP_DIR}/${rel_path}" "${dest_file}"
+    echo "    + Created ${rel_path}"
+  elif ! cmp -s "${TMP_DIR}/${rel_path}" "${dest_file}"; then
+    pending_file="${dest_file}.${SUFFIX}"
+    cp "${TMP_DIR}/${rel_path}" "${pending_file}"
+    echo "    * Staged ${rel_path}.${SUFFIX} for AI merge"
   fi
 done
 
