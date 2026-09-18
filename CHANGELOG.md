@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-09-18
+
+### Added
+- **Ambiguous Directive Fallback (Safety Brake)** rule in `.agents/rules/jarn/workflow.md` to prevent execution of vague commands without prior context or explicit scoping.
+
 ## [0.1.0] - 2026-09-18
 
 ### Added
