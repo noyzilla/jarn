@@ -3,11 +3,11 @@
 # Pure basic shell (POSIX sh) with zero external runtime dependencies.
 # Usage:
 #   Public / HTTP (Default):
-#     ./.agents/scripts/jarn-update.sh
-#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-update.sh | sh
+#     ./.agents/scripts/jarn-framework-update.sh
+#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-framework-update.sh | sh
 #   Private / GitHub CLI (gh):
-#     ./.agents/scripts/jarn-update.sh gh
-#     gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-update.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
+#     ./.agents/scripts/jarn-framework-update.sh gh
+#     gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-framework-update.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
 
 set -eu
 
@@ -70,7 +70,7 @@ if [ -z "${RESUME_TMP_DIR}" ]; then
     CURRENT_VERSION=$(cat "${VERSION_FILE}")
     if [ "${CURRENT_VERSION}" = "${VERSION}" ]; then
       echo "Jarn is already up-to-date (version ${VERSION})."
-      echo "To force an update, run: ./.agents/scripts/jarn-update.sh --force"
+      echo "To force an update, run: ./.agents/scripts/jarn-framework-update.sh --force"
       exit 0
     fi
   fi
@@ -94,19 +94,19 @@ if [ -z "${RESUME_TMP_DIR}" ]; then
     curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components=1 || true
   fi
 
-  if [ ! -f "${TMP_DIR}/.agents/rules/jarn-standards.md" ]; then
+  if [ ! -f "${TMP_DIR}/.agents/rules/jarn-governance.md" ]; then
     echo "Error: Failed to download Jarn updates from '${REPO}'." >&2
     echo "  If '${REPO}' is a private repository, run with GitHub CLI (gh) mode:" >&2
-    echo "    ./.agents/scripts/jarn-update.sh gh" >&2
+    echo "    ./.agents/scripts/jarn-framework-update.sh gh" >&2
     exit 1
   fi
 
   # Self-update check (only if executing locally)
   if [ -f "$0" ] && [ -w "$0" ]; then
-    if ! cmp -s "$0" "${TMP_DIR}/.agents/scripts/jarn-update.sh"; then
+    if ! cmp -s "$0" "${TMP_DIR}/.agents/scripts/jarn-framework-update.sh"; then
       echo "Updater script has new logic. Self-updating and restarting..."
       mkdir -p "${AGENTS_DIR}/scripts"
-      cp "${TMP_DIR}/.agents/scripts/jarn-update.sh" "$0"
+      cp "${TMP_DIR}/.agents/scripts/jarn-framework-update.sh" "$0"
       chmod +x "$0"
       exec "$0" --internal-resume "${TMP_DIR}" "$@"
     fi
@@ -137,11 +137,11 @@ for skill_dir in "${TMP_DIR}/${AGENTS_DIR}/skills/jarn-"*; do
 done
 
 # Synchronize this updater script itself
-if [ -f "${TMP_DIR}/.agents/scripts/jarn-update.sh" ]; then
+if [ -f "${TMP_DIR}/.agents/scripts/jarn-framework-update.sh" ]; then
   mkdir -p "${AGENTS_DIR}/scripts"
-  cp "${TMP_DIR}/.agents/scripts/jarn-update.sh" "${AGENTS_DIR}/scripts/jarn-update.sh"
-  chmod +x "${AGENTS_DIR}/scripts/jarn-update.sh" 2>/dev/null || true
-  echo "  - Jarn updater updated in ${AGENTS_DIR}/scripts/jarn-update.sh"
+  cp "${TMP_DIR}/.agents/scripts/jarn-framework-update.sh" "${AGENTS_DIR}/scripts/jarn-framework-update.sh"
+  chmod +x "${AGENTS_DIR}/scripts/jarn-framework-update.sh" 2>/dev/null || true
+  echo "  - Jarn framework updater updated in ${AGENTS_DIR}/scripts/jarn-framework-update.sh"
 fi
 
 # Synchronize Blueprint Templates via pending-merge

@@ -6,7 +6,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Establish and verify the Jarn (`jarn`) AI-Driven Software Development Blueprint baseline v0.1.0.
 
 ## Handoff & Session Checkpoints
-- **Last Successful Action**: Refactored project identity to Jarn (`jarn`), updated scripts (`scripts/init.sh`, `scripts/adopt.sh`, `.agents/scripts/jarn-update.sh`), updated skill suite (`.agents/skills/jarn-*`), recorded ADR 0001 (`docs/decisions/0001-project-identity-jarn.md`), added "Why Jarn (จารย์)" philosophy to `README.md`, and consolidated `CHANGELOG.md` under `v0.1.0`.
+- **Last Successful Action**: Refactored project identity to Jarn (`jarn`), updated scripts (`scripts/init.sh`, `.agents/scripts/jarn-framework-update.sh`), updated skill suite (`.agents/skills/jarn-*`), recorded ADR 0001 (`docs/decisions/0001-project-identity-jarn.md`), added "Why Jarn (จารย์)" philosophy to `README.md`, and consolidated `CHANGELOG.md` under `v0.1.0`.
 - **Immediate Next Action**: Perform pre-merge verification check (`sh -n` for shell scripts, link checks) and create clean Initial Release commit.
 - **Active Blockers**: None.
 
@@ -26,7 +26,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Replaced rigid Makefile with Ecosystem-Native Lifecycle Contracts and multi-language presets in `AGENTS.md`.
 - Integrated core brain invariants: Non-Subtractive Principle, Discovery First, Evidence-Based DoD, Golden Path, and Handoff Checkpoints.
 - Created `scripts/init.sh` for one-liner full project initialization from GitHub.
-- Placed self-contained `jarn-update.sh` inside `.agents/scripts/` for single-command Unix updates.
+- Placed self-contained `jarn-framework-update.sh` inside `.agents/scripts/` for single-command Unix updates.
 - Standardized all automation scripts on pure POSIX basic shell (`/bin/sh`) with zero Python dependency.
 - Codified Branch Isolation Protocol (no direct main commits) and Incremental Micro-Commit Protocol (atomic checkpoints).
 - Integrated `CONTEXT.md` (Domain Glossary), `REVIEW.md` (Pre-Merge Checklist), and Change Routing Matrix in `AGENTS.md`.
@@ -38,7 +38,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Unified documentation into the System Documentation Taxonomy in `docs/README.md`.
 - Reintroduced Architectural Decision Records (`docs/decisions/`) with explicit filename lifecycle (`.deprecated.md` and `.superseded.md`) for zero-token AI filtering.
 - Formalized On-Demand (JIT) Directory Creation protocol, eliminating empty placeholder directories and ghost `.gitkeep` files.
-- Codified Stable References standard and Semantic Numbering Invariant in `.agents/rules/jarn-standards.md`.
+- Codified Stable References standard and Semantic Numbering Invariant in `.agents/rules/jarn-coding.md`.
 - Codified Targeted Verification Policy requiring blast-radius scoping via `git status`.
 - Established the Jarn Skills suite (`jarn-spec`, `jarn-decisions`, `jarn-review`, `jarn-diagnostics`) under `.agents/skills/jarn-*/`.
 

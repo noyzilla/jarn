@@ -7,15 +7,15 @@ This update provides critical migration instructions for downstream projects to 
 To ensure compatibility with AI agents that only perform shallow scans of customization roots, the `jarn` rules have been flattened from `.agents/rules/jarn/*.md` to `.agents/rules/jarn-*.md`.
 
 **AI Directive**:
-1. Scan the project's root `AGENTS.md` file, as well as any custom skills, for references to `.agents/rules/jarn/` and rewrite them to `.agents/rules/jarn-`. (e.g., `.agents/rules/jarn/review.md` becomes `.agents/rules/jarn-review.md`).
+1. Scan the project's root `AGENTS.md` file, as well as any custom skills, for references to `.agents/rules/jarn/` and rewrite them to `.agents/rules/jarn-`. (e.g., `.agents/rules/jarn/review.md` becomes `.agents/rules/jarn-testing.md`).
 2. Delete the old `.agents/rules/jarn/` directory.
 
 ### Anti-Duplication Action Required
 If your project currently has hardcoded Jarn rules (e.g. Pre-Merge Quality Gates checklists) in the `REVIEW.md` or `CONTRIBUTING.md` files at the root of your project, you must remove them.
 
 The new standard dictates a single-source-of-truth. Replace any duplicated content with direct Markdown links to the central standard files:
-- `[.agents/rules/jarn-review.md](.agents/rules/jarn-review.md)`
-- `[.agents/rules/jarn-standards.md](.agents/rules/jarn-standards.md)`
+- `[.agents/rules/jarn-testing.md](.agents/rules/jarn-testing.md)`
+- `[.agents/rules/jarn-coding.md](.agents/rules/jarn-coding.md)`
 
 **AI Directive**: Proactively check the project's root `REVIEW.md` and `CONTRIBUTING.md`. If they contain redundant checklists or rules, remove them and replace them with standard Jarn links. Ask the user for permission to apply the fix automatically.
 

@@ -14,7 +14,7 @@ An AI-driven software development blueprint and baseline environment designed fo
 
 ### แนวคิดและเสาหลักของ Jarn (`jarn`)
 - **Street-Smart & Approchable ("จารย์ช่วยด้วย!")**: ออกแบบภายใต้แนวคิดผู้ช่วยและเพื่อนกูรูคู่นักพัฒนาที่เข้าถึงง่าย คอยกำกับมาตรฐานและอำนวยความสะดวกในทุกขั้นตอน
-- **4-Letter CLI Ergonomics (`jarn`)**: คำสั่งสั้น กระชับ พิมพ์ลื่นมือ (`jarn init`, `jarn adopt`, `jarn-update.sh`)
+- **4-Letter Namespace (`jarn`)**: คำสั่งและ artifact มี prefix เดียวกัน ค้นหาและจดจำได้ง่าย (`jarn init`, `jarn adopt`, `jarn-framework-update.sh`)
 - **Pre-Packaged AI Environment**: บรรจุกฎความปลอดภัย (Safety Guardrails), สกิลเฉพาะทาง (Skills Suite), เอกสารที่มีชีวิต (Living Specs), และเกณฑ์การตรวจคุณภาพ (Quality Gates) ไว้ครบถ้วนในโครงสร้างโปรเจค
 
 ---
@@ -39,13 +39,13 @@ In any existing downstream project, pull the latest `.agents/rules/jarn-` invari
 
 ```bash
 # Local execution
-./.agents/scripts/jarn-update.sh
+./.agents/scripts/jarn-framework-update.sh
 
 # Remote one-liner execution (Public / HTTP)
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-update.sh | sh
+curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-framework-update.sh | sh
 
 # Remote one-liner execution (Private Repository via GitHub CLI)
-gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-update.sh -H "Accept: application/vnd.github.raw+json" | sh
+gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-framework-update.sh -H "Accept: application/vnd.github.raw+json" | sh
 ```
 
 ---
@@ -86,10 +86,10 @@ Adopting into an active project follows a safe **2-Stage AI Adoption Flow**:
 Because universal standards and Jarn skills are completely decoupled inside `.agents/`, downstream projects can receive updates from upstream without overwriting application code, custom rules, or project-specific architecture.
 
 ### Self-Contained Local Update
-Downstream repositories contain `.agents/scripts/jarn-update.sh` by default. Update standards directly with:
+Downstream repositories contain `.agents/scripts/jarn-framework-update.sh` by default. Update the installed Jarn framework directly with:
 
 ```bash
-./.agents/scripts/jarn-update.sh
+./.agents/scripts/jarn-framework-update.sh
 ```
 
 ### Synchronizing via AI Coding Agent
@@ -97,7 +97,7 @@ Instruct your AI coding agent with the following directive:
 
 ```text
 Update Jarn standards in this repository using:
-./.agents/scripts/jarn-update.sh
+./.agents/scripts/jarn-framework-update.sh
 Verify file integrity and record the update in CHANGELOG.md under [Unreleased].
 ```
 
@@ -118,6 +118,6 @@ This repository is organized into distinct communication and governance layers:
 | **`DESIGN.md`** | UI/UX & CLI Designers | Design tokens, component rules, terminal output styling |
 | **`TASK.md`** | Active Collaborators | Real-time state tracker, active sprints, and task backlog |
 | **`CHANGELOG.md`** | Releases & Stakeholders | Historical log of releases following Keep a Changelog |
-| **`.agents/`** | Agent Governance & Skills | Universal rules kernel, Jarn skills (`jarn-*`), and `.agents/scripts/jarn-update.sh` |
+| **`.agents/`** | Agent Governance & Skills | Universal rules kernel, Jarn skills (`jarn-*`), and `.agents/scripts/jarn-framework-update.sh` |
 | **`docs/`** | System Documentation Repository | Architecture, design system, living specs, ADR decisions, and runbooks |
 | **`scripts/init.sh`** | Project Initialization & Adoption | Universal one-liner command to initialize a full new project or safely adopt the blueprint into an existing project with non-destructive staging |

@@ -1,6 +1,6 @@
-# Universal Code Review & Pre-Merge Standard [มาตรฐานการตรวจทานโค้ดก่อนรวมงาน]
+# Universal Testing & Pre-Merge Standard [มาตรฐานการทดสอบและการตรวจทานโค้ดก่อนรวมงาน]
 
-This document establishes the project-agnostic, universal review checklist and quality gates for contributors and AI agents before merging pull requests. Downstream projects inherit these rules via `.agents/scripts/jarn-update.sh`.
+This document establishes the project-agnostic, universal review checklist and quality gates for contributors and AI agents before merging pull requests.
 
 ## Review Protocol [ระเบียบการตรวจทาน]
 

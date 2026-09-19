@@ -100,10 +100,10 @@ for skill_dir in "${TMP_DIR}/.agents/skills/jarn-"*; do
   fi
 done
 
-if [ -f "${TMP_DIR}/.agents/scripts/jarn-update.sh" ]; then
+if [ -f "${TMP_DIR}/.agents/scripts/jarn-framework-update.sh" ]; then
   mkdir -p "${TARGET_ABS_DIR}/.agents/scripts"
-  cp "${TMP_DIR}/.agents/scripts/jarn-update.sh" "${TARGET_ABS_DIR}/.agents/scripts/jarn-update.sh"
-  chmod +x "${TARGET_ABS_DIR}/.agents/scripts/jarn-update.sh" 2>/dev/null || true
+  cp "${TMP_DIR}/.agents/scripts/jarn-framework-update.sh" "${TARGET_ABS_DIR}/.agents/scripts/jarn-framework-update.sh"
+  chmod +x "${TARGET_ABS_DIR}/.agents/scripts/jarn-framework-update.sh" 2>/dev/null || true
 fi
 
 # Process template files with non-destructive pending-merge staging
@@ -184,7 +184,7 @@ else
   echo "Next steps:"
   echo "  - Open AGENTS.md and configure project active commands."
   echo "  - Review CONTEXT.md and define domain context."
-  echo "  - Update standards anytime via ./.agents/scripts/jarn-update.sh"
+  echo "  - Update Jarn framework anytime via ./.agents/scripts/jarn-framework-update.sh"
 fi
 
 # Record version

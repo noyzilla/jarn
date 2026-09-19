@@ -29,7 +29,7 @@ Adopt **Jarn (`jarn`)** as the official name, CLI identifier, and project bluepr
 - **Positive Consequences**:
   - Establishes a friendly, accessible, and street-smart developer identity ("จารย์ช่วยด้วย!") that fosters high-integrity human-AI collaboration.
   - 4-letter CLI identifier (`jarn init`, `jarn adopt`, `jarn audit`) provides clean command ergonomics.
-  - Clean visual separation in directory structures and skill prefixes (`.agents/skills/jarn-*`, `.agents/scripts/jarn-update.sh`).
+  - Clean visual separation in directory structures and skill prefixes (`.agents/skills/jarn-*`, `.agents/scripts/jarn-framework-update.sh`).
 - **Negative Consequences**:
   - Requires updating template baseline references and updater script names from legacy placeholders to `jarn`.
 
