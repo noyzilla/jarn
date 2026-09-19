@@ -64,7 +64,7 @@ When updating documentation, plans, or technical specifications:
 
 ## Frontmatter Synapses & Cross-Referencing [โปรโตคอลการเชื่อมโยงข้อมูลแบบ Synapse]
 
-All living specifications (`docs/specs/`), developer runbooks (`docs/development/`), and architectural decision records (`docs/decisions/`) must include standard YAML frontmatter with tags and synapses (relative markdown links) to establish clear traceability:
+All documentation deep-dives across all 5 taxonomy areas—living specifications (`docs/specs/`), developer runbooks (`docs/development/`), architectural decision records (`docs/decisions/`), topology deep-dives (`docs/architecture/`), and design specifications (`docs/design/`)—must include standard YAML frontmatter with tags and synapses (relative markdown links) to establish clear traceability:
 
 ```yaml
 ---

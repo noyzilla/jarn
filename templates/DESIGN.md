@@ -39,7 +39,7 @@ For CLI tools, background workers, or backend services without graphical interfa
 - **Structured Output**: Support `--json` output flag for automated machine consumption.
 
 ## Deep-Dive Design Specifications
-In accordance with the Mirror Index Pattern and documentation taxonomy in [docs/README.md](docs/README.md), detailed design system specifications are extracted on demand into `docs/design/`:
+In accordance with the Mirror Index Pattern and documentation taxonomy in [docs/README.md](docs/README.md), detailed design system specifications follow [docs/design/template.md](docs/design/template.md) and are extracted into `docs/design/`:
 - `docs/design/components.md` - Component library tokens, button variants, and state definitions.
 - `docs/design/forms.md` - Form input styling, label positioning, and error message typography.
 - `docs/design/tables.md` - Table layouts, row hover effects, and pagination controls.
