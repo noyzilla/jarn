@@ -30,7 +30,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - **Template Modernization**: Standardized ADR and Specs templates with YAML frontmatter.
 - **Update Engine Enhancements**: Upgraded `jarn-update.sh` with `.pending-merge` template synchronization.
 - Unified `init.sh` and `adopt.sh` workflows.
-- Introduced centralized `UPDATE_NOTES.md` to feed AI Directives for automated downstream migrations.
+
 
 ### Fixes
 - Updated legacy rule paths in remaining docs (`CONTRIBUTING.md`, `README.md`, `CHANGELOG.md`).
