@@ -6,6 +6,8 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-09-19
+
 ### Changed
 - **Agent Bootstrap**: Require downstream agents to discover and read every active Jarn rule before starting work.
 - **Rule Manifest**: Designate dynamic rule discovery as authoritative while retaining a synchronized navigation manifest.
