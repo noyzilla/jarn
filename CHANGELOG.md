@@ -6,6 +6,14 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-09-20
+
+### Chores & Documentation
+- **Documentation**: Refactored `README.md` to use an AI-First workflow for installation and adoption.
+- **Documentation**: Removed Jarn unified installer snippet from `REVIEW.md` templates.
+- **Skill Workflows**: Updated `jarn-framework-update` skill to instruct AI to be context-aware during shadow merges.
+- **Templates**: Added an AI Shadow Merge Directive to `DESIGN.md` to prevent UI tokens from leaking into CLI/Backend projects.
+
 ## [0.4.1] - 2026-09-19
 
 ### Chores & Documentation
