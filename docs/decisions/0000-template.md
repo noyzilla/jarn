@@ -2,13 +2,14 @@
 title: [Decision Title]
 status: proposed
 tags: [architecture, template]
-synapses: []
+synapses: ["ARCHITECTURE.md"]
 ---
 
 # ADR 0000: [Decision Title]
 
 - **Date**: [YYYY-MM-DD]
 - **Status**: Proposed | Accepted | Deprecated | Superseded by ADR-[XXXX]
+- **Parent Reference**: [ARCHITECTURE.md](../../ARCHITECTURE.md)
 
 ## Context & Problem Statement
 Describe the architectural context, business drivers, performance requirements, and technical forces necessitating this decision.
