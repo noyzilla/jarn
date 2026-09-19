@@ -6,7 +6,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Establish and verify the Jarn (`jarn`) AI-Driven Software Development Blueprint baseline v0.1.0.
 
 ## Handoff & Session Checkpoints
-- **Last Successful Action**: Refined DESIGN.md constraints, added Self-Destruct directive, pushed to GitHub, and published Release `v0.4.4`.
+- **Last Successful Action**: Standardized all documentation templates to `0000-template.md`, aligned frontmatter synapses, added development runbook standards, and published Release `v0.4.5`.
 - **Immediate Next Action**: Begin work on backlog items (e.g., project-specific language configuration).
 - **Active Blockers**: None.
 
@@ -18,7 +18,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Add sample domain implementation and unit test suite.
 
 ## Completed Milestones
-- (Cleared after Release v0.4.4)
+- (Cleared after Release v0.4.5)
 
 ## Blocked & Under Discussion
 - None currently.
