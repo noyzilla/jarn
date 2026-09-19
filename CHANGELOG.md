@@ -6,6 +6,12 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.4.4] - 2026-09-20
+
+### Chores & Documentation
+- **Templates**: Added a `Self-Destruct` instruction to the `DESIGN.md` AI Shadow Merge Directive to prevent meta-instructions from persisting in downstream projects.
+- **Documentation**: Applied the strict Headless Constraint block to Jarn's own root `DESIGN.md` to properly represent the repository's headless nature and remove the UI-specific sections.
+
 ## [0.4.3] - 2026-09-20
 
 ### Chores & Documentation
