@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.4.3] - 2026-09-20
+
+### Chores & Documentation
+- **Templates**: Enhanced the AI Shadow Merge Directive in `DESIGN.md` to provide a concrete, strict "Headless Backend Library" constraint block example for downstream agents to adopt when initializing non-UI projects.
+
 ## [0.4.2] - 2026-09-20
 
 ### Chores & Documentation
