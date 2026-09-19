@@ -77,6 +77,12 @@ if [ ! -d "${TMP_DIR}/.agents" ]; then
   exit 1
 fi
 
+# Clean up legacy and current Jarn-owned files before syncing to prevent orphaned garbage
+rm -rf "${TARGET_ABS_DIR}/.agents/rules/jarn" 2>/dev/null || true
+rm -f "${TARGET_ABS_DIR}/.agents/rules/jarn-"* 2>/dev/null || true
+rm -rf "${TARGET_ABS_DIR}/.agents/skills/jarn-"* 2>/dev/null || true
+rm -f "${TARGET_ABS_DIR}/.agents/scripts/jarn-framework-update.sh" 2>/dev/null || true
+
 # Synchronize core .agents/ directory (rules, skills)
 mkdir -p "${TARGET_ABS_DIR}/.agents/rules"
 for rule_file in "${TMP_DIR}/.agents/rules/jarn-"*; do

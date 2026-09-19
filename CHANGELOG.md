@@ -12,6 +12,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - **Skill Workflows**: Add approval checkpoints before skills modify files, update frameworks, or publish releases.
 - **Framework Update Naming**: Unified installer under `scripts/jarn.sh` for unambiguous framework synchronization and shadow merge.
 - **Verification Routing**: Match updater scripts under `.agents/scripts/*.sh` in the Agent Change Routing Matrix.
+- **Garbage Collection**: Added automatic cleanup of legacy `.agents/rules/jarn*` and `.agents/skills/jarn-*` files in `jarn.sh` before synchronization to prevent orphaned files when Jarn renames or deletes rules.
 
 ## [0.3.2] - 2026-09-19
 
