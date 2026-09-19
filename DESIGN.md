@@ -6,13 +6,10 @@
 
 This document governs the visual tokens, UI components, and output styling across the project based on the machine-readable design system standard.
 
-## Aesthetic Direction
-- **Tone**: Clean, focused, high-precision engineering aesthetic.
-- **Visual Hierarchy**: High-contrast typography, restrained color palette, purposeful whitespace.
+## Project Constraint: Headless Backend Library
 
-## Design Tokens
-
-
+> **This project is a Headless Backend Library.**
+> There are NO graphical user interfaces (UI) and NO visual design tokens. AI agents MUST NOT create or inject UI elements, colors, typography, or styling rules into this project.
 
 ## Headless & CLI Output Guidelines
 For CLI tools, background workers, or backend services without graphical interfaces, this document governs terminal output formatting:
@@ -21,8 +18,4 @@ For CLI tools, background workers, or backend services without graphical interfa
 - **Structured Output**: Support `--json` output flag for automated machine consumption.
 
 ## Deep-Dive Design Specifications
-In accordance with the Mirror Index Pattern and documentation taxonomy in [docs/README.md](docs/README.md), detailed design system specifications are extracted on demand into `docs/design/`:
-- `docs/design/components.md` - Component library tokens, button variants, and state definitions.
-- `docs/design/forms.md` - Form input styling, label positioning, and error message typography.
-- `docs/design/tables.md` - Table layouts, row hover effects, and pagination controls.
-- `docs/design/accessibility.md` - WCAG color contrast standards, focus rings, and keyboard navigation.
+Because this is a headless library, deep-dive UI documents (such as `components.md`, `forms.md`) are explicitly excluded. The `docs/design/` directory is **N/A** for this project.
