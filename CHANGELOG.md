@@ -6,6 +6,14 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.4.5] - 2026-09-20
+
+### Documentation & Templates
+- **Universal Documentation Templates**: Seeded standard `0000-template.md` across all 5 taxonomy directories (`docs/specs/`, `docs/decisions/`, `docs/development/`, `docs/architecture/`, and `docs/design/`).
+- **Development Workflow Runbooks**: Added `0000-template.md` for developer onboarding, migration runbooks, and SOPs with standard 4-digit numbering (`docs/development/0001-*.md`).
+- **Architecture & Design Templates**: Added comprehensive deep-dive templates for system topologies (`docs/architecture/0000-template.md`) and UI components (`docs/design/0000-template.md`).
+- **Frontmatter Synapses Alignment**: Aligned YAML frontmatter `synapses` with header parent and related references across all templates for deterministic AI knowledge graph indexing.
+
 ## [0.4.4] - 2026-09-20
 
 ### Chores & Documentation
