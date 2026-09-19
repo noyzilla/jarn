@@ -79,6 +79,7 @@ To prevent misaligned implementations, unnecessary documentation churn, and AI c
 ### GATE 2: KNOWLEDGE Capture & PARITY [จุดตรวจบันทึกความรู้และสเปกมีชีวิต]
 - **Code-Spec Parity Verification**: Ensure code implementations match living specs in `docs/specs/`.
 - **Evidence Attachment**: Attach empirical test execution logs demonstrating clean passing results (Exit Code 0).
+- **Task State Synchronization**: Before concluding any session or task, the agent MUST update `TASK.md` in the project root to reflect the newly completed milestones and immediate next actions.
 - Provide a concise walkthrough of changes and test results, then conclude the task cleanly.
 
 ## Definition of Done (DoD)

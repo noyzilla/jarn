@@ -14,7 +14,7 @@ An AI-driven software development blueprint and baseline environment designed fo
 
 ### แนวคิดและเสาหลักของ Jarn (`jarn`)
 - **Street-Smart & Approchable ("จารย์ช่วยด้วย!")**: ออกแบบภายใต้แนวคิดผู้ช่วยและเพื่อนกูรูคู่นักพัฒนาที่เข้าถึงง่าย คอยกำกับมาตรฐานและอำนวยความสะดวกในทุกขั้นตอน
-- **4-Letter Namespace (`jarn`)**: คำสั่งและ artifact มี prefix เดียวกัน ค้นหาและจดจำได้ง่าย (`jarn init`, `jarn adopt`, `jarn-framework-update.sh`)
+- **4-Letter Namespace (`jarn`)**: คำสั่งและ artifact มี prefix เดียวกัน ค้นหาและจดจำได้ง่าย (`jarn init`, `jarn adopt`)
 - **Pre-Packaged AI Environment**: บรรจุกฎความปลอดภัย (Safety Guardrails), สกิลเฉพาะทาง (Skills Suite), เอกสารที่มีชีวิต (Living Specs), และเกณฑ์การตรวจคุณภาพ (Quality Gates) ไว้ครบถ้วนในโครงสร้างโปรเจค
 
 ---
@@ -22,30 +22,27 @@ An AI-driven software development blueprint and baseline environment designed fo
 ## Quick Commands
 
 ### Install / Adopt Jarn (Greenfield & Brownfield)
-Create a new project directory initialized with the complete Jarn blueprint, or safely adopt Jarn standards into an existing active project without clobbering existing code or documentation (uses a smart `*.pending-merge` system):
+Create a new project directory initialized with the complete Jarn blueprint, or safely adopt Jarn standards into an existing active project using the AI-driven Shadow Merge architecture (zero-conflict):
 
 ```bash
 # Public / HTTP (Default)
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh -s -- my-project-dir
+curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh
+curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh -s -- my-project-dir
 
 # Private Repository (via GitHub CLI `gh`)
-gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh
-gh api repos/noyzilla/jarn/contents/scripts/init.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- my-project-dir
+gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh
+gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- my-project-dir
 ```
 
-### Update Jarn Standards & Skills (.agents Only)
-In any existing downstream project, pull the latest `.agents/rules/jarn-` invariants and `jarn-*` skills:
+### Update Jarn Standards & Skills
+In any existing downstream project, pull the latest `.agents/rules/jarn-` invariants, `jarn-*` skills, and shadow templates using the exact same unified installer command:
 
 ```bash
-# Local execution
-./.agents/scripts/jarn-framework-update.sh
-
 # Remote one-liner execution (Public / HTTP)
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/.agents/scripts/jarn-framework-update.sh | sh
+curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh
 
 # Remote one-liner execution (Private Repository via GitHub CLI)
-gh api repos/noyzilla/jarn/contents/.agents/scripts/jarn-framework-update.sh -H "Accept: application/vnd.github.raw+json" | sh
+gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh
 ```
 
 ---
@@ -57,7 +54,7 @@ Jarn establishes a disciplined, reproducible foundation for software development
 ## How to Use This Blueprint
 
 ### Starting a New Project (Greenfield)
-- **Run the Init Command**: Use `scripts/init.sh` to scaffold all blueprint files into an empty directory.
+- **Run the Init Command**: Use `curl ... jarn.sh | sh` to scaffold all blueprint files into an empty directory.
 - **Configure Language Presets**: Open `AGENTS.md`, select the matching language preset (Node.js, Java/Gradle, Python, Go, Rust), and copy the commands into the **Active Commands** block.
 - **Set Project Identity**: Update the project title and executive summary in `README.md`.
 - **Define Initial Architecture**: Fill in high-level modules and technical principles in `ARCHITECTURE.md`.
@@ -66,18 +63,18 @@ Jarn establishes a disciplined, reproducible foundation for software development
 ### Adopting into an Existing Project (Brownfield)
 Adopting into an active project follows a safe **2-Stage AI Adoption Flow**:
 
-1. **Stage 1 (Deterministic Scaffolding)**:
-   Run the installation script in your project root:
+- **Stage 1 (Zero-Conflict Seeding)**:
+   Run the unified installer in your project root:
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/init.sh | sh
+   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh
    ```
-   - Unconditionally synchronizes `.agents/` (rules, `jarn-*` skills, and updater).
-   - Creates missing files (`REVIEW.md`, `TASK.md`, `CONTEXT.md`, `docs/specs/`, `docs/decisions/`).
-   - For files that already exist (e.g. `AGENTS.md`, `.gitignore`, `CONTRIBUTING.md`), it stages them non-destructively as `<file>.pending-merge` without touching your original files.
+   - Unconditionally synchronizes `.agents/` rules and skills.
+   - Downloads all Jarn root templates (e.g. `AGENTS.md`, `REVIEW.md`) into a hidden `.agents/.jarn-templates/` directory (Shadow Templates).
+   - If a core file does not exist in your root project yet, it seeds it automatically. If it already exists, the script does absolutely nothing to your active files.
 
-2. **Stage 2 (Semantic Merge via AI Agent)**:
+- **Stage 2 (Semantic Shadow Merge via AI Agent)**:
    Hand off the generated directive to your AI coding agent (Claude Code, Antigravity, Cursor, etc.):
-   > *"Scan for all files matching `*.pending-merge`. For each file, intelligently upgrade and merge its blueprint structure, universal standards, and invariants into the base file (by stripping `.pending-merge`), preserving all existing project commands, configurations, and domain context. Once merged, delete the `*.pending-merge` file and verify with `git status`."*
+   > *"Please compare the files in `.agents/.jarn-templates/` with the root project files. Carefully merge any missing standards, architectural updates, or new configurations into the project files without disrupting existing domain logic or active commands."*
 
 ---
 
@@ -85,20 +82,13 @@ Adopting into an active project follows a safe **2-Stage AI Adoption Flow**:
 
 Because universal standards and Jarn skills are completely decoupled inside `.agents/`, downstream projects can receive updates from upstream without overwriting application code, custom rules, or project-specific architecture.
 
-### Self-Contained Local Update
-Downstream repositories contain `.agents/scripts/jarn-framework-update.sh` by default. Update the installed Jarn framework directly with:
-
-```bash
-./.agents/scripts/jarn-framework-update.sh
-```
-
 ### Synchronizing via AI Coding Agent
 Instruct your AI coding agent with the following directive:
 
 ```text
-Update Jarn standards in this repository using:
-./.agents/scripts/jarn-framework-update.sh
-Verify file integrity and record the update in CHANGELOG.md under [Unreleased].
+Update Jarn standards in this repository using the jarn-framework-update skill.
+Run `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`, 
+perform a Shadow Merge from `.agents/.jarn-templates/`, and verify file integrity.
 ```
 
 ---
@@ -118,6 +108,6 @@ This repository is organized into distinct communication and governance layers:
 | **`DESIGN.md`** | UI/UX & CLI Designers | Design tokens, component rules, terminal output styling |
 | **`TASK.md`** | Active Collaborators | Real-time state tracker, active sprints, and task backlog |
 | **`CHANGELOG.md`** | Releases & Stakeholders | Historical log of releases following Keep a Changelog |
-| **`.agents/`** | Agent Governance & Skills | Universal rules kernel, Jarn skills (`jarn-*`), and `.agents/scripts/jarn-framework-update.sh` |
+| **`.agents/`** | Agent Governance & Skills | Universal rules kernel, Jarn skills (`jarn-*`), and shadow templates (`.jarn-templates/`) |
 | **`docs/`** | System Documentation Repository | Architecture, design system, living specs, ADR decisions, and runbooks |
-| **`scripts/init.sh`** | Project Initialization & Adoption | Universal one-liner command to initialize a full new project or safely adopt the blueprint into an existing project with non-destructive staging |
+| **`scripts/jarn.sh`** | Project Initialization & Update | Universal one-liner command to initialize or update a project using Zero-Conflict Seeding and Shadow Templates |

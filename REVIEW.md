@@ -2,7 +2,7 @@
 
 This document provides the standard pre-merge checklist for contributors and reviewers (human engineers and AI agents) before merging pull requests.
 
-It inherits the **Universal Code Review & Pre-Merge Standard** from [.agents/rules/jarn-testing.md](.agents/rules/jarn-testing.md). Universal quality gates are synchronized automatically across projects via `./.agents/scripts/jarn-framework-update.sh`.
+It inherits the **Universal Code Review & Pre-Merge Standard** from [.agents/rules/jarn-testing.md](.agents/rules/jarn-testing.md). Universal quality gates are synchronized automatically across projects via the Jarn unified installer (`curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`).
 
 ## How to Use This Checklist [วิธีใช้รายการตรวจทาน]
 
@@ -22,6 +22,6 @@ Please review and check all items defined in the Universal Quality Gates: [.agen
 
 Add custom review gates, domain compliance checks, performance budgets, or security audits specific to this project below:
 
-- [ ] **Shell Script Compatibility**: Tested `init.sh` and `jarn-framework-update.sh` on both macOS (`zsh`) and Linux (`bash`).
+- [ ] **Shell Script Compatibility**: Tested `jarn.sh` on both macOS (`zsh`) and Linux (`bash`).
 - [ ] **No Unbound Variables**: Checked that all variables are correctly quoted and scripts run safely under `set -e`.
 - [ ] **Template Sanitization**: Ensured that any new `.md` files that are project-specific are also placed into `templates/` as blank generics so downstream users don't inherit Jarn-specific metadata.

@@ -45,6 +45,7 @@ This document establishes the project-agnostic, universal review checklist and q
 - [ ] **Bilingual Annotation Standard**: Uses English lead technical language with Thai annotations `[...]` where appropriate for human clarity.
 - [ ] **Semantic Numbering & Stable References**: Verified that numbers are not used merely for reading or execution order; numbers are used only when they possess semantic identity (phases, versions, retries, priorities, gates); all cross-references avoid positional coupling and use semantic headings or direct links.
 - [ ] **Changelog Synchronized**: User-facing changes are recorded under the `[Unreleased]` section of `CHANGELOG.md`.
+- [ ] **Task State Synchronized**: `TASK.md` has been updated to reflect newly completed milestones and immediate next actions.
 
 ---
 

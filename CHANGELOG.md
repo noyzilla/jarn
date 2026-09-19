@@ -10,7 +10,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - **Agent Bootstrap**: Require downstream agents to discover and read every active Jarn rule before starting work.
 - **Rule Manifest**: Designate dynamic rule discovery as authoritative while retaining a synchronized navigation manifest.
 - **Skill Workflows**: Add approval checkpoints before skills modify files, update frameworks, or publish releases.
-- **Framework Update Naming**: Rename the Jarn updater skill and executable to `jarn-framework-update` for unambiguous framework synchronization.
+- **Framework Update Naming**: Unified installer under `scripts/jarn.sh` for unambiguous framework synchronization and shadow merge.
 - **Verification Routing**: Match updater scripts under `.agents/scripts/*.sh` in the Agent Change Routing Matrix.
 
 ## [0.3.2] - 2026-09-19
