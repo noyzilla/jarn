@@ -2,7 +2,7 @@
 
 This document provides the standard pre-merge checklist for contributors and reviewers (human engineers and AI agents) before merging pull requests.
 
-It inherits the **Universal Code Review & Pre-Merge Standard** from [.agents/rules/jarn-testing.md](.agents/rules/jarn-testing.md). Universal quality gates are synchronized automatically across projects via the Jarn unified installer (`curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`).
+It inherits the **Universal Code Review & Pre-Merge Standard** from [.agents/rules/jarn-testing.md](.agents/rules/jarn-testing.md).
 
 ## How to Use This Checklist [วิธีใช้รายการตรวจทาน]
 

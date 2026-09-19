@@ -32,6 +32,7 @@ Activate this workflow when:
 - **Your Job as an AI**: You must compare the files in `.agents/.jarn-templates/` with the active files in the project root (e.g., `AGENTS.md`, `REVIEW.md`, `docs/README.md`).
 - Identify any missing standards, structural updates, or new invariants introduced in the shadow templates.
 - **Intelligently Merge**: Propose and apply updates to the root project files. You MUST strictly preserve existing project-specific commands, configurations, and domain context. Do NOT simply overwrite the root files.
+- **Context-Aware Merging (e.g., DESIGN.md)**: Before merging files like `DESIGN.md`, study the project's existing content to determine its context. If the project is a CLI, library, or backend service, DO NOT force web/UI design tokens into it. Only merge relevant updates (like CLI log formats) and preserve the project's original intent.
 - Ensure that the project root documents do not contain hardcoded copies of Jarn rules (Anti-Duplication Audit). If found, replace them with reference links to the central `.agents/rules/jarn-*.md` files.
 
 ### Report and Follow-up [รายงานและดำเนินการต่อ]

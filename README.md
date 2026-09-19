@@ -2,94 +2,39 @@
 
 > **START HERE**: Configure your project's active commands in `AGENTS.md`, run dependency installation, and verify with your test suite.
 
-An AI-driven software development blueprint and baseline environment designed for high-integrity collaboration between human engineers and autonomous AI coding agents on Linux and macOS.
-
----
-
-## Why Jarn (จารย์)?
-
 **Jarn (`jarn`)** (ภาษาไทย: "จารย์" — คำเรียกสตรีทคูลของ "อาจารย์" หรือผู้เชี่ยวชาญ) คือ **พิมพ์เขียวต้นแบบโปรเจคสำหรับการพัฒนาซอฟต์แวร์ด้วย AI (AI-Driven Software Development Blueprint)**
 
-โปรเจคนี้ไม่ได้เป็นเพียงคลังโค้ดแม่แบบทั่วไป แต่ถูกสร้างขึ้นเพื่อเป็น **สภาพแวดล้อมพื้นฐานและรูปแบบการทำงาน (Foundational Environment & Workflow Blueprint)** ที่ฝังเอาไว้ล่วงหน้า เพื่อให้ทั้งมนุษย์และ AI Coding Agents สามารถเริ่มพัฒนาซอฟต์แวร์ร่วมกันได้ทันทีอย่างมีมาตรฐานและปลอดภัย
+โปรเจคนี้ไม่ได้เป็นเพียงคลังโค้ดแม่แบบทั่วไป แต่ถูกสร้างขึ้นเพื่อเป็น **สภาพแวดล้อมพื้นฐานและรูปแบบการทำงาน (Foundational Environment & Workflow Blueprint)** ที่ฝังเอาไว้ล่วงหน้า เพื่อให้ทั้งมนุษย์และ AI Coding Agents สามารถเริ่มพัฒนาซอฟต์แวร์ร่วมกันได้ทันทีอย่างมีมาตรฐานและปลอดภัย ภายใต้ขอบเขตความปลอดภัย (Safety Boundaries) และสถาปัตยกรรมเอกสารที่มีชีวิต (Progressive Documentation Architecture)
 
 ### แนวคิดและเสาหลักของ Jarn (`jarn`)
-- **Street-Smart & Approchable ("จารย์ช่วยด้วย!")**: ออกแบบภายใต้แนวคิดผู้ช่วยและเพื่อนกูรูคู่นักพัฒนาที่เข้าถึงง่าย คอยกำกับมาตรฐานและอำนวยความสะดวกในทุกขั้นตอน
+- **Street-Smart & Approachable ("จารย์ช่วยด้วย!")**: ออกแบบภายใต้แนวคิดผู้ช่วยและเพื่อนกูรูคู่นักพัฒนาที่เข้าถึงง่าย คอยกำกับมาตรฐานและอำนวยความสะดวกในทุกขั้นตอน
 - **4-Letter Namespace (`jarn`)**: คำสั่งและ artifact มี prefix เดียวกัน ค้นหาและจดจำได้ง่าย (`jarn init`, `jarn adopt`)
 - **Pre-Packaged AI Environment**: บรรจุกฎความปลอดภัย (Safety Guardrails), สกิลเฉพาะทาง (Skills Suite), เอกสารที่มีชีวิต (Living Specs), และเกณฑ์การตรวจคุณภาพ (Quality Gates) ไว้ครบถ้วนในโครงสร้างโปรเจค
 
 ---
 
-## Quick Commands
+## Installation & Usage (AI-First Workflow)
 
-### Install / Adopt Jarn (Greenfield & Brownfield)
-Create a new project directory initialized with the complete Jarn blueprint, or safely adopt Jarn standards into an existing active project using the AI-driven Shadow Merge architecture (zero-conflict):
+Jarn ออกแบบมาให้ทำงานร่วมกับ AI Coding Agents (เช่น Claude Code, Antigravity, Cursor) เป็นหลัก คุณจึงสามารถก๊อปปี้ Prompt ด้านล่างส่งให้ AI เป็นผู้รันคำสั่งติดตั้ง โหลดกฎ และตั้งค่าทุกอย่างให้รวดเดียวจบ
 
-```bash
-# Public / HTTP (Default)
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh -s -- my-project-dir
+### 1. Starting a New Project (Greenfield)
+สร้างหรือเข้าไปที่โฟลเดอร์โปรเจกต์เปล่า แล้วส่ง Prompt นี้ให้ AI ของคุณ:
 
-# Private Repository (via GitHub CLI `gh`)
-gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh
-gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- my-project-dir
-```
+> *"Run this command to install the Jarn blueprint: `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`. After installation, please read all Jarn rules in `.agents/rules/`. Let's co-design the architecture for this project. Once we align, please update `AGENTS.md` (Language Presets), `README.md` (Project Identity), and `ARCHITECTURE.md` according to Jarn guidelines."*
 
-### Update Jarn Standards & Skills
-In any existing downstream project, pull the latest `.agents/rules/jarn-` invariants, `jarn-*` skills, and shadow templates using the exact same unified installer command:
+เมื่อ AI ตั้งค่าเสร็จแล้ว:
+- **Verify Operational Baseline**: ลองรันคำสั่ง Test / Lint เพื่อตรวจสอบว่าโปรเจกต์พร้อมใช้งาน
 
-```bash
-# Remote one-liner execution (Public / HTTP)
-curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh
+### 2. Adopting into an Existing Project (Brownfield)
+สำหรับการนำไปใช้กับโปรเจกต์ที่มีอยู่แล้ว (Zero-Conflict) คุณสามารถสั่ง AI รวดเดียวให้ติดตั้ง ศึกษาโปรเจกต์ ทำ Shadow Merge และปรับปรุงเอกสารให้เข้ากับ Jarn:
 
-# Remote one-liner execution (Private Repository via GitHub CLI)
-gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh
-```
+> *"Run this command to adopt Jarn: `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`. Then, please load and read all Jarn rules in `.agents/rules/`. I want to adopt the Jarn blueprint into this existing project. First, study the current codebase. Then, perform a Shadow Merge from `.agents/.jarn-templates/` into the root. Finally, refactor and update our existing documentation to fully comply with the Jarn guidelines."*
 
----
+*(💡 **Tip**: หากติดตั้งจาก Private Repository ให้เปลี่ยนคำสั่ง `curl` ใน Prompt เป็น `gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh`)*
 
-## Overview
-
-Jarn establishes a disciplined, reproducible foundation for software development where humans and AI agents work together as equal contributors under shared engineering standards, explicit safety boundaries, and progressive documentation architecture.
-
-## How to Use This Blueprint
-
-### Starting a New Project (Greenfield)
-- **Run the Init Command**: Use `curl ... jarn.sh | sh` to scaffold all blueprint files into an empty directory.
-- **Configure Language Presets**: Open `AGENTS.md`, select the matching language preset (Node.js, Java/Gradle, Python, Go, Rust), and copy the commands into the **Active Commands** block.
-- **Set Project Identity**: Update the project title and executive summary in `README.md`.
-- **Define Initial Architecture**: Fill in high-level modules and technical principles in `ARCHITECTURE.md`.
-- **Verify Operational Baseline**: Run your project's native test and lint commands to confirm the environment is clean.
-
-### Adopting into an Existing Project (Brownfield)
-Adopting into an active project follows a safe **2-Stage AI Adoption Flow**:
-
-- **Stage 1 (Zero-Conflict Seeding)**:
-   Run the unified installer in your project root:
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh
-   ```
-   - Unconditionally synchronizes `.agents/` rules and skills.
-   - Downloads all Jarn root templates (e.g. `AGENTS.md`, `REVIEW.md`) into a hidden `.agents/.jarn-templates/` directory (Shadow Templates).
-   - If a core file does not exist in your root project yet, it seeds it automatically. If it already exists, the script does absolutely nothing to your active files.
-
-- **Stage 2 (Semantic Shadow Merge via AI Agent)**:
-   Hand off the generated directive to your AI coding agent (Claude Code, Antigravity, Cursor, etc.):
-   > *"Please compare the files in `.agents/.jarn-templates/` with the root project files. Carefully merge any missing standards, architectural updates, or new configurations into the project files without disrupting existing domain logic or active commands."*
-
----
-
-## How to Update & Sync Standards
-
-Because universal standards and Jarn skills are completely decoupled inside `.agents/`, downstream projects can receive updates from upstream without overwriting application code, custom rules, or project-specific architecture.
-
-### Synchronizing via AI Coding Agent
-Instruct your AI coding agent with the following directive:
-
-```text
-Update Jarn standards in this repository using the jarn-framework-update skill.
-Run `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`, 
-perform a Shadow Merge from `.agents/.jarn-templates/`, and verify file integrity.
-```
+### 3. Updating Jarn Standards (สำหรับโปรเจกต์ที่มี Jarn อยู่แล้ว)
+หากต้องการอัปเดตกฎและสกิลของ Jarn ให้เป็นเวอร์ชันล่าสุด **แนะนำให้อัปเดตผ่าน AI Skill** เพื่อความสะดวกและปลอดภัย โดยสั่ง AI ด้วยข้อความ:
+> *"Update Jarn standards in this repository using the jarn-framework-update skill."*
 
 ---
 
