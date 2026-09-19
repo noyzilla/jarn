@@ -48,7 +48,7 @@ Always organize documentation under `docs/` according to the system documentatio
 - Subsystem and feature living specifications go into `docs/specs/<feature>.md` (vertical slices combining domain rules, APIs, and database impacts)
 - Macro topologies and architectural deep-dives go into `docs/architecture/<topic>.md` (mirroring `ARCHITECTURE.md`)
 - Global design tokens and UI component guides go into `docs/design/<topic>.md` (mirroring `DESIGN.md`)
-- Developer onboarding, runbooks, and operational workflows go into `docs/development/<runbook>.md` (mirroring `CONTRIBUTING.md`)
+- Developer onboarding, runbooks, and operational workflows go into `docs/development/<id>-<slug>.md` (mirroring `CONTRIBUTING.md`)
 - Macro architectural decision records go into `docs/decisions/<id>-<slug>.md` (with explicit `.deprecated.md` or `.superseded.md` lifecycle naming for zero-token AI filtering)
 
 ### Two-Way Linking Requirement
@@ -64,7 +64,7 @@ When updating documentation, plans, or technical specifications:
 
 ## Frontmatter Synapses & Cross-Referencing [โปรโตคอลการเชื่อมโยงข้อมูลแบบ Synapse]
 
-All living specifications (`docs/specs/`) and architectural decision records (`docs/decisions/`) must include standard YAML frontmatter with tags and synapses (relative markdown links) to establish clear traceability:
+All living specifications (`docs/specs/`), developer runbooks (`docs/development/`), and architectural decision records (`docs/decisions/`) must include standard YAML frontmatter with tags and synapses (relative markdown links) to establish clear traceability:
 
 ```yaml
 ---

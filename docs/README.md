@@ -19,6 +19,8 @@ Every document in this directory answers a specific dimensional question:
 - **`docs/development/` (HOW - Developer Manual, Workflows & Runbooks)**:
   - Answers: How do developers configure environments, run database migrations, execute tests, or perform deployments?
   - Content: Local setup guides, database migration runbooks, incident response playbooks, and operational workflows mirroring [CONTRIBUTING.md](../CONTRIBUTING.md).
+  - Naming: Named with standard 4-digit numeric slug (e.g., `0001-local-setup.md`, `0002-db-migration.md`).
+  - Template: Follows [docs/development/0000-template.md](development/0000-template.md).
   - Target: Developers, operators, and DevOps engineers.
 
 - **`docs/specs/` (WHAT - Living Subsystem Specifications)**:
@@ -40,8 +42,8 @@ Every document in this directory answers a specific dimensional question:
 ## On-Demand Directory Creation (Just-In-Time)
 
 To keep the repository clean and avoid empty directories:
-- Subdirectories `docs/architecture/`, `docs/design/`, and `docs/development/` are created on demand when extracting deep-dive topics from their parent root files (`ARCHITECTURE.md`, `DESIGN.md`, `CONTRIBUTING.md`).
-- Only directories seeded with active templates (`docs/specs/` and `docs/decisions/`) exist out of the box.
+- Subdirectories `docs/architecture/` and `docs/design/` are created on demand when extracting deep-dive topics from their parent root files (`ARCHITECTURE.md`, `DESIGN.md`).
+- Directories seeded with active templates (`docs/specs/`, `docs/decisions/`, and `docs/development/`) exist out of the box.
 - Never create empty directories with placeholder `.gitkeep` files if there is no immediate documentation content to commit.
 
 ## Anti-Drift Invariants for AI Coding Agents

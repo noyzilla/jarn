@@ -20,4 +20,4 @@ In accordance with the Mirror Index Pattern and system documentation taxonomy in
 - [Architectural Decisions](docs/decisions/0000-template.md) (`docs/decisions/`) - Strategic architectural decision records (ADR) with explicit `.deprecated.md` and `.superseded.md` lifecycle naming.
 - [Architecture Deep-Dives](docs/architecture/) (`docs/architecture/`) - Subsystem topologies, component interaction diagrams, and system data flows.
 - [Design Specifications](DESIGN.md) (`docs/design/`) - Reusable component tokens, form styling, and accessibility standards.
-- [Development Workflows](docs/development/) (`docs/development/`) - Developer onboarding, local environment setup, and migration runbooks.
+- [Development Workflows](docs/development/0000-template.md) (`docs/development/`) - Developer onboarding, local environment setup, and migration runbooks.
