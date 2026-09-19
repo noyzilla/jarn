@@ -1,8 +1,14 @@
 # Agent Operational Guide [คู่มือการปฏิบัติงานสำหรับเอไอ]
 
+> **⚠️ ALWAYS ON DIRECTIVE: MUST READ CORE RULES**
+>
+> You are operating under the Jarn Governance Framework. These rules are **Always ON** and non-negotiable.
+> **You MUST read** the core rule files before executing any task. Do not assume you already know them.
+> First, use your directory listing tool on `.agents/rules/` to discover all active `jarn-*.md` files. Then, read each of them.
+>
 > **MANDATORY PRE-FLIGHT GUARD [มาตรฐานจุดตรวจก่อนเริ่มงาน]**:
-> - **Step 0 Branch Isolation**: NEVER edit or commit on `main`. Verify `git branch --show-current` before modifying any files. Branch out (`git checkout -b <type>/<slug>`) immediately if on `main`. (See [.agents/rules/jarn-safety.md](.agents/rules/jarn-safety.md))
-> - **Inquiry vs Directive**: Treat discussions as Inquiry Mode (read-only analysis). Do NOT mutate code without an explicit Directive trigger (e.g. "ทำเลย", "อนุมัติ", "proceed"). (See [.agents/rules/jarn-workflow.md](.agents/rules/jarn-workflow.md))
+> - **Step 0 Branch Isolation**: NEVER edit or commit on `main`. Verify `git branch --show-current` before modifying any files. Branch out (`git checkout -b <type>/<slug>`) immediately if on `main`.
+> - **Inquiry vs Directive**: Treat discussions as Inquiry Mode (read-only analysis). Do NOT mutate code without an explicit Directive trigger (e.g. "ทำเลย", "อนุมัติ", "proceed").
 > - **Operational Workflow Gates**: Adhere strictly to **GATE 0** (Mission Approval Hard Stop) -> **GATE 1** (Self-Verification Exit Code 0) -> **GATE 2** (Knowledge Capture & Living Specs).
 
 This document is the primary machine-readable entrypoint for AI coding agents collaborating on this codebase.
