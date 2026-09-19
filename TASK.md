@@ -6,12 +6,12 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Establish and verify the Jarn (`jarn`) AI-Driven Software Development Blueprint baseline v0.1.0.
 
 ## Handoff & Session Checkpoints
-- **Last Successful Action**: Audited all `.md` files for Markdown invariants, replaced sequential execution numbering with semantic bullets, documented ADR 0003 for Shadow Merge, and updated governance rules to enforce `TASK.md` state synchronization.
-- **Immediate Next Action**: Perform pre-merge verification check (`sh -n` for shell scripts, link checks) and create clean Initial Release commit.
+- **Last Successful Action**: Merged `docs/agent-rule-enforcement` into `main`, pushed to GitHub, and successfully published Release `v0.4.0`.
+- **Immediate Next Action**: Begin work on backlog items (e.g., project-specific language configuration).
 - **Active Blockers**: None.
 
 ## In Progress
-- Finalizing Jarn baseline v0.1.0 release branch (`feat/refactor-jarn-baseline`).
+- None.
 
 ## Next Up (Backlog)
 - Add project-specific language configuration when adopting for concrete projects.
@@ -42,6 +42,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Codified Targeted Verification Policy requiring blast-radius scoping via `git status`.
 - Established the Jarn Skills suite (`jarn-spec`, `jarn-decisions`, `jarn-review`, `jarn-diagnostics`) under `.agents/skills/jarn-*/`.
 - Enforced `TASK.md` state synchronization in GATE 2 (`.agents/rules/jarn-governance.md` and `.agents/rules/jarn-testing.md`).
+- Merged and published **Release v0.4.0** with Shadow Merge architecture and flattened rules.
 
 ## Blocked & Under Discussion
 - None currently.
