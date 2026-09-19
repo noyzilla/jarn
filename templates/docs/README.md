@@ -10,14 +10,14 @@ Every document in this directory answers a specific dimensional question:
   - Answers: Where do components live, how do they communicate, and what are the system boundaries?
   - Content: High-level architectural diagrams, component interaction topologies, and system-wide data flow maps mirroring [ARCHITECTURE.md](../ARCHITECTURE.md).
   - Naming: Named with descriptive topic slug (e.g., `event-mesh.md`, `storage-topology.md`).
-  - Template: Follows [docs/architecture/template.md](architecture/template.md).
+  - Template: Follows [docs/architecture/0000-template.md](architecture/0000-template.md).
   - Target: System architects, lead engineers, and onboarding contributors.
 
 - **`docs/design/` (APPEARANCE - Global Design Tokens & Component Rules)**:
   - Answers: How do UI elements look and behave consistently across the entire application?
   - Content: Reusable component styling, design tokens, form patterns, table layouts, and accessibility standards mirroring [DESIGN.md](../DESIGN.md).
   - Naming: Named with component or pattern slug (e.g., `buttons.md`, `data-tables.md`).
-  - Template: Follows [docs/design/template.md](design/template.md).
+  - Template: Follows [docs/design/0000-template.md](design/0000-template.md).
   - Target: Frontend engineers, UI designers, and AI coding agents.
 
 - **`docs/development/` (HOW - Developer Manual, Workflows & Runbooks)**:
