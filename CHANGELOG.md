@@ -6,6 +6,12 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-09-19
+
+### Chores & Documentation
+- **License**: Added MIT License to the project.
+- **Documentation**: Explicitly codified TASK.md pruning rules after a release.
+
 ## [0.4.0] - 2026-09-19
 
 ### Changed
