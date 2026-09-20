@@ -105,7 +105,7 @@ mkdir -p "${SHADOW_DIR}"
 
 if [ -d "${TMP_DIR}/templates" ]; then
   # Clean existing shadow templates before syncing new ones to avoid stale files
-  rm -rf "${SHADOW_DIR}"/* "${SHADOW_DIR}"/.[!.]* 2>/dev/null || true
+  rm -rf "${SHADOW_DIR:?}"/* "${SHADOW_DIR:?}"/.[!.]* 2>/dev/null || true
   cp -R "${TMP_DIR}/templates/." "${SHADOW_DIR}/"
 fi
 
@@ -160,7 +160,7 @@ fi
 
 echo ""
 echo "----------------------------------------------------------------------"
-echo "🤖 AI ADOPTION DIRECTIVE (Copy & paste to your AI coding agent):"
+echo "[AI] ADOPTION DIRECTIVE (Copy & paste to your AI coding agent):"
 echo "----------------------------------------------------------------------"
 echo "Please compare the files in '.agents/.jarn-templates/' with the root project files."
 echo "Carefully merge any missing standards, architectural updates, or new configurations"
