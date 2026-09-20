@@ -52,6 +52,12 @@ TARBALL_URL="https://github.com/${REPO}/tarball/${VERSION}"
 mkdir -p "${TARGET_DIR}"
 TARGET_ABS_DIR=$(cd "${TARGET_DIR}" && pwd)
 
+# Save previous version for scenario detection
+OLD_VERSION=""
+if [ -f "${TARGET_ABS_DIR}/.agents/.jarn-version" ]; then
+  OLD_VERSION=$(cat "${TARGET_ABS_DIR}/.agents/.jarn-version")
+fi
+
 echo "Initializing Jarn blueprint from ${REPO}@${VERSION} into ${TARGET_DIR}..."
 
 TMP_DIR=$(mktemp -d)
@@ -117,7 +123,8 @@ fi
 
 # Process template files (Zero-Conflict Seeding)
 CREATED_RECORD="${RECORD_DIR}/created.list"
-touch "${CREATED_RECORD}"
+PRESERVED_RECORD="${RECORD_DIR}/preserved.list"
+touch "${CREATED_RECORD}" "${PRESERVED_RECORD}"
 
 if [ -d "${SHADOW_DIR}" ]; then
   (
@@ -127,11 +134,13 @@ if [ -d "${SHADOW_DIR}" ]; then
     rel_path="${file_path#./}"
     dest_file="${TARGET_ABS_DIR}/${rel_path}"
     dest_dir=$(dirname "${dest_file}")
-    
+
     if [ ! -f "${dest_file}" ]; then
       mkdir -p "${dest_dir}"
       cp "${SHADOW_DIR}/${rel_path}" "${dest_file}"
       echo "${rel_path}" >> "${CREATED_RECORD}"
+    else
+      echo "${rel_path}" >> "${PRESERVED_RECORD}"
     fi
   done
 fi
@@ -142,31 +151,111 @@ if command -v git >/dev/null 2>&1 && [ ! -d "${TARGET_ABS_DIR}/.git" ]; then
   echo "Initialized empty Git repository in ${TARGET_ABS_DIR}/.git/"
 fi
 
-# Output summary and AI directive
-echo ""
-echo "======================================================================"
-echo "  Jarn Blueprint Initialization/Update Summary"
-echo "======================================================================"
-echo "  Core standards synchronized: .agents/ (rules, skills)"
-echo "  Shadow templates stored in:  .agents/.jarn-templates/"
-
-if [ -s "${CREATED_RECORD}" ]; then
-  echo ""
-  echo "  New blueprint files seeded (because they did not exist):"
-  while IFS= read -r item; do
-    echo "    + ${item}"
-  done < "${CREATED_RECORD}"
+# Scenario detection
+PRESERVED_COUNT=0
+if [ -s "${PRESERVED_RECORD}" ]; then
+  PRESERVED_COUNT=$(wc -l < "${PRESERVED_RECORD}" | tr -d ' ')
 fi
 
+if [ -z "${OLD_VERSION}" ]; then
+  if [ "${PRESERVED_COUNT}" -eq 0 ]; then
+    SCENARIO="greenfield"
+  else
+    SCENARIO="brownfield"
+  fi
+else
+  if [ "${OLD_VERSION}" = "${VERSION}" ]; then
+    SCENARIO="update-same"
+  else
+    SCENARIO="update-upgrade"
+  fi
+fi
+
+# Scenario-aware output
 echo ""
-echo "----------------------------------------------------------------------"
-echo "[AI] ADOPTION DIRECTIVE (Copy & paste to your AI coding agent):"
-echo "----------------------------------------------------------------------"
-echo "Please compare the files in '.agents/.jarn-templates/' with the root project files."
-echo "Carefully merge any missing standards, architectural updates, or new configurations"
-echo "into the project files without disrupting existing domain logic or active commands."
-echo "Do not run commands that overwrite data unprompted. Present a merge plan first."
-echo "----------------------------------------------------------------------"
+echo "======================================================================"
+
+case "${SCENARIO}" in
+  greenfield)
+    echo "  Jarn Blueprint Initialized (Greenfield)"
+    echo "======================================================================"
+    echo "  Version: ${VERSION}"
+    echo "  All blueprint files seeded. No conflicts."
+    echo ""
+    echo "----------------------------------------------------------------------"
+    echo "  NEXT STEPS:"
+    echo "    - Configure AGENTS.md with your language presets and test commands"
+    echo "    - Update README.md with your project identity"
+    echo "    - Update CONTEXT.md with your domain glossary"
+    echo "----------------------------------------------------------------------"
+    ;;
+  brownfield)
+    echo "  Jarn Blueprint Adopted (Brownfield)"
+    echo "======================================================================"
+    echo "  Version: ${VERSION}"
+    echo "  Core standards synchronized: .agents/ (rules, skills)"
+    echo "  Shadow templates stored in:  .agents/.jarn-templates/"
+    if [ -s "${PRESERVED_RECORD}" ]; then
+      echo ""
+      echo "  Pre-existing files preserved (not overwritten):"
+      while IFS= read -r item; do
+        echo "    = ${item}"
+      done < "${PRESERVED_RECORD}"
+    fi
+    if [ -s "${CREATED_RECORD}" ]; then
+      echo ""
+      echo "  New blueprint files seeded:"
+      while IFS= read -r item; do
+        echo "    + ${item}"
+      done < "${CREATED_RECORD}"
+    fi
+    echo ""
+    echo "----------------------------------------------------------------------"
+    echo "  [AI] ADOPTION DIRECTIVE (Copy & paste to your AI coding agent):"
+    echo "----------------------------------------------------------------------"
+    echo "  Please compare the files in '.agents/.jarn-templates/' with the root"
+    echo "  project files. Carefully merge any missing standards, architectural"
+    echo "  updates, or new configurations into the project files without"
+    echo "  disrupting existing domain logic or active commands."
+    echo "  Do not run commands that overwrite data unprompted."
+    echo "  Present a merge plan first."
+    echo "----------------------------------------------------------------------"
+    ;;
+  update-upgrade)
+    echo "  Jarn Blueprint Updated: ${OLD_VERSION} -> ${VERSION}"
+    echo "======================================================================"
+    echo "  Rules and skills synchronized."
+    if [ -s "${CREATED_RECORD}" ]; then
+      echo ""
+      echo "  New blueprint files seeded:"
+      while IFS= read -r item; do
+        echo "    + ${item}"
+      done < "${CREATED_RECORD}"
+    fi
+    echo ""
+    echo "  Changelog: https://github.com/${REPO}/blob/main/CHANGELOG.md"
+    echo ""
+    echo "----------------------------------------------------------------------"
+    echo "  NEXT STEPS:"
+    echo "    - Review CHANGELOG.md for breaking changes between versions"
+    echo "    - Compare .agents/.jarn-templates/ with root project files"
+    echo "      for any new or updated standards to merge"
+    echo "----------------------------------------------------------------------"
+    ;;
+  update-same)
+    echo "  Jarn Blueprint Re-synchronized (${VERSION})"
+    echo "======================================================================"
+    echo "  Rules and skills refreshed. No version change."
+    if [ -s "${CREATED_RECORD}" ]; then
+      echo ""
+      echo "  Recovered blueprint files:"
+      while IFS= read -r item; do
+        echo "    + ${item}"
+      done < "${CREATED_RECORD}"
+    fi
+    echo "----------------------------------------------------------------------"
+    ;;
+esac
 
 # Record version
 echo "${VERSION}" > "${TARGET_ABS_DIR}/.agents/.jarn-version"
