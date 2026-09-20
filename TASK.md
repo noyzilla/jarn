@@ -6,7 +6,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Establish and verify the Jarn (`jarn`) AI-Driven Software Development Blueprint baseline v0.1.0.
 
 ## Handoff & Session Checkpoints
-- **Last Successful Action**: Applied audit self-compliance fixes (GATE 2 quality bar, SC2115, emoji removal, ARCHITECTURE.md stale refs) on branch `fix/audit-self-compliance`.
+- **Last Successful Action**: Implemented scenario-aware output for `jarn.sh` (Greenfield/Brownfield/Update-Same/Update-Upgrade) with `.gitignore` template, GATE 2 quality bar, and self-compliance fixes on branch `fix/audit-self-compliance`.
 - **Immediate Next Action**: Merge `fix/audit-self-compliance` into `main` and cut a release.
 - **Active Blockers**: None.
 

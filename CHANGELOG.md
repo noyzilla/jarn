@@ -6,6 +6,23 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+### Governance
+- **TASK.md Quality Bar**: Added quality criteria to GATE 2 and review checklist requiring backlog items to include specific deliverable scope. Vague entries are now explicitly prohibited.
+
+### Scripts
+- **Scenario-Aware Output**: `jarn.sh` now detects installation scenario (Greenfield, Brownfield, Update-Same, Update-Upgrade) and displays tailored output with context-appropriate next steps instead of a one-size-fits-all adoption directive.
+- **Version Upgrade Hint**: Cross-version upgrades now show `v0.x.x -> v0.y.y` transition and link to CHANGELOG.md.
+- **SC2115 Safety Fix**: Added `${var:?}` guard on `SHADOW_DIR` to prevent catastrophic `rm -rf /*` if the variable is empty.
+- **Visual Hygiene**: Replaced emoji in script output with plain text prefixes.
+
+### Templates
+- **Standard .gitignore**: Added language-agnostic `.gitignore` template covering OS-generated files (`.DS_Store`, `Thumbs.db`) and environment secrets (`.env`, `.env.local`).
+
+### Documentation
+- **README.md**: Removed emoji from tip marker to comply with Visual Hygiene Invariant.
+- **ARCHITECTURE.md**: Consolidated stale `init.sh`/`adopt.sh` references into a single Unified Installer entry pointing to `scripts/jarn.sh`.
+- **TASK.md**: Refined all backlog items with specific deliverable scope per the new Quality Bar.
+
 ## [0.4.5] - 2026-09-20
 
 ### Documentation & Templates
