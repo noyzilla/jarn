@@ -30,7 +30,7 @@ Jarn ออกแบบมาให้ทำงานร่วมกับ AI Co
 
 > *"Run this command to adopt Jarn: `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`. Then, please load and read all Jarn rules in `.agents/rules/`. I want to adopt the Jarn blueprint into this existing project. First, study the current codebase. Then, perform a Shadow Merge from `.agents/.jarn-templates/` into the root. Finally, refactor and update our existing documentation to fully comply with the Jarn guidelines."*
 
-*(💡 **Tip**: หากติดตั้งจาก Private Repository ให้เปลี่ยนคำสั่ง `curl` ใน Prompt เป็น `gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh`)*
+*(**Tip**: หากติดตั้งจาก Private Repository ให้เปลี่ยนคำสั่ง `curl` ใน Prompt เป็น `gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh`)*
 
 ### 3. Updating Jarn Standards (สำหรับโปรเจกต์ที่มี Jarn อยู่แล้ว)
 หากต้องการอัปเดตกฎและสกิลของ Jarn ให้เป็นเวอร์ชันล่าสุด **แนะนำให้อัปเดตผ่าน AI Skill** เพื่อความสะดวกและปลอดภัย โดยสั่ง AI ด้วยข้อความ:

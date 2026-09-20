@@ -10,8 +10,7 @@ This document provides the high-level architecture, module boundaries, and desig
 - **Progressive Disclosure**: Keep high-level maps here at the root; extract deep-dive specifications into `docs/architecture/`.
 
 ## Core Modules
-- **Initialization Scripts**: `scripts/init.sh` pulls the generic templates and Agent guidelines into downstream repositories.
-- **Adoption Scripts**: `scripts/init.sh` orchestrates safe cross-repository skill merging via Git cherry-pick and patch application to prevent destructive overwrites.
+- **Unified Installer**: `scripts/jarn.sh` handles both greenfield initialization and brownfield adoption, including version resolution, archive download, Zero-Conflict Seeding, and Shadow Template synchronization.
 - **Agent Rules Engine**: The `.agents/rules/` directory houses universal constraints for LLM agent operations, acting as the system's policy layer.
 - **Skill Registry**: Modular, pluggable expert behaviors defined in `.agents/skills/` that extend the default capabilities of the AI agents.
 - **Template System**: `templates/` houses generic markdown files (`README.md`, `CONTEXT.md`, etc.) that bootstrap downstream projects without leaking Jarn-specific metadata.
