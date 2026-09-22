@@ -1,4 +1,4 @@
-# Git & Commit Conventions [ข้อตกลงการใช้งาน Git และการคัดส่งโค้ด]
+# Git & Commit Conventions
 
 This project strictly follows the Conventional Commits specification coupled with Semantic Versioning (SemVer) and Micro-Commit strategies.
 
@@ -26,7 +26,7 @@ This project strictly follows the Conventional Commits specification coupled wit
 | **`test:`** | Adding or updating tests | None | `test: add unit tests for token parser` |
 | **`chore:`** | Tooling, build scripts, or maintenance | None | `chore: update build script dependencies` |
 
-## Commit Frequency & Granularity (Micro-Commit Strategy) [กลยุทธ์การคัดส่งแบบย่อย]
+## Commit Frequency & Granularity (Micro-Commit Strategy)
 
 To ensure code stability, bisectability, and rapid troubleshooting, all contributors and agents must follow an incremental micro-commit workflow:
 

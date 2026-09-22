@@ -1,16 +1,18 @@
-# Coding & Documentation Style [มาตรฐานสไตล์โค้ดและเอกสาร]
+# Coding & Documentation Style
 
 This document defines the visual hygiene, bilingual annotation rules, and code commenting invariants for all project files.
 
-## Visual Hygiene Invariant [มาตรฐานความสะอาดทางสายตา]
+## Visual Hygiene Invariant
 
 Strictly **NO emojis or decorative icons** in production code, commit subjects, build logs, terminal output, or technical spec comments. All comments, log messages, and spec texts must maintain clean visual hygiene to prevent parser noise and noisy Git diffs.
 
-## Bilingual Documentation Annotation Standard [มาตรฐานการเขียนแบบสองภาษา]
+## Bilingual Documentation Annotation Standard
 
-All core governance documents, specs, and architectural guidelines must use **English as the lead technical language** for precision and AI scanning compatibility, followed by **Thai annotations in brackets `[...]`** for human developer intuition and rapid context scanning.
+All **user-facing** governance documents, specs, and architectural guidelines must use **English as the lead technical language** for precision and AI scanning compatibility, followed by **Thai annotations in brackets `[...]`** for human developer intuition and rapid context scanning.
 
-## Documentation & Commenting Rules [กฎระเบียบเอกสารและการบันทึกโค้ด]
+**Scope**: This standard applies to root-level documents (`AGENTS.md`, `CONTEXT.md`, `README.md`, `ARCHITECTURE.md`, `DESIGN.md`) and `docs/` content that humans read directly. Files inside `.agents/rules/` and `.agents/skills/` are machine-readable agent instructions and MUST use **English only** — no Thai heading annotations — to minimize token consumption per session.
+
+## Documentation & Commenting Rules
 
 All code comments, markdown files, specifications, plans, walkthroughs, and architecture records must prevent formatting maintenance overhead and maintain resilient, location-agnostic references.
 

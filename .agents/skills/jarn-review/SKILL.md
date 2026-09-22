@@ -6,15 +6,15 @@ description: >-
   parity, and checks commit conventions.
 ---
 
-# Jarn Pre-Merge Review & Verification Runbook [คู่มือการตรวจรับรองงานก่อนรวม]
+# Jarn Pre-Merge Review & Verification Runbook
 
 This skill defines the autonomous quality gate review procedure executed before opening, approving, or merging pull requests.
 
-## Core Philosophy [ปรัชญาหลัก]
+## Core Philosophy
 
 Quality assurance in an AI-assisted environment must be deterministic, evidence-based, and targeted. This skill enforces the Universal Pre-Merge Standard ([.agents/rules/jarn-testing.md](../../rules/jarn-testing.md)) across three operational gates without running wasteful, cargo-cult test executions across untouched tech stacks.
 
-## When to Use This Skill [เมื่อใดควรใช้สกิลนี้]
+## When to Use This Skill
 
 Activate this workflow when:
 - Concluding a feature branch, bug fix, or refactoring task.
@@ -28,15 +28,15 @@ Do NOT use this workflow when:
 
 ---
 
-## Operational Execution Runbook [ขั้นตอนการปฏิบัติงาน]
+## Operational Execution Runbook
 
-### GATE 0: Surface Inspection & Safety Audit [จุดตรวจความปลอดภัยและขอบเขตงาน]
+### GATE 0: Surface Inspection & Safety Audit
 - Run `git status` to identify all staged, unstaged, and untracked files.
 - Run `git diff --stat` against the base branch (usually `main`) to view modified file paths and changed surface area.
 - Verify that changes are contained within a dedicated feature branch (`feat/...`, `fix/...`, `docs/...`). Flag immediately if working directly on `main`.
 - Verify **Inquiry vs Directive Traceability**: Confirm that execution was authorized by an explicit directive trigger.
 
-### GATE 1: Targeted Verification & Code Quality Audit [จุดตรวจการสอบทานและคุณภาพโค้ด]
+### GATE 1: Targeted Verification & Code Quality Audit
 - Map each modified file extension and path against the Change Routing Matrix in [AGENTS.md](../../../AGENTS.md):
   - Shell scripts (`*.sh`): Targeted check via `sh -n <file>`.
   - Application logic: Targeted unit tests for the affected package or module.
@@ -47,7 +47,7 @@ Do NOT use this workflow when:
 - Execute strictly the targeted commands and capture stdout/stderr logs as empirical verification evidence proving Exit Code 0.
 - **Visual Hygiene & Code Audit**: Ensure strictly zero emojis/icons in code, logs, and comments; verify no sequential numbered comments (`// 1.`, `// 2.`).
 
-### GATE 2: Knowledge Capture, Parity & Evidence Synthesis [จุดตรวจสเปกมีชีวิตและหลักฐาน]
+### GATE 2: Knowledge Capture, Parity & Evidence Synthesis
 - **Code-Spec Parity Audit**:
   - If Spec-Altering Change: Verify corresponding `docs/specs/<feature>.md` was updated in lockstep with frontmatter synapses/tags.
   - If Spec-Conforming Bug Fix: Verify `docs/specs/` was NOT unnecessarily churned; confirm regression test added and root cause detailed in commit message (`fix:`).

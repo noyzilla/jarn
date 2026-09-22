@@ -3,7 +3,7 @@ name: jarn-release
 description: End-to-end automated GitHub Release lifecycle, including SemVer calculation, CHANGELOG drafting, and tag publishing.
 ---
 
-# Jarn Release Lifecycle [วงจรการเผยแพร่ Jarn]
+# Jarn Release Lifecycle
 
 **Description**: Automates the version release process by analyzing Git commit history, calculating Semantic Versioning (SemVer), updating the `CHANGELOG.md`, and publishing a formal GitHub Release via the GitHub CLI (`gh`).
 
@@ -11,7 +11,7 @@ description: End-to-end automated GitHub Release lifecycle, including SemVer cal
 
 ---
 
-## Composite Intent & Trigger Levels [การตีความคำสั่ง release]
+## Composite Intent & Trigger Levels
 
 The word `release` is a composite command that implies completing the full lifecycle. Two trigger levels determine agent behavior:
 
@@ -30,7 +30,7 @@ When the user issues a finalization-qualified release directive, the agent execu
 
 ---
 
-## Pre-condition Resolution [การแก้ไข pre-conditions อัตโนมัติ]
+## Pre-condition Resolution
 
 Before release preparation can begin, the workspace must be on a clean `main` branch. When the release command is issued from a non-ideal state, the agent resolves pre-conditions in order:
 
@@ -50,7 +50,7 @@ After switching to `main`, verify `git status` is clean. If not, halt and report
 
 ---
 
-## Release Readiness [ความพร้อมก่อนเผยแพร่]
+## Release Readiness
 
 After pre-conditions are resolved and the agent is on a clean `main`, verify:
 - **GitHub CLI**: `command -v gh` confirms `gh` is available.
@@ -58,7 +58,7 @@ After pre-conditions are resolved and the agent is on a clean `main`, verify:
 
 ---
 
-## Release Preparation (on `main`) [การเตรียม release]
+## Release Preparation (on `main`)
 
 Release preparation commits directly on `main`. This is an explicit exception to the Step 0 Branch Isolation rule, as `chore(release):` commits contain only mechanical changelog and metadata changes with zero logic risk.
 
@@ -95,21 +95,21 @@ Insert a new section at the top (under the main header) for the new version:
 
 ---
 
-## Post-Release Cleanup [การทำความสะอาดหลังเผยแพร่]
+## Post-Release Cleanup
 
 Once the release is published, the working context must be reset:
 - **Clean TASK.md**: Clear all items under the `Completed Milestones` section in `TASK.md`. Those milestones are now permanently recorded in the `CHANGELOG.md`, and `TASK.md` should be reset for the next iteration to prevent infinite file growth.
 
 ---
 
-## Publication Approval [การอนุมัติเผยแพร่]
+## Publication Approval
 
 - For **Trigger Level 1**: Present the exact version, target commit, and release title to the user. Wait for explicit approval before creating the tag or publishing.
 - For **Trigger Level 2**: Proceed directly to publication after the changelog commit. The finalization directive already constitutes approval.
 
 ---
 
-## Publish and Verify [เผยแพร่และตรวจสอบ]
+## Publish and Verify
 
 Use the GitHub CLI to create the release and tag simultaneously:
 ```bash

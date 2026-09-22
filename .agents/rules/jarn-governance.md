@@ -1,4 +1,4 @@
-# Governance, Workflow, and Safety [การกำกับดูแล ขั้นตอนการทำงาน และความปลอดภัย]
+# Governance, Workflow, and Safety
 
 This document establishes the safety boundaries, escalation gates, and core operational lifecycle for all contributors (human engineers and AI agents) operating within this codebase.
 
@@ -22,18 +22,18 @@ Contributors and agents must pause execution and consult when any of the followi
 - **Unforeseen Impact**: Modifying a module introduces cascading errors or breaks contracts across dependent modules.
 - **Scope Expansion**: The implementation requires touching files or services beyond the boundaries of the approved plan.
 
-## Consult First, Act Second [การปรึกษานำหน้าการลงมือทำ]
+## Consult First, Act Second
 
 Every non-trivial modification follows a disciplined progression from inquiry to verified execution. Never make unilateral code modifications during planning phases.
 
-### Inquiry vs Directive State Machine [ระบบสเตตัสสอบถามและการสั่งการ]
+### Inquiry vs Directive State Machine
 Human collaborators interact naturally and conversationally without being burdened to format long, rigid prompt syntaxes. The system enforces safety through an internal AI state machine:
 - **Inquiry Mode (Default State / Consultation)**: All conversational requests, questions, or ideas are treated as Inquiry Mode by default. The agent is strictly prohibited from executing code-altering tools on application source files. The agent remains in read-only analysis, design debate, or living spec drafting mode.
 - **Directive Mode (Explicit Execution Trigger)**: The agent may only transition to Directive Mode when the human lead provides an explicit execution directive (such as "ทำเลย", "เริ่มแก้ได้", "อนุมัติ", "proceed", or approving an implementation plan). Without an explicit directive, the agent must continue the consultation and refine specifications.
 - **Inquiry Trade-offs**: When discussing architectural or non-trivial implementations, the agent must present at least two viable implementation options with technical trade-offs before requesting an execution directive.
 - **Ambiguous Directive Fallback (Safety Brake)**: If the human lead provides a vague execution directive (e.g., "fix it", "แก้เลย") without a clearly established context, specific file scope, or prior approved plan, the agent must treat the directive as a potential high-blast-radius risk. The agent MUST fall back to Inquiry Mode and ask for clarification or propose a specific scoped plan before proceeding.
 
-## Collaborative Spec Protocol & Change Taxonomy [ข้อตกลงสเปกและจำแนกประเภทการเปลี่ยนผ่าน]
+## Collaborative Spec Protocol & Change Taxonomy
 
 To prevent misaligned implementations, unnecessary documentation churn, and AI context pollution, modifications are governed by a strict change taxonomy:
 
@@ -61,22 +61,22 @@ To prevent misaligned implementations, unnecessary documentation churn, and AI c
 - Every living specification must document its Dependency & Blast-Radius Matrix (upstream callers, downstream dependencies, and affected packages).
 - When resolving bugs, refactoring, or extending existing code, AI agents inspect the living spec's blast-radius matrix to strictly isolate their investigation and edits, eliminating wasteful full-codebase scans.
 
-## Operational Lifecycle Gates [จุดตรวจวงจรการทำงาน]
+## Operational Lifecycle Gates
 
-### GATE 0: MISSION APPROVAL (The Hard Stop) [จุดตรวจอนุมัติภารกิจ]
+### GATE 0: MISSION APPROVAL (The Hard Stop)
 - **Anti-Hallucination Discovery**: Empirically verify library versions, external APIs, and project configurations via terminal commands or official docs before proposing solutions. Never guess dependencies or symbols.
 - Research the task using read-only operations.
 - Produce or update the living specification in `docs/specs/<feature>.md` when defining or altering feature logic.
 - Produce a structured implementation plan describing proposed technical changes, demarcating modified files and explicit verification steps.
 - **Hard Stop**: Halt execution and wait for explicit human green light (Directive Mode) before touching codebase files. Refine the plan if feedback or counter-proposals are given.
 
-### GATE 1: SELF-VERIFICATION & SURGICAL EXECUTION [จุดตรวจการลงมือและยืนยันด้วยตนเอง]
+### GATE 1: SELF-VERIFICATION & SURGICAL EXECUTION
 - **Step 0 Branch Isolation**: Before modifying, creating, or deleting any codebase file, verify `git branch --show-current`. If on `main`, immediately execute `git checkout -b <type>/<slug>`. Working directly on `main` is strictly prohibited.
 - **Incremental Micro-Commits**: Save commits in small, logical, atomic increments as intermediate milestones are verified. Never hold large uncommitted changes until final completion.
 - Make minimal, modular edits focused strictly on the approved scope.
 - **Targeted Verification**: Check `git status` before running verification commands. Execute project native test suites and linters via Terminal to verify Exit Code 0 and zero regression.
 
-### GATE 2: KNOWLEDGE Capture & PARITY [จุดตรวจบันทึกความรู้และสเปกมีชีวิต]
+### GATE 2: KNOWLEDGE Capture & PARITY
 - **Code-Spec Parity Verification**: Ensure code implementations match living specs in `docs/specs/`.
 - **Evidence Attachment**: Attach empirical test execution logs demonstrating clean passing results (Exit Code 0).
 - **Task State Synchronization**: Before concluding any session or task, the agent MUST update `TASK.md` in the project root to reflect the newly completed milestones and immediate next actions.

@@ -1,8 +1,8 @@
-# Architecture & Lifecycle Standards [มาตรฐานสถาปัตยกรรมและวงจรชีวิต]
+# Architecture & Lifecycle Standards
 
 This document establishes the architectural principles, documentation topology, and native ecosystem lifecycles for the project.
 
-## Ecosystem-Native Lifecycle Contract [สัญญาขั้นตอนปฏิบัติประจำระบบ]
+## Ecosystem-Native Lifecycle Contract
 
 Rather than forcing an unnatural wrapper layer across diverse ecosystems, every project must implement standard lifecycles using the **native tooling of its target programming language**.
 
@@ -20,12 +20,12 @@ Document the exact commands for these lifecycles directly in `AGENTS.md` (for au
 
 ## Configuration Architecture
 
-### Global vs. Scoped Placement [การแยกส่วนกลางและส่วนเฉพาะ]
+### Global vs. Scoped Placement
 - **Rule:** System-wide or cross-module settings must reside at the root level (e.g., `PORT`, `PROXY_URL`, `DEBUG`). Domain-specific settings must be encapsulated within their respective domain objects (e.g., `DATABASE`, `CACHE`, `MAILER`).
 - **Bad:** Hiding `PORT` inside `CONFIG.SERVER.PORT` when it is globally required.
 - **Good:** `CONFIG.PORT` for global settings and `CONFIG.CACHE.TTL_SECONDS` for scoped settings.
 
-### Strict Separation of Config vs. Internal Constants [แยกสิ่งที่ตั้งค่าได้ ออกจากค่าคงที่ภายในระบบ]
+### Strict Separation of Config vs. Internal Constants
 - **Rule:** Configuration and `.env` files are exclusively for values that environment administrators can alter. Internal engineering constants (e.g., internal folder names, cache key prefixes like `'user_session'`) must NEVER be exposed as configurations.
 - **Rationale:** Business-agnostic internal values should be hardcoded or defined as constants in the lowest applicable layer to reduce indirection, prevent config bloat, and avoid catastrophic user misconfigurations.
 
@@ -62,7 +62,7 @@ When updating documentation, plans, or technical specifications:
 - **Preserve Deep Knowledge**: Contributors and AI agents are strictly prohibited from silently deleting technical specifics, configuration values, port mappings, edge case explanations, or architectural rationales.
 - **Carry-Forward Rule**: Before rewriting or replacing any documentation, scan for existing domain knowledge and ensure all operational details are preserved in the updated version.
 
-## Frontmatter Synapses & Cross-Referencing [โปรโตคอลการเชื่อมโยงข้อมูลแบบ Synapse]
+## Frontmatter Synapses & Cross-Referencing
 
 All documentation deep-dives across all 5 taxonomy areas—living specifications (`docs/specs/`), developer runbooks (`docs/development/`), architectural decision records (`docs/decisions/`), topology deep-dives (`docs/architecture/`), and design specifications (`docs/design/`)—must include standard YAML frontmatter with tags and synapses (relative markdown links) to establish clear traceability:
 
