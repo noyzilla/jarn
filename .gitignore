@@ -30,3 +30,5 @@ scratch/
 !.env.example
 *.pem
 *.key
+
+.air/
