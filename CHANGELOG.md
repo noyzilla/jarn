@@ -6,6 +6,8 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-09-23
+
 ### Governance
 - **TASK.md Quality Bar**: Added quality criteria to GATE 2 and review checklist requiring backlog items to include specific deliverable scope. Vague entries are now explicitly prohibited.
 - **Release Exception on Main**: Added explicit exception to the Step 0 Branch Isolation rule allowing `chore(release):` commits directly on `main` as a post-merge ceremony.

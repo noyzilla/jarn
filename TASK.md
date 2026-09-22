@@ -6,8 +6,8 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Establish and verify the Jarn (`jarn`) AI-Driven Software Development Blueprint baseline v0.1.0.
 
 ## Handoff & Session Checkpoints
-- **Last Successful Action**: Implemented scenario-aware output for `jarn.sh` (Greenfield/Brownfield/Update-Same/Update-Upgrade) with `.gitignore` template, GATE 2 quality bar, and self-compliance fixes on branch `fix/audit-self-compliance`.
-- **Immediate Next Action**: Merge `fix/audit-self-compliance` into `main` and cut a release.
+- **Last Successful Action**: Released v0.5.0 with composite release intent, English-only agent internals, scenario-aware installer output, and comprehensive .gitignore.
+- **Immediate Next Action**: Pick up next backlog item.
 - **Active Blockers**: None.
 
 ## In Progress
@@ -22,7 +22,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Configure GitHub branch protection rules on `main` (require PR, require status checks) to enforce Step 0 Branch Isolation Invariant.
 
 ## Completed Milestones
-- (Cleared after Release v0.4.5)
+- (Cleared after Release v0.5.0)
 
 ## Blocked & Under Discussion
 - None currently.
