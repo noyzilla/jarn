@@ -8,7 +8,7 @@ The following actions are strictly prohibited without prior explicit human confi
 
 - **Database Destruction**: Dropping databases, schemas, or tables, executing table truncation, or applying unverified data-destructive migrations.
 - **Git History Rewrite**: Force-pushing (`git push --force` or `--force-with-lease`) to remote branches, deleting remote branches, or hard-resetting shared branches.
-- **Direct Edits & Commits to Main (Step 0 Invariant)**: Modifying, creating, or committing files directly on the `main` or production branch. Before making any codebase changes, contributors and agents MUST verify `git branch --show-current` and branch out (`git checkout -b <type>/<slug>`).
+- **Direct Edits & Commits to Main (Step 0 Invariant)**: Modifying, creating, or committing files directly on the `main` or production branch. Before making any codebase changes, contributors and agents MUST verify `git branch --show-current` and branch out (`git checkout -b <type>/<slug>`). **Exception**: `chore(release): vX.Y.Z` commits are permitted directly on `main` as a post-merge ceremony, since they contain only mechanical changelog and metadata updates with zero logic risk. This exception is governed exclusively by the `jarn-release` skill.
 - **Credential Exposure**: Adding, modifying, reading, or printing production secrets, private keys, authentication tokens, API keys, or `.env` files containing sensitive credentials.
 - **Uncontrolled Dependencies**: Introducing new third-party libraries, packages, or external dependencies that have not been explicitly discussed and agreed upon.
 - **Unbounded Deletion**: Recursively deleting directories or bulk deleting source files outside of designated build output or scratch folders.

@@ -8,6 +8,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ### Governance
 - **TASK.md Quality Bar**: Added quality criteria to GATE 2 and review checklist requiring backlog items to include specific deliverable scope. Vague entries are now explicitly prohibited.
+- **Release Exception on Main**: Added explicit exception to the Step 0 Branch Isolation rule allowing `chore(release):` commits directly on `main` as a post-merge ceremony.
+
+### Skills
+- **Release Composite Intent**: Redesigned `jarn-release` skill with two trigger levels: `release` (inform & confirm) and `จบงาน release` (execute full pipeline). Agent now automatically resolves pre-conditions (uncommitted changes, non-main branch) without stopping to ask at each step, while preserving all quality gates.
+- **Release Branch Removal**: Release preparation now commits directly on `main` instead of requiring a `chore/release-*` branch, eliminating unnecessary ceremony for mechanical changelog-only commits.
 
 ### Scripts
 - **Scenario-Aware Output**: `jarn.sh` now detects installation scenario (Greenfield, Brownfield, Update-Same, Update-Upgrade) and displays tailored output with context-appropriate next steps instead of a one-size-fits-all adoption directive.
