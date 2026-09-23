@@ -9,7 +9,7 @@
 > **MANDATORY PRE-FLIGHT GUARD [มาตรฐานจุดตรวจก่อนเริ่มงาน]**:
 > - **Step 0 Branch Isolation**: NEVER edit or commit on `main`. Verify `git branch --show-current` before modifying any files. Branch out (`git checkout -b <type>/<slug>`) immediately if on `main`. (See [.agents/rules/jarn-governance.md](.agents/rules/jarn-governance.md))
 > - **Inquiry vs Directive**: Treat discussions as Inquiry Mode (read-only analysis). Do NOT mutate code without an explicit Directive trigger (e.g. "ทำเลย", "อนุมัติ", "proceed"). (See [.agents/rules/jarn-governance.md](.agents/rules/jarn-governance.md))
-> - **Operational Workflow Gates**: Adhere strictly to **GATE 1** (Discovery & Brainstorming) -> **GATE 2** (Living Spec & Mission Approval) -> **GATE 3** (Surgical Execution & Self-Verification) -> **GATE 4** (Knowledge Capture & Pre-Merge Audit).
+> - **Operational Workflow Gates**: Adhere strictly to **GATE 1** (Living Spec & Mission Approval) -> **GATE 2** (Surgical Execution & Self-Verification) -> **GATE 3** (Knowledge Capture & Pre-Merge Audit).
 
 This document is the primary machine-readable entrypoint for AI coding agents collaborating on this codebase.
 
@@ -20,7 +20,7 @@ Directory discovery in the pre-flight guard determines the active rules. This ma
 Agents MUST strictly comply with every active Jarn rule:
 
 - **Governance & Safety**: [.agents/rules/jarn-governance.md](.agents/rules/jarn-governance.md) (Safety boundaries, escalation gates, workflow state machine, change taxonomy).
-- **Operational Lifecycle**: [.agents/rules/jarn-lifecycle.md](.agents/rules/jarn-lifecycle.md) (GATE 1 → GATE 2 → GATE 3 → GATE 4 operational gates, gate checklists, Definition of Done).
+- **Operational Lifecycle**: [.agents/rules/jarn-lifecycle.md](.agents/rules/jarn-lifecycle.md) (GATE 1 → GATE 2 → GATE 3 operational gates, gate checklists, Definition of Done).
 - **Architecture & Lifecycle**: [.agents/rules/jarn-architecture.md](.agents/rules/jarn-architecture.md) (Ecosystem-native lifecycle, configuration architecture, document splitting, frontmatter).
 - **Naming Conventions**: [.agents/rules/jarn-naming.md](.agents/rules/jarn-naming.md) (Path notation, environment variable parity, domain alignment).
 - **Coding Style & Hygiene**: [.agents/rules/jarn-coding.md](.agents/rules/jarn-coding.md) (Visual hygiene, bilingual annotations, numbering invariants, stable references).
@@ -124,10 +124,10 @@ Select and copy the relevant command preset into the Active Commands section abo
 ## Available Modular Skills
 
 When specialized expertise or operational procedures are required, activate the relevant skill under `.agents/skills/`:
-- [jarn-consult](.agents/skills/jarn-consult/SKILL.md): Structured requirement discovery and brainstorming (GATE 1). Classifies work, coaches intent with focused questions, evaluates viability, proposes implementation options with trade-offs, and hands off a confirmed agreement to jarn-spec (GATE 2).
-- [jarn-spec](.agents/skills/jarn-spec/SKILL.md): Author, debate, and maintain vertical slice living specifications (`docs/specs/`) with Code-Spec Parity and blast-radius matrices (GATE 2).
+- [jarn-consult](.agents/skills/jarn-consult/SKILL.md): Structured requirement discovery and brainstorming (GATE 1). Classifies work, coaches intent with focused questions, evaluates viability, proposes implementation options with trade-offs, and hands off a confirmed agreement to jarn-spec.
+- [jarn-spec](.agents/skills/jarn-spec/SKILL.md): Author, debate, and maintain vertical slice living specifications (`docs/specs/`) with Code-Spec Parity and blast-radius matrices (GATE 1).
 - [jarn-decisions](.agents/skills/jarn-decisions/SKILL.md): Manage the lifecycle of Architectural Decision Records (`docs/decisions/`) with zero-token filtering.
-- [jarn-review](.agents/skills/jarn-review/SKILL.md): Autonomous quality gate runbook (GATE 4) to inspect git status, run targeted verification, audit commit conventions, and synthesize pre-merge evidence against jarn-quality.md.
+- [jarn-review](.agents/skills/jarn-review/SKILL.md): Autonomous quality gate runbook (GATE 3) to inspect git status, run targeted verification, audit commit conventions, and synthesize pre-merge evidence against jarn-quality.md.
 - [jarn-diagnostics](.agents/skills/jarn-diagnostics/SKILL.md): Isolated defect investigation procedure bounded strictly to the living spec's blast-radius matrix without blind codebase scans.
 - [jarn-release](.agents/skills/jarn-release/SKILL.md): End-to-end automated GitHub Release lifecycle, including SemVer calculation, CHANGELOG drafting, and tag publishing.
 - [jarn-framework-update](.agents/skills/jarn-framework-update/SKILL.md): Update the installed Jarn framework, execute Shadow Merge, and identify required project migrations.

@@ -24,20 +24,20 @@ The result is specs that miss edge cases, require multiple revision rounds, and 
 
 ## Decision
 
-Introduce `jarn-consult` as an explicit, named **GATE 1: Requirement Discovery & Brainstorming** that precedes GATE 2 (Living Spec & Mission Approval) for all spec-altering changes. The phase is codified as a modular skill under `.agents/skills/jarn-consult/SKILL.md`.
+Introduce `jarn-consult` as an explicit **Requirement Discovery & Brainstorming** skill embedded within **GATE 1: Living Spec & Mission Approval** for all spec-altering changes. The workflow is codified as a modular skill under `.agents/skills/jarn-consult/SKILL.md`.
 
-The Consultation Phase:
+The Consultation workflow within GATE 1:
 - **Classifies** the request as Spike, Bounded, or Architectural before any spec work begins.
 - **Probes** intent, constraints, edge cases, and success criteria through focused, one-at-a-time questions led by the AI.
 - **Proposes** 2–3 implementation options with trade-offs and a clear recommendation.
-- **Hands off** the gathered context to `jarn-spec` (GATE 2) for living spec synthesis — it does not write the spec itself.
+- **Hands off** the gathered context to `jarn-spec` to synthesize the living spec (`docs/specs/`) and implementation plan before requesting human approval.
 
-The phase name **Consultation** (not Brainstorming) was chosen deliberately to align with Jarn's identity as "จารย์" (an expert advisor) — structured, purposeful expert inquiry rather than open-ended ideation.
+The skill name **Consultation** (not Brainstorming) was chosen deliberately to align with Jarn's identity as "จารย์" (an expert advisor) — structured, purposeful expert inquiry and Socratic coaching rather than open-ended ideation.
 
-The lifecycle becomes:
+The operational lifecycle is:
 
 ```
-GATE 1 → GATE 2 → GATE 3 → GATE 4
+GATE 1 → GATE 2 → GATE 3
 ```
 
 ## Consequences
@@ -55,7 +55,7 @@ GATE 1 → GATE 2 → GATE 3 → GATE 4
 
 ## Alternatives Evaluated & Trade-offs
 
-- **Adopt Superpowers brainstorming skill verbatim**: Rejected. Superpowers brainstorming uses append-only design docs and synchronous chat as the primary medium, conflicting with Jarn's living spec pattern and async document review loop. It also lacks blast-radius scoping and does not integrate with GATE 0/1/2.
+- **Adopt Superpowers brainstorming skill verbatim**: Rejected. Superpowers brainstorming uses append-only design docs and synchronous chat as the primary medium, conflicting with Jarn's living spec pattern and async document review loop. It also lacks blast-radius scoping and does not integrate with Jarn's operational gates.
 
 - **Rely on model capability**: Rejected. Leaving requirement discovery to model behavior produces inconsistent results — a core Jarn invariant is that governance rules, not model quality, determine process outcomes.
 
