@@ -17,10 +17,7 @@ This document serves as the high-level roadmap and backlog for the project.
 - Configure GitHub branch protection rules on `main` (require PR, require status checks) to enforce Step 0 Branch Isolation Invariant.
 
 ## Completed Milestones
-- Refactored Jarn Governance Lifecycle into unified 3-Gate Model (GATE 1: Living Spec & Mission Approval embedding `jarn-consult` → GATE 2: Surgical Execution & Self-Verification → GATE 3: Knowledge Capture & Pre-Merge Audit).
-- Renamed `jarn-testing.md` to `jarn-quality.md` across rules, templates, and documentation.
-- Upgraded `jarn-consult` with proactive Socratic coaching for junior developers, early viability triage, and emergency hotfix bypass.
-- Codified Slug & Document Path Notation standards in `jarn-naming.md`.
+- None currently (Cleared after v0.6.0 release).
 
 ## Blocked & Under Discussion
 - None currently.
