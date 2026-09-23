@@ -77,3 +77,7 @@ This repository is organized into distinct communication and governance layers:
 | **`.agents/`** | Agent Governance & Skills | Universal rules kernel, Jarn skills (`jarn-*`), and shadow templates (`.jarn-templates/`) |
 | **`docs/`** | System Documentation Repository | Architecture, design system, living specs, ADR decisions, and runbooks |
 | **`scripts/jarn.sh`** | Project Initialization & Update | Universal one-liner command to initialize or update a project |
+
+---
+
+> *"ขอให้สนุกกับการทำงานร่วมกับ AI ครับ... ไร้บั๊ก ไร้โศก และขอจารย์จงสถิตอยู่กับท่าน!"* 🚀
