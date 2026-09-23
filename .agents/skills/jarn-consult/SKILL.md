@@ -6,7 +6,7 @@ description: >-
   options, and hands off a clear agreement to jarn-spec for living spec synthesis.
 ---
 
-# Jarn Consultation Workflow [กระบวนการปรึกษาหารือ]
+# Jarn Consultation Workflow
 
 This skill defines the structured requirement discovery procedure executed before GATE 0 for all spec-altering changes. It ensures the AI leads the inquiry — not the human — making Jarn accessible to junior developers and producing better-scoped specs regardless of AI model.
 
@@ -31,7 +31,7 @@ Do NOT use this workflow when:
 
 ## Operational Execution Runbook
 
-### Phase 0: Classification [จำแนกประเภทงาน]
+### Phase 0: Classification
 
 Before asking any question, classify the request and **announce the classification out loud** so the human can override:
 
@@ -48,7 +48,7 @@ Before asking any question, classify the request and **announce the classificati
 
 ---
 
-### Phase 1: Discover Intent [ค้นหาเจตนา]
+### Phase 1: Discover Intent
 
 Understand what the human is actually trying to accomplish before proposing anything.
 
@@ -65,7 +65,7 @@ Understand what the human is actually trying to accomplish before proposing anyt
 
 ---
 
-### Phase 2: Propose Options [เสนอทางเลือก]
+### Phase 2: Propose Options
 
 Once intent is clear, present implementation approaches — do not propose a single solution.
 
@@ -87,7 +87,7 @@ Recommendation: Option A — because [specific reason tied to this project's con
 
 ---
 
-### Phase 3: Confirm Agreement [ยืนยันข้อตกลง]
+### Phase 3: Confirm Agreement
 
 Before handing off, verify the agreed direction.
 
@@ -97,7 +97,7 @@ Before handing off, verify the agreed direction.
 
 ---
 
-### Phase 4: Hand Off to jarn-spec [ส่งต่อ]
+### Phase 4: Hand Off to jarn-spec
 
 Once the human confirms the agreement:
 
@@ -108,7 +108,7 @@ Once the human confirms the agreement:
 
 ---
 
-## Red Flags [สัญญาณเตือน]
+## Red Flags
 
 | Thought | Reality |
 |---|---|
