@@ -2,7 +2,7 @@
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Add project-specific naming conventions to your project's `CONTEXT.md` only.
 
-This document defines the naming conventions for configurations, variables, and domains across the project.
+This document defines the naming conventions for configurations, variables, slugs, and domains across the project.
 
 ## Configuration Naming Principles
 
@@ -30,6 +30,19 @@ This document defines the naming conventions for configurations, variables, and 
 - **Bad:** `AUTO_START_DELAY_MS` (Makes "Auto" look like a modifier for "Start")
 - **Good:** `AUTOSTART_DELAY_MS` ("Autostart" is treated as a single noun)
 - **Good:** `WEBSOCKET_PORT` (Not `WEB_SOCKET_PORT`), `FILENAME` (Not `FILE_NAME`)
+
+## Slug & Document Path Notation
+
+### Path Notation over Sentence-Like Slugs
+- **Rule:** Slugs for files (`docs/**`), ADRs, living specs, runbooks, and Git branches must use `kebab-case` structured as a hierarchical path: **`[Domain/Topic]-[Modifier/Subtopic]-[Detail/Entity]`**. Never construct slugs as natural language sentences.
+- **Rationale:** Groups related files alphabetically, enables instant pattern searches (`grep`, glob), and eliminates deeply nested folder structures while preserving structural depth for AI context ingestion.
+- **Bad:** `how-to-login-with-google.md`, `fix-the-broken-database-timeout.md`
+- **Good:** `auth-oauth-google.md`, `db-timeout-retry.md`
+
+### Slug Formatting Invariants
+- **Lowercase & Hyphens Only**: Strictly lowercase `a-z`, digits `0-9`, and single hyphens `-`. No uppercase, spaces, or underscores.
+- **Concise Scope**: 2–5 words focusing on domain intent. Omit conversational filler words (`the`, `a`, `and`, `how-to`).
+- **Numeric Prefixes**: When sequential order or identifier tracking is required (ADRs in `docs/decisions/` and runbooks in `docs/development/`), use a 4-digit zero-padded prefix: `XXXX-<slug>.md` (e.g., `0001-project-identity.md`).
 
 ## Domain & Intent-Based Naming
 

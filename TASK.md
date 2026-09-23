@@ -25,6 +25,7 @@ This document serves as the shared real-time task board and scratchpad for colla
 - Refactored Jarn Governance Lifecycle into unified 3-Gate Model (GATE 1: Living Spec & Mission Approval embedding `jarn-consult` → GATE 2: Surgical Execution & Self-Verification → GATE 3: Knowledge Capture & Pre-Merge Audit).
 - Renamed `jarn-testing.md` to `jarn-quality.md` across rules, templates, and documentation.
 - Upgraded `jarn-consult` with proactive Socratic coaching for junior developers, early viability triage, and emergency hotfix bypass.
+- Codified Slug & Document Path Notation standards in `jarn-naming.md`.
 
 ## Blocked & Under Discussion
 - None currently.

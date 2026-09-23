@@ -7,6 +7,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 ## [Unreleased]
 
 ### Rules
+- **Slug & Document Path Notation Standard**: Codified hierarchical path notation (`[Domain]-[Modifier]-[Entity]`) for file slugs across `docs/**`, ADRs, specs, and Git branches in `jarn-naming.md` to prevent conversational sentence slugs and enable alphabetical grouping.
 - **3-Gate Operational Lifecycle**: Re-architected operational gates into a clean, unified, 1-based **GATE 1 → GATE 2 → GATE 3** model in `jarn-lifecycle.md` and `jarn-governance.md` (GATE 1: Living Spec & Mission Approval embedding `jarn-consult`, GATE 2: Surgical Execution & Self-Verification, GATE 3: Knowledge Capture & Pre-Merge Audit).
 - **jarn-quality.md (Universal Standard)**: Renamed `jarn-testing.md` to `jarn-quality.md` (`# Universal Quality Gates & Pre-Merge Standard`) to accurately reflect its role as the universal pre-merge quality and review standard across all three gates.
 - **Jarn File Immutability Invariant**: Added `Do not modify this file` notice to all `jarn-*.md` rule files and `jarn-*/SKILL.md` skill files. Downstream projects must not edit these files directly — they will be overwritten by `jarn-framework-update`. Project-specific extensions belong in `REVIEW.md` and `AGENTS.md` only.
