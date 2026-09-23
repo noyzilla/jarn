@@ -8,6 +8,8 @@ description: >-
 
 # Jarn Consultation Workflow
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill).
+
 This skill defines the structured requirement discovery procedure executed before GATE 0 for all spec-altering changes. It ensures the AI leads the inquiry — not the human — making Jarn accessible to junior developers and producing better-scoped specs regardless of AI model.
 
 ## Core Philosophy

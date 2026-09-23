@@ -5,6 +5,8 @@ description: End-to-end automated GitHub Release lifecycle, including SemVer cal
 
 # Jarn Release Lifecycle
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill).
+
 **Description**: Automates the version release process by analyzing Git commit history, calculating Semantic Versioning (SemVer), updating the `CHANGELOG.md`, and publishing a formal GitHub Release via the GitHub CLI (`gh`).
 
 **Primary Objective**: To ensure releases are created safely and consistently without manual version guessing or manual changelog writing.

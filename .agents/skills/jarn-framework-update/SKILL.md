@@ -7,6 +7,8 @@ description: >-
 
 # Jarn Framework Update & Shadow Merge
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill).
+
 This skill defines the approved procedure to update the Jarn framework (rules, skills, templates) and perform an AI-driven Shadow Merge.
 
 ## When to Use This Skill

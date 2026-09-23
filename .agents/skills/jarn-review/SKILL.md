@@ -8,6 +8,8 @@ description: >-
 
 # Jarn Pre-Merge Review & Verification Runbook
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill).
+
 This skill defines the autonomous quality gate review procedure executed before opening, approving, or merging pull requests.
 
 ## Core Philosophy
