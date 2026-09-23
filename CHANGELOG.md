@@ -7,21 +7,21 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 ## [Unreleased]
 
 ### Rules
-- **4-Gate Operational Lifecycle**: Re-architected operational gates into a unified, 1-based **GATE 1 → GATE 2 → GATE 3 → GATE 4** model in `jarn-lifecycle.md` and `jarn-governance.md`, eliminating the 0-index / "Pre-Gate 0" paradox.
-- **jarn-quality.md (Universal Standard)**: Renamed `jarn-testing.md` to `jarn-quality.md` (`# Universal Quality Gates & Pre-Merge Standard`) to accurately reflect its role as the universal pre-merge quality and review standard across all four gates.
+- **3-Gate Operational Lifecycle**: Re-architected operational gates into a clean, unified, 1-based **GATE 1 → GATE 2 → GATE 3** model in `jarn-lifecycle.md` and `jarn-governance.md` (GATE 1: Living Spec & Mission Approval embedding `jarn-consult`, GATE 2: Surgical Execution & Self-Verification, GATE 3: Knowledge Capture & Pre-Merge Audit).
+- **jarn-quality.md (Universal Standard)**: Renamed `jarn-testing.md` to `jarn-quality.md` (`# Universal Quality Gates & Pre-Merge Standard`) to accurately reflect its role as the universal pre-merge quality and review standard across all three gates.
 - **Jarn File Immutability Invariant**: Added `Do not modify this file` notice to all `jarn-*.md` rule files and `jarn-*/SKILL.md` skill files. Downstream projects must not edit these files directly — they will be overwritten by `jarn-framework-update`. Project-specific extensions belong in `REVIEW.md` and `AGENTS.md` only.
-- **Agent File Size Compliance**: Added size limit enforcement — soft limit 8,000 characters, hard limit 12,000 characters per agent file — with `wc -m` verification command in GATE 4 checklist.
+- **Agent File Size Compliance**: Added size limit enforcement — soft limit 8,000 characters, hard limit 12,000 characters per agent file — with `wc -m` verification command in GATE 3 checklist.
 - **Agent Language Purity**: Strengthened Bilingual Annotation Standard checklist item with explicit `grep` verification command to enforce English-only in `.agents/` files.
 
 ### Skills
-- **jarn-consult Skill (GATE 1)**: Upgraded `jarn-consult` to GATE 1 with proactive **Brainstorming & Socratic Coaching** for junior developers (scaffolding questions for security, race conditions, edge cases, and performance), early viability triage (Proceed, Defer, or Won't Do YAGNI filter), and emergency hotfix bypass clause.
-- **jarn-review Skill (GATE 4)**: Aligned review runbook to audit against `jarn-quality.md` and verify GATE 1..4 DoD compliance.
+- **jarn-consult Skill (GATE 1)**: Integrated `jarn-consult` into GATE 1 with proactive **Brainstorming & Socratic Coaching** for junior developers (scaffolding questions for security, race conditions, edge cases, and performance), early viability triage (Proceed, Defer, or Won't Do YAGNI filter), and emergency hotfix bypass clause.
+- **jarn-review Skill (GATE 3)**: Aligned review runbook to audit against `jarn-quality.md` and verify GATE 1..3 DoD compliance.
 
 ### Templates
-- **templates/REVIEW.md & templates/AGENTS.md & templates/CONTRIBUTING.md**: Synchronized all templates with the 4-Gate operational model and `jarn-quality.md` universal rule references.
+- **templates/REVIEW.md & templates/AGENTS.md & templates/CONTRIBUTING.md**: Synchronized all templates with the 3-Gate operational model and `jarn-quality.md` universal rule references.
 
 ### Specs & Decisions
-- **ADR-0004**: Updated architectural record reflecting the 4-Gate lifecycle evolution and GATE 1 Consultation/Brainstorming role.
+- **ADR-0004**: Updated architectural record reflecting the 3-Gate lifecycle evolution and GATE 1 Consultation/Brainstorming integration.
 
 ## [0.5.0] - 2026-09-23
 
