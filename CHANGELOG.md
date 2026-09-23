@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## [Unreleased]
+## [0.6.0] - 2026-09-23
+
+### Governance & Workflow
+- **Event-Driven Handoff Protocol**: Replaced static Team Topologies with a fluid Continuous Flow (default) vs Brake Flow (handoff interruption via git commit) mechanism in `CONTRIBUTING.md`, templates, and `jarn-lifecycle.md`.
+
+### Documentation
+- **README Revamp**: Overhauled README.md to serve as an inviting landing page highlighting Jarn's value propositions (AI-Native Governance, Fluid Collaboration, 3-Gate Model, Zero-Conflict Seeding) and explicit policy on external PRs vs forks.
+- **Core Philosophy**: Added `Consult Before Code`, `Spec is Law`, and `Record the "Why"` explicitly to the project entrypoint.
+- **ADR-0005**: Documented Event-Driven Handoff Protocol.
 
 ### Rules
 - **Slug & Document Path Notation Standard**: Codified hierarchical path notation (`[Domain]-[Modifier]-[Entity]`) for file slugs across `docs/**`, ADRs, specs, and Git branches in `jarn-naming.md` to prevent conversational sentence slugs and enable alphabetical grouping.
