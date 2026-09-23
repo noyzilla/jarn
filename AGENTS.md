@@ -79,6 +79,7 @@ When modifying specific layers or subsystems, update the designated locations an
 ## Available Modular Skills
 
 When specialized expertise or operational procedures are required, activate the relevant skill under `.agents/skills/`:
+- [jarn-consult](.agents/skills/jarn-consult/SKILL.md): Structured requirement discovery before spec writing. Classifies work, probes intent with focused one-at-a-time questions, proposes implementation options with trade-offs, and hands off a confirmed agreement to jarn-spec.
 - [jarn-spec](.agents/skills/jarn-spec/SKILL.md): Author, debate, and maintain vertical slice living specifications (`docs/specs/`) with Code-Spec Parity and blast-radius matrices.
 - [jarn-decisions](.agents/skills/jarn-decisions/SKILL.md): Manage the lifecycle of Architectural Decision Records (`docs/decisions/`) with zero-token filtering.
 - [jarn-review](.agents/skills/jarn-review/SKILL.md): Autonomous quality gate runbook to inspect git status, run targeted verification, audit commit conventions, and synthesize pre-merge evidence.
