@@ -48,9 +48,11 @@ GATE 1 → GATE 2 → GATE 3
 - **Code-Spec Parity Verification**: Ensure code implementations match living specs in `docs/specs/`.
 - **Evidence Attachment**: Attach empirical test execution logs demonstrating clean passing results (Exit Code 0).
 - **Pre-Merge Audit Execution**: Activate and fulfill the universal quality gate checklist in [jarn-quality.md](jarn-quality.md) and project extensions in `REVIEW.md` via the `jarn-review` skill.
-- **Collaboration Topology Check**: Agents MUST read `CONTRIBUTING.md` to determine if the project uses a Solo/Full-Stack or Multi-Role topology.
-- **Solo Execution (Default)**: If no multi-role handoff is specified, agents complete GATE 3, audit against `REVIEW.md`, and execute the merge autonomously.
-- **Multi-Role Handoff Execution**: If the project uses separate roles (e.g., Dev, QA), the agent MUST NOT merge the code. Instead:
+- **Continuous Flow (Default)**: By default, agents complete GATE 3, audit against `REVIEW.md`, and execute the merge autonomously.
+- **Handoff Interruption (Brake Flow)**: An agent MUST NOT merge the code, and instead MUST halt execution and perform a handoff if:
+  1. `CONTRIBUTING.md` explicitly lists project roles that mandate a handoff at this stage (e.g., a required QA step).
+  2. The human user explicitly instructs the agent to halt or perform a handoff.
+- **Handoff Execution**: To hand off work, the agent must:
   1. Update the branch-scoped `TASK.md` to reflect the completed state for the next role.
   2. Execute a `handoff(<target>): <message>` commit (e.g., `git commit -m "handoff(qa): ready for testing"`).
   3. Push to origin and halt execution, waiting for the target role to pick up the branch.

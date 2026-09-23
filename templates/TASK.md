@@ -11,7 +11,7 @@ This file serves as the state machine for the current branch. It tracks the prog
 - [ ] Implemented core logic according to the living specifications.
 - [ ] Added or updated unit tests to cover new behavior.
 - [ ] Passed all local verification checks (tests, linters).
-- [ ] **Handoff (If Multi-Role):** Executed `git commit -m "handoff(<target>): ready for review"` and pushed to origin.
+- [ ] **Handoff (If required):** If the workflow requires another role (e.g., QA) to test or review, execute `git commit -m "handoff(<target>): ready for review"` and push to origin.
 
 ## QA & Review (GATE 3)
 *Completed by the QA / Reviewer Agent (if applicable).*
