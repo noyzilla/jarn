@@ -7,9 +7,15 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 ## [Unreleased]
 
 ### Rules
+- **Jarn File Immutability Invariant**: Added `Do not modify this file` notice to all `jarn-*.md` rule files and `jarn-*/SKILL.md` skill files. Downstream projects must not edit these files directly — they will be overwritten by `jarn-framework-update`. Project-specific extensions belong in `REVIEW.md` and `AGENTS.md` only.
+- **jarn-testing.md Universal Scope Guard**: Clarified that `jarn-testing.md` is a universal baseline — no project-specific items permitted. Added explicit hand-off instruction to continue with `REVIEW.md` after completing universal gates.
+- **Agent File Size Compliance relocated**: Moved from `jarn-testing.md` (universal) to `REVIEW.md` Project-Specific section (Jarn framework maintainer only).
 - **jarn-lifecycle.md**: Extracted operational lifecycle (CONSULT → GATE 0 → GATE 1 → GATE 2 phases, gate checklists, Definition of Done) from `jarn-governance.md` into a dedicated rule file to reduce per-session token load and keep each file within the 8,000 character soft limit.
 - **Agent File Size Compliance**: Added size limit enforcement — soft limit 8,000 characters, hard limit 12,000 characters per agent file — with `wc -m` verification command in GATE 2 checklist.
 - **Agent Language Purity**: Strengthened Bilingual Annotation Standard checklist item with explicit `grep` verification command to enforce English-only in `.agents/` files.
+
+### Templates
+- **templates/REVIEW.md**: Added immutability guard notice, updated how-to-use flow (complete `jarn-testing.md` universal gates first, then project-specific), and clarified that Project-Specific section must not duplicate universal gates.
 
 ### Specs
 - **agent-file-standards.md**: New living specification documenting language purity (English-only for `.agents/` files) and file size limits (soft 8,000 / hard 12,000 characters) with split strategy and acceptance criteria.
