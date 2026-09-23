@@ -6,6 +6,14 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+### Rules
+- **jarn-lifecycle.md**: Extracted operational lifecycle (CONSULT → GATE 0 → GATE 1 → GATE 2 phases, gate checklists, Definition of Done) from `jarn-governance.md` into a dedicated rule file to reduce per-session token load and keep each file within the 8,000 character soft limit.
+- **Agent File Size Compliance**: Added size limit enforcement — soft limit 8,000 characters, hard limit 12,000 characters per agent file — with `wc -m` verification command in GATE 2 checklist.
+- **Agent Language Purity**: Strengthened Bilingual Annotation Standard checklist item with explicit `grep` verification command to enforce English-only in `.agents/` files.
+
+### Specs
+- **agent-file-standards.md**: New living specification documenting language purity (English-only for `.agents/` files) and file size limits (soft 8,000 / hard 12,000 characters) with split strategy and acceptance criteria.
+
 ### Skills
 - **jarn-consult Skill**: Added `jarn-consult` as the new Consultation Phase — a structured requirement discovery skill that activates before GATE 0 for all spec-altering changes. The AI classifies the request (Spike, Bounded, or Architectural), probes intent with focused one-at-a-time questions, proposes 2–3 implementation options with trade-offs, and hands off a confirmed agreement to `jarn-spec`. Reduces reliance on model-dependent behavior and lowers the barrier for junior developers.
 
