@@ -15,6 +15,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - **Agent Language Purity**: Strengthened Bilingual Annotation Standard checklist item with explicit `grep` verification command to enforce English-only in `.agents/` files.
 
 ### Skills
+- **jarn-framework-update Skill**: Added explicit **Ingest Updated Rules & Modular Skills** phase instructing the AI agent to re-discover and re-read all active `.agents/rules/jarn-*.md` and `.agents/skills/` immediately after installer execution to realign its operational mental model before performing shadow merges on project root files.
 - **jarn-consult Skill (GATE 1)**: Integrated `jarn-consult` into GATE 1 with proactive **Brainstorming & Socratic Coaching** for junior developers (scaffolding questions for security, race conditions, edge cases, and performance), early viability triage (Proceed, Defer, or Won't Do YAGNI filter), and emergency hotfix bypass clause.
 - **jarn-review Skill (GATE 3)**: Aligned review runbook to audit against `jarn-quality.md` and verify GATE 1..3 DoD compliance.
 
