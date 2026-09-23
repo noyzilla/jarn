@@ -1,7 +1,7 @@
 ---
 name: jarn-review
 description: >-
-  Automate pre-merge review and quality gate verification (GATE 4). Inspects git status, maps
+  Automate pre-merge review and quality gate verification (GATE 3). Inspects git status, maps
   files to the Change Routing Matrix, executes targeted tests, verifies code-spec
   parity, and audits compliance against jarn-quality.md.
 ---
@@ -10,7 +10,7 @@ description: >-
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill).
 
-This skill defines the autonomous quality gate review procedure executed in GATE 4 before opening, approving, or merging pull requests.
+This skill defines the autonomous quality gate review procedure executed in GATE 3 before opening, approving, or merging pull requests.
 
 ## Core Philosophy
 
@@ -19,7 +19,7 @@ Quality assurance in an AI-assisted environment must be deterministic, evidence-
 ## When to Use This Skill
 
 Activate this workflow when:
-- Concluding a feature branch, bug fix, or refactoring task in GATE 4.
+- Concluding a feature branch, bug fix, or refactoring task in GATE 3.
 - Preparing a pull request or requesting final human sign-off.
 - Conducting a peer review or automated audit of proposed changes.
 - Verifying Definition of Done (DoD) compliance.

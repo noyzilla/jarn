@@ -3,14 +3,14 @@ name: jarn-consult
 description: >-
   Activate before any spec-altering change to lead structured requirement discovery and brainstorming (GATE 1).
   Classifies the request, probes intent with focused questions, acts as a Socratic coach for junior developers,
-  proposes implementation options with trade-offs, and hands off a clear agreement to jarn-spec (GATE 2).
+  proposes implementation options with trade-offs, and hands off a confirmed agreement to jarn-spec for living spec synthesis.
 ---
 
 # Jarn Consultation Workflow
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill).
 
-This skill defines the structured requirement discovery and brainstorming procedure executed during GATE 1 for all spec-altering changes. It ensures the AI leads the inquiry and brainstorming — not the human — coaching junior developers, evaluating viability, and producing well-scoped specs regardless of AI model.
+This skill defines the structured requirement discovery and brainstorming procedure executed during GATE 1 for all spec-altering changes. It ensures the AI leads the inquiry and brainstorming — not the human — coaching junior developers, evaluating viability, and producing well-scoped living specs regardless of AI model.
 
 ## Core Philosophy
 
@@ -25,7 +25,7 @@ Activate this workflow when:
 - The request scope is ambiguous — could be a small fix, a large redesign, or a non-viable feature.
 
 Do NOT use this workflow when:
-- Fixing a bug where the existing spec is already correct (spec-conforming fix — proceed directly to GATE 2 / GATE 3).
+- Fixing a bug where the existing spec is already correct (spec-conforming fix — proceed directly to implementation plan in GATE 1 / GATE 2).
 - Performing internal refactoring or styling cleanup that preserves external behavior.
 - Emergency production hotfixes or P1 incidents where immediate surgical remediation is required.
 - Requirements have already been thoroughly discussed and an approved living spec draft exists.
@@ -39,7 +39,7 @@ Do NOT use this workflow when:
 Before asking any question, classify the request and **announce the classification out loud** so the human can override:
 
 - **Spike** — A feasibility question or exploratory investigation. Output is an answer or recommendation, not a spec. Example: "Can we integrate X library?" or "Is this approach viable?"
-  - Process: Ask one clarifying question if needed, investigate, report recommendation. No spec, no GATE 2.
+  - Process: Ask one clarifying question if needed, investigate, report recommendation. No spec, GATE 1 concludes with findings.
 
 - **Bounded** — A well-scoped change to an existing flow already present in the codebase. A single new flag, a small endpoint adjustment, a one-file behavioral change.
   - Process: Ask 2–3 focused questions, present a short in-chat design summary, get approval, hand off to `jarn-spec` for a compact living spec update.
@@ -102,14 +102,14 @@ Before handing off, verify the agreed direction.
 
 ---
 
-### Phase 4: Hand Off to jarn-spec (GATE 2)
+### Phase 4: Hand Off to jarn-spec
 
 Once the human confirms the agreement:
 
-- State clearly: "Consultation complete (GATE 1 passed). Handing off to `jarn-spec` for GATE 2 living specification synthesis."
+- State clearly: "Consultation complete. Handing off to `jarn-spec` to synthesize the living specification in `docs/specs/`."
 - Pass the agreed context — intent, constraints, chosen option, edge cases, and success criteria — as the input brief for `jarn-spec`.
 - Do NOT write the spec yourself. Spec synthesis is the responsibility of the `jarn-spec` skill.
-- Activate `jarn-spec` to produce or update `docs/specs/<feature-slug>.md`.
+- Activate `jarn-spec` to produce or update `docs/specs/<feature-slug>.md` and the implementation plan.
 
 ---
 
@@ -121,7 +121,7 @@ Once the human confirms the agreement:
 | "I'll ask all my questions at once to save time" | One question at a time. Batching overwhelms junior developers and produces shallow answers. |
 | "I understand the request, I'll just propose a solution" | Probe intent first. Assumptions are the root cause of misaligned specs. |
 | "This feels bounded, I'll skip the options step" | Bounded changes still need a short design presented for approval. |
-| "The human approved the idea, so the spec is also approved" | Consultation approval permits spec drafting only. Spec approval is a separate gate in jarn-spec (GATE 2). |
+| "The human approved the idea, so the spec is also approved" | Consultation approval permits spec drafting only. Spec approval is a separate hard stop in GATE 1. |
 | "I'll write a quick spec draft during consultation to save time" | Spec synthesis belongs to jarn-spec. Keep concerns separated. |
 | "The scope grew, but I'm almost done asking" | Hidden complexity upgrades the classification mid-consultation. Announce and adjust. |
 
