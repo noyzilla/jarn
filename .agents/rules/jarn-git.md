@@ -27,6 +27,7 @@ This project strictly follows the Conventional Commits specification coupled wit
 | **`refactor:`** | Code change that neither fixes a bug nor adds a feature | None / Patch | `refactor: simplify target validation` |
 | **`test:`** | Adding or updating tests | None | `test: add unit tests for token parser` |
 | **`chore:`** | Tooling, build scripts, or maintenance | None | `chore: update build script dependencies` |
+| **`handoff:`** | Handing off a task to another role in a Multi-Role Topology | None | `handoff(qa): ready for UI tests` |
 
 ## Commit Frequency & Granularity (Micro-Commit Strategy)
 

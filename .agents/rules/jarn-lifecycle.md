@@ -48,9 +48,13 @@ GATE 1 → GATE 2 → GATE 3
 - **Code-Spec Parity Verification**: Ensure code implementations match living specs in `docs/specs/`.
 - **Evidence Attachment**: Attach empirical test execution logs demonstrating clean passing results (Exit Code 0).
 - **Pre-Merge Audit Execution**: Activate and fulfill the universal quality gate checklist in [jarn-quality.md](jarn-quality.md) and project extensions in `REVIEW.md` via the `jarn-review` skill.
-- **Task State Synchronization**: Before concluding any session or task, the agent MUST update `TASK.md` in the project root to reflect the newly completed milestones and immediate next actions.
-- **Task State Quality Bar**: Every backlog item and next action in `TASK.md` must be specific enough for another contributor or agent to pick up without further clarification. Each item must include a clear deliverable scope (e.g., which files, modules, or contracts are affected). Vague entries are prohibited.
-- **Task State Pruning**: The `Completed Milestones` section in `TASK.md` acts as a short-term buffer. It MUST be cleared/pruned immediately after a formal Release is cut (and recorded in `CHANGELOG.md`) to prevent infinite file growth.
+- **Collaboration Topology Check**: Agents MUST read `CONTRIBUTING.md` to determine if the project uses a Solo/Full-Stack or Multi-Role topology.
+- **Solo Execution (Default)**: If no multi-role handoff is specified, agents complete GATE 3, audit against `REVIEW.md`, and execute the merge autonomously.
+- **Multi-Role Handoff Execution**: If the project uses separate roles (e.g., Dev, QA), the agent MUST NOT merge the code. Instead:
+  1. Update the branch-scoped `TASK.md` to reflect the completed state for the next role.
+  2. Execute a `handoff(<target>): <message>` commit (e.g., `git commit -m "handoff(qa): ready for testing"`).
+  3. Push to origin and halt execution, waiting for the target role to pick up the branch.
+- **Task State Pruning**: Before final merge into `main`, branch-scoped `TASK.md` files should be deleted (or their checklists cleared) to keep the repository history clean. The root `TASK.md` serves only as a high-level project roadmap.
 - Provide a concise walkthrough of changes and test results, then conclude the task cleanly.
 
 ---

@@ -24,6 +24,20 @@ This repository enforces unified engineering conventions:
 - For documentation and commenting rules, see [.agents/rules/jarn-coding.md](.agents/rules/jarn-coding.md#documentation--commenting-rules).
 - For ecosystem lifecycle guidelines, see [.agents/rules/jarn-architecture.md](.agents/rules/jarn-architecture.md#ecosystem-native-lifecycle-contract).
 
+## Collaboration Topology (Team Roles & Workflow)
+
+Projects following the Jarn framework can operate under two collaboration topologies. The appropriate workflow depends on team structure:
+
+1. **Solo / Full-Stack Workflow (Default)**
+   - **Structure**: A single human or AI agent owns the task from start to finish.
+   - **Execution**: The agent writes code, verifies via tests, audits against `REVIEW.md` (GATE 3), and performs the merge independently. No handoff signals are required.
+
+2. **Multi-Role Workflow (Opt-in for distributed teams)**
+   - **Structure**: The project designates specific roles (e.g., Dev, QA, Reviewer) based on team composition.
+   - **Task Scoping (1 Branch = 1 Task)**: Developers must create a branch-scoped `TASK.md` (using `templates/task.md`) when branching out. This file serves as the state machine for the branch.
+   - **Handoff Execution**: Dev agents **MUST NOT** merge code themselves. When ready for testing or review, the Dev commits with the `handoff(<target>): <message>` convention (e.g., `handoff(qa): ready for UI tests`).
+   - **QA / Review Cycle**: The target role pulls the branch, checks off items in the branch's `TASK.md`, and hands it back (`handoff(dev): failed tests`) or approves it for merge.
+
 ## Pull Request Workflow [ขั้นตอนการส่งงาน Pull Request]
 
 ### Branch Isolation & Lifecycle

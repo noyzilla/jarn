@@ -1,23 +1,25 @@
-# Project Task State & Roadmap
+# Branch Task: [Task Title]
 
-This document serves as the shared real-time task board and scratchpad for collaborators. Update this document continuously across sessions.
+This file serves as the state machine for the current branch. It tracks the progress of the feature or fix from development through testing and Pre-Merge Audit.
 
-## Current Mission
-- Define the initial mission for this project.
+- **Branch Target**: `[branch-name]`
+- **Related Specs**: [Link to docs/specs/ here]
 
-## Handoff & Session Checkpoints
-- **Last Successful Action**: Initialized project blueprint.
-- **Immediate Next Action**: Configure language presets and set project identity.
-- **Active Blockers**: None.
+## Dev Execution (GATE 2)
+*Completed by the Developer / Dev Agent.*
 
-## In Progress
-- 
+- [ ] Implemented core logic according to the living specifications.
+- [ ] Added or updated unit tests to cover new behavior.
+- [ ] Passed all local verification checks (tests, linters).
+- [ ] **Handoff (If Multi-Role):** Executed `git commit -m "handoff(<target>): ready for review"` and pushed to origin.
 
-## Next Up (Backlog)
-- 
+## QA & Review (GATE 3)
+*Completed by the QA / Reviewer Agent (if applicable).*
 
-## Completed Milestones
-- 
+- [ ] Pulled branch and verified behavior against requirements.
+- [ ] Verified UI/UX elements and edge cases.
+- [ ] Completed the Pre-Merge Quality Gate checklist in `REVIEW.md`.
+- [ ] **Approval:** Executed `git commit -m "handoff(merge): qa passed, ready for merge"`.
 
-## Blocked & Under Discussion
-- None currently.
+## Pre-Merge Cleanup
+- [ ] Before merging the pull request, clear these checklists or delete this file to keep the `main` branch clean.

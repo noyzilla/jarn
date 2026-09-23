@@ -1,19 +1,14 @@
-# Project Task State & Roadmap
+# Project Roadmap & Backlog
 
-This document serves as the shared real-time task board and scratchpad for collaborators. Update this document continuously across sessions.
+This document serves as the high-level roadmap and backlog for the project. 
+
+> **Task Execution Note:** Do not use this file for tracking active branch development. When starting a new task on a branch, create a branch-scoped `TASK.md` using `templates/task.md` to serve as the execution state machine.
 
 ## Current Mission
 - Establish and verify the Jarn (`jarn`) AI-Driven Software Development Blueprint baseline v0.1.0.
+- Establish Topology-Aware Collaboration Architecture for Jarn.
 
-## Handoff & Session Checkpoints
-- **Last Successful Action**: Released v0.5.0 with composite release intent, English-only agent internals, scenario-aware installer output, and comprehensive .gitignore.
-- **Immediate Next Action**: Pick up next backlog item.
-- **Active Blockers**: None.
-
-## In Progress
-- None.
-
-## Next Up (Backlog)
+## High-Level Backlog
 - Add `AGENTS.md` language preset section with ecosystem-native test runner, linter, and build commands for a concrete target stack (e.g., Go, TypeScript, or Python) to replace current `N/A` placeholders.
 - Create a sample domain implementation under `src/` with accompanying unit tests to demonstrate the living spec workflow (`docs/specs/` code-spec parity, blast-radius matrix, and GATE 1-3 lifecycle).
 - Add GitHub Actions CI workflow (`.github/workflows/ci.yml`) running `shellcheck scripts/*.sh` and Markdown link validation on push and PR.
