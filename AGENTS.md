@@ -19,7 +19,8 @@ Directory discovery in the pre-flight guard determines the active rules. This ma
 
 Agents MUST strictly comply with every active Jarn rule:
 
-- **Governance & Safety**: [.agents/rules/jarn-governance.md](.agents/rules/jarn-governance.md) (Safety boundaries, escalation gates, workflow state machine, change taxonomy, DoD).
+- **Governance & Safety**: [.agents/rules/jarn-governance.md](.agents/rules/jarn-governance.md) (Safety boundaries, escalation gates, workflow state machine, change taxonomy).
+- **Operational Lifecycle**: [.agents/rules/jarn-lifecycle.md](.agents/rules/jarn-lifecycle.md) (CONSULT → GATE 0 → GATE 1 → GATE 2 phases, gate checklists, Definition of Done).
 - **Architecture & Lifecycle**: [.agents/rules/jarn-architecture.md](.agents/rules/jarn-architecture.md) (Ecosystem-native lifecycle, configuration architecture, document splitting, frontmatter).
 - **Naming Conventions**: [.agents/rules/jarn-naming.md](.agents/rules/jarn-naming.md) (Path notation, environment variable parity, domain alignment).
 - **Coding Style & Hygiene**: [.agents/rules/jarn-coding.md](.agents/rules/jarn-coding.md) (Visual hygiene, bilingual annotations, numbering invariants, stable references).
