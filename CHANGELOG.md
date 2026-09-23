@@ -7,27 +7,21 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 ## [Unreleased]
 
 ### Rules
+- **4-Gate Operational Lifecycle**: Re-architected operational gates into a unified, 1-based **GATE 1 → GATE 2 → GATE 3 → GATE 4** model in `jarn-lifecycle.md` and `jarn-governance.md`, eliminating the 0-index / "Pre-Gate 0" paradox.
+- **jarn-quality.md (Universal Standard)**: Renamed `jarn-testing.md` to `jarn-quality.md` (`# Universal Quality Gates & Pre-Merge Standard`) to accurately reflect its role as the universal pre-merge quality and review standard across all four gates.
 - **Jarn File Immutability Invariant**: Added `Do not modify this file` notice to all `jarn-*.md` rule files and `jarn-*/SKILL.md` skill files. Downstream projects must not edit these files directly — they will be overwritten by `jarn-framework-update`. Project-specific extensions belong in `REVIEW.md` and `AGENTS.md` only.
-- **jarn-testing.md Universal Scope Guard**: Clarified that `jarn-testing.md` is a universal baseline — no project-specific items permitted. Added explicit hand-off instruction to continue with `REVIEW.md` after completing universal gates.
-- **Agent File Size Compliance relocated**: Moved from `jarn-testing.md` (universal) to `REVIEW.md` Project-Specific section (Jarn framework maintainer only).
-- **jarn-lifecycle.md**: Extracted operational lifecycle (CONSULT → GATE 0 → GATE 1 → GATE 2 phases, gate checklists, Definition of Done) from `jarn-governance.md` into a dedicated rule file to reduce per-session token load and keep each file within the 8,000 character soft limit.
-- **Agent File Size Compliance**: Added size limit enforcement — soft limit 8,000 characters, hard limit 12,000 characters per agent file — with `wc -m` verification command in GATE 2 checklist.
+- **Agent File Size Compliance**: Added size limit enforcement — soft limit 8,000 characters, hard limit 12,000 characters per agent file — with `wc -m` verification command in GATE 4 checklist.
 - **Agent Language Purity**: Strengthened Bilingual Annotation Standard checklist item with explicit `grep` verification command to enforce English-only in `.agents/` files.
 
-### Templates
-- **templates/REVIEW.md**: Added immutability guard notice, updated how-to-use flow (complete `jarn-testing.md` universal gates first, then project-specific), and clarified that Project-Specific section must not duplicate universal gates.
-
-### Specs
-- **agent-file-standards.md**: New living specification documenting language purity (English-only for `.agents/` files) and file size limits (soft 8,000 / hard 12,000 characters) with split strategy and acceptance criteria.
-
 ### Skills
-- **jarn-consult Skill**: Added `jarn-consult` as the new Consultation Phase — a structured requirement discovery skill that activates before GATE 0 for all spec-altering changes. The AI classifies the request (Spike, Bounded, or Architectural), probes intent with focused one-at-a-time questions, proposes 2–3 implementation options with trade-offs, and hands off a confirmed agreement to `jarn-spec`. Reduces reliance on model-dependent behavior and lowers the barrier for junior developers.
+- **jarn-consult Skill (GATE 1)**: Upgraded `jarn-consult` to GATE 1 with proactive **Brainstorming & Socratic Coaching** for junior developers (scaffolding questions for security, race conditions, edge cases, and performance), early viability triage (Proceed, Defer, or Won't Do YAGNI filter), and emergency hotfix bypass clause.
+- **jarn-review Skill (GATE 4)**: Aligned review runbook to audit against `jarn-quality.md` and verify GATE 1..4 DoD compliance.
 
-### Governance
-- **CONSULT Phase Added to Lifecycle**: Updated `jarn-governance.md` to introduce `CONSULT` as an explicit first phase preceding GATE 0. The full lifecycle is now `CONSULT → GATE 0 → GATE 1 → GATE 2`.
+### Templates
+- **templates/REVIEW.md & templates/AGENTS.md & templates/CONTRIBUTING.md**: Synchronized all templates with the 4-Gate operational model and `jarn-quality.md` universal rule references.
 
-### Decisions
-- **ADR-0004**: Recorded architectural decision for the Consultation Phase, including rationale for the name "Consultation" over "Brainstorming" and trade-offs against alternatives (Superpowers brainstorming verbatim adoption, model capability reliance, jarn-spec extension).
+### Specs & Decisions
+- **ADR-0004**: Updated architectural record reflecting the 4-Gate lifecycle evolution and GATE 1 Consultation/Brainstorming role.
 
 ## [0.5.0] - 2026-09-23
 

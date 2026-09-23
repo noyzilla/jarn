@@ -1,4 +1,4 @@
-# Universal Testing & Pre-Merge Standard
+# Universal Quality Gates & Pre-Merge Standard
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). To add project-specific checks, use your project's `REVIEW.md` under "Project-Specific Review Extensions" only.
 
@@ -14,17 +14,17 @@ After completing all checks below, continue with your project's `REVIEW.md` for 
 
 ---
 
-## GATE 0: Safety & Consultation Invariants
+## GATE 1: Safety, Consultation & Spec Approval Invariants
 
-- [ ] **Branch Isolation**: Changes were developed on an isolated branch (`feat/...`, `fix/...`, `docs/...`, `chore/...`). Direct commits to `main` are strictly prohibited.
-- [ ] **Inquiry vs Directive Traceability**: Execution was preceded by design debate (GATE 0) and unlocked by an explicit human directive, preventing unverified code mutations.
+- [ ] **Branch Isolation (Step 0)**: Changes were developed on an isolated branch (`feat/...`, `fix/...`, `docs/...`, `chore/...`). Direct commits to `main` are strictly prohibited.
+- [ ] **Inquiry vs Directive Traceability (GATE 1)**: Execution was preceded by consultation/brainstorming (`jarn-consult`), spec alignment (`jarn-spec`), and unlocked by an explicit human directive, preventing unverified code mutations.
 - [ ] **No Destructive Operations**: No database truncation, table dropping, bucket deletion, or unverified irreversible migrations without explicit lead sign-off.
 - [ ] **No Secret Exposure**: Zero credentials, API keys, private tokens, or unencrypted `.env` files committed to repository history.
 - [ ] **Dependency Scrutiny**: No new external dependencies introduced without prior architectural agreement and documentation.
 
 ---
 
-## GATE 1: Code Quality & Self-Verification
+## GATE 2: Code Quality, Cleanliness & Self-Verification
 
 - [ ] **Domain Alignment**: All new or modified entity names, database columns, and API parameters match the ubiquitous language defined in `CONTEXT.md`.
 - [ ] **Intent-Based Naming**: Variables and functions reflect domain intent, not mechanism. Generic placeholders (`data`, `temp`, `helper`, `manager`, `process`) are avoided.
@@ -38,7 +38,7 @@ After completing all checks below, continue with your project's `REVIEW.md` for 
 
 ---
 
-## GATE 2: Documentation & Knowledge Preservation
+## GATE 3: Documentation, Knowledge Preservation & Pre-Merge Sync
 
 - [ ] **Change Taxonomy & Code-Spec Parity**:
   - For Spec-Altering changes: Living specifications in `docs/specs/` are updated in lockstep with code and include frontmatter synapses/tags.
@@ -54,7 +54,7 @@ After completing all checks below, continue with your project's `REVIEW.md` for 
 
 ---
 
-## AI Usage & Contributor Accountability
+## Contributor & AI Accountability
 
 - [ ] **Full Ownership**: The submitter understands every line of code in the PR and can explain all technical decisions independently.
 - [ ] **No AI Slop**: The PR contains no speculative scaffolding, unverified code, or unresolved repetitive AI fix loops.

@@ -30,7 +30,7 @@ Core principle: **Numbers used merely for sequence or reading order are prohibit
 - **Do NOT use numbered steps merely to indicate reading or execution order**: Never use `1.`, `2.`, `3.`, or `### 1.` in documentation, markdown files, plans, walkthroughs, or code comments solely to indicate sequence.
 - **Prefer descriptive headings and unnumbered bullet points**: Readers naturally understand the intended order from top to bottom. Use unnumbered bullets (`-`) for workflows, procedures, collections, categories, concepts, and checklists.
 - **Use numbers only when the number itself has semantic meaning**: Numbers are permitted and expected when they represent domain concepts, semantic milestones, or specific identifiers, including:
-  - Operational Gates and Milestones (e.g., `GATE 0 — Mission Approval`, `GATE 1 — Self-Verification`, `GATE 2 — Knowledge Capture`)
+  - Operational Gates and Milestones (e.g., `GATE 1 — Living Spec & Approval`, `GATE 2 — Self-Verification`, `GATE 3 — Knowledge Capture`)
   - Phases and milestones (e.g., `Phase 1 — Schema Migration`, `Phase 2 — Data Migration`)
   - Versions and protocol standards (e.g., `OAuth 2.0`, `TLS 1.3`, `HTTP 200`, `IPv6`)
   - Retries, backoffs, and priorities (e.g., `Retry 1 (immediate)`, `Retry 2 (30s backoff)`, `P1 Critical`)
@@ -51,9 +51,9 @@ Execution or reading order (No numbers needed; top-to-bottom list communicates s
 Semantic Identity (Numbers represent named domain phases referenced across tickets, plans, and releases):
 ```markdown
 ## Operational Gates
-### GATE 0 — Mission Approval
-### GATE 1 — Self-Verification
-### GATE 2 — Knowledge Capture
+### GATE 1 — Living Spec & Mission Approval
+### GATE 2 — Surgical Execution & Self-Verification
+### GATE 3 — Knowledge Capture & Pre-Merge Audit
 ```
 
 ### Code Comments Invariants

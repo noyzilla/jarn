@@ -32,5 +32,5 @@ Before opening a pull request, run the active verification commands configured f
 
 ### Pre-Merge Quality Checklist
 Verify that your pull request satisfies all quality gates defined in the pre-merge checklist:
-- Universal Pre-Merge Quality Gates: [.agents/rules/jarn-testing.md](.agents/rules/jarn-testing.md)
+- Universal Pre-Merge Quality Gates: [.agents/rules/jarn-quality.md](.agents/rules/jarn-quality.md)
 - Project Pre-Merge Checklist: [REVIEW.md](REVIEW.md)

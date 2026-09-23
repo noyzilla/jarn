@@ -19,7 +19,7 @@ Additionally, many AI customization systems impose a hard payload limit (often ~
 ## Decision
 We enforce a **Flat AI Rule Directory Architecture** for the Jarn framework:
 - **No Nested Subdirectories**: All Jarn rule files MUST reside directly at the root of the `.agents/rules/` directory.
-- **Prefix Namespacing**: To prevent collisions with downstream project rules, all Jarn rule files MUST be prefixed with `jarn-` (e.g., `jarn-governance.md`, `jarn-testing.md`).
+- **Prefix Namespacing**: To prevent collisions with downstream project rules, all Jarn rule files MUST be prefixed with `jarn-` (e.g., `jarn-governance.md`, `jarn-quality.md`).
 - **Chunked Files**: Rules MUST be kept split into granular files to ensure each file remains safely below the AI engine's 12,000-character payload limit.
 
 ## Consequences

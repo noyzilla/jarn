@@ -65,4 +65,4 @@ To prevent misaligned implementations, unnecessary documentation churn, and AI c
 
 ## Operational Lifecycle Gates
 
-The full operational lifecycle (CONSULT → GATE 0 → GATE 1 → GATE 2) including phase definitions, gate checklists, and the Definition of Done is defined in [jarn-lifecycle.md](jarn-lifecycle.md).
+The full operational lifecycle (GATE 1 → GATE 2 → GATE 3) including phase definitions, gate checklists, and the Definition of Done is defined in [jarn-lifecycle.md](jarn-lifecycle.md).

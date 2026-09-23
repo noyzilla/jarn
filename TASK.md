@@ -15,14 +15,16 @@ This document serves as the shared real-time task board and scratchpad for colla
 
 ## Next Up (Backlog)
 - Add `AGENTS.md` language preset section with ecosystem-native test runner, linter, and build commands for a concrete target stack (e.g., Go, TypeScript, or Python) to replace current `N/A` placeholders.
-- Create a sample domain implementation under `src/` with accompanying unit tests to demonstrate the living spec workflow (`docs/specs/` code-spec parity, blast-radius matrix, and GATE 0-2 lifecycle).
+- Create a sample domain implementation under `src/` with accompanying unit tests to demonstrate the living spec workflow (`docs/specs/` code-spec parity, blast-radius matrix, and GATE 1-4 lifecycle).
 - Add GitHub Actions CI workflow (`.github/workflows/ci.yml`) running `shellcheck scripts/*.sh` and Markdown link validation on push and PR.
 - Extend `.editorconfig` with `[*.md]` section defining `max_line_length` and `trim_trailing_whitespace` rules for Markdown files, the primary artifact type of this project.
 - Write Jarn's first living specification (`docs/specs/0001-jarn-installer.md`) documenting the `jarn.sh` lifecycle: version resolution, archive download, Zero-Conflict Seeding algorithm, and Shadow Template synchronization protocol.
 - Configure GitHub branch protection rules on `main` (require PR, require status checks) to enforce Step 0 Branch Isolation Invariant.
 
 ## Completed Milestones
-- (Cleared after Release v0.5.0)
+- Refactored Jarn Governance Lifecycle into unified 4-Gate Model (GATE 1: Discovery/Brainstorming → GATE 2: Living Spec/Approval → GATE 3: Execution/Verification → GATE 4: Knowledge/Review).
+- Renamed `jarn-testing.md` to `jarn-quality.md` across rules, templates, and documentation.
+- Upgraded `jarn-consult` with proactive Socratic coaching for junior developers, early viability triage, and emergency hotfix bypass.
 
 ## Blocked & Under Discussion
 - None currently.
