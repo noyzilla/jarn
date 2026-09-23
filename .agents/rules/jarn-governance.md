@@ -63,6 +63,29 @@ To prevent misaligned implementations, unnecessary documentation churn, and AI c
 
 ## Operational Lifecycle Gates
 
+The full operational lifecycle follows four sequential phases:
+
+```
+CONSULT → GATE 0 → GATE 1 → GATE 2
+```
+
+- **CONSULT**: Structured requirement discovery. AI leads inquiry, classifies scope, proposes options.
+- **GATE 0**: Mission approval. Spec synthesized, implementation plan produced, human green light required.
+- **GATE 1**: Surgical execution. Branch isolation, micro-commits, targeted verification.
+- **GATE 2**: Knowledge capture. Code-spec parity, evidence attachment, TASK.md synchronization.
+
+---
+
+### CONSULT: Requirement Discovery (Pre-Gate-0)
+
+- **Activate `jarn-consult` skill** before every spec-altering change (new features, behavioral shifts, API contract changes).
+- Skip CONSULT only for spec-conforming bug fixes and internal refactors — changes where the spec is already correct and scope is unambiguous.
+- The AI classifies the request (Spike, Bounded, or Architectural), probes intent through focused one-at-a-time questions, and proposes 2–3 implementation options with trade-offs before any spec work begins.
+- **Output**: A confirmed agreement — intent, constraints, edge cases, chosen approach, and success criteria — ready to hand off to `jarn-spec`.
+- CONSULT operates entirely within Inquiry Mode. No codebase mutations occur during this phase.
+
+---
+
 ### GATE 0: MISSION APPROVAL (The Hard Stop)
 - **Anti-Hallucination Discovery**: Empirically verify library versions, external APIs, and project configurations via terminal commands or official docs before proposing solutions. Never guess dependencies or symbols.
 - Research the task using read-only operations.

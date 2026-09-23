@@ -6,6 +6,15 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+### Skills
+- **jarn-consult Skill**: Added `jarn-consult` as the new Consultation Phase — a structured requirement discovery skill that activates before GATE 0 for all spec-altering changes. The AI classifies the request (Spike, Bounded, or Architectural), probes intent with focused one-at-a-time questions, proposes 2–3 implementation options with trade-offs, and hands off a confirmed agreement to `jarn-spec`. Reduces reliance on model-dependent behavior and lowers the barrier for junior developers.
+
+### Governance
+- **CONSULT Phase Added to Lifecycle**: Updated `jarn-governance.md` to introduce `CONSULT` as an explicit first phase preceding GATE 0. The full lifecycle is now `CONSULT → GATE 0 → GATE 1 → GATE 2`.
+
+### Decisions
+- **ADR-0004**: Recorded architectural decision for the Consultation Phase, including rationale for the name "Consultation" over "Brainstorming" and trade-offs against alternatives (Superpowers brainstorming verbatim adoption, model capability reliance, jarn-spec extension).
+
 ## [0.5.0] - 2026-09-23
 
 ### Governance
