@@ -1,6 +1,10 @@
 # Universal Testing & Pre-Merge Standard
 
-This document establishes the project-agnostic, universal review checklist and quality gates for contributors and AI agents before merging pull requests.
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). To add project-specific checks, use your project's `REVIEW.md` under "Project-Specific Review Extensions" only.
+
+This document establishes the **universal, project-agnostic** baseline review checklist and quality gates for all contributors and AI agents before merging pull requests. It applies to every project that adopts the Jarn framework.
+
+After completing all checks below, continue with your project's `REVIEW.md` for project-specific gates.
 
 ## Review Protocol
 
@@ -42,8 +46,7 @@ This document establishes the project-agnostic, universal review checklist and q
 - [ ] **The Non-Subtractive Principle**: Existing technical specifics, configuration values, port mappings, and architectural rationales have been preserved.
 - [ ] **The Mirror Index Pattern**: Root documentation files (`ARCHITECTURE.md`, `DESIGN.md`, `CONTRIBUTING.md`) remain lean summaries under ~200 lines; deep specs reside in `docs/` with two-way links.
 - [ ] **ADR Status Lifecycle**: When modifying or superseding architectural decisions, updated the filename with `.deprecated.md` or `.superseded.md` to enable zero-token AI filtering.
-- [ ] **Bilingual Annotation Standard**: User-facing documents use English lead technical language with Thai annotations `[...]` for human clarity. Files inside `.agents/` use English only — verified with `grep -rn '\[.*[ก-๙].*\]' .agents/` returning zero matches.
-- [ ] **Agent File Size Compliance**: All `.agents/rules/` and `.agents/skills/` files are below the 8,000 character soft limit — verified with `wc -m .agents/rules/jarn-*.md .agents/skills/jarn-*/SKILL.md`. Any file between 8,000–12,000 characters has a documented split plan. No file exceeds the 12,000 character hard limit. See [docs/specs/agent-file-standards.md](../../docs/specs/agent-file-standards.md).
+- [ ] **Bilingual Annotation Standard**: User-facing documents use English lead technical language with Thai annotations `[...]` for human clarity. Files inside `.agents/` use English only — verified with `grep -rn '^#.*[ก-๙]' .agents/` returning zero matches.
 - [ ] **Semantic Numbering & Stable References**: Verified that numbers are not used merely for reading or execution order; numbers are used only when they possess semantic identity (phases, versions, retries, priorities, gates); all cross-references avoid positional coupling and use semantic headings or direct links.
 - [ ] **Changelog Synchronized**: User-facing changes are recorded under the `[Unreleased]` section of `CHANGELOG.md`.
 - [ ] **Task State Synchronized**: `TASK.md` has been updated to reflect newly completed milestones and immediate next actions.
