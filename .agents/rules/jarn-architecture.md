@@ -1,5 +1,7 @@
 # Architecture & Lifecycle Standards
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Document project-specific architectural decisions in `docs/decisions/` and topology in `docs/architecture/` only.
+
 This document establishes the architectural principles, documentation topology, and native ecosystem lifecycles for the project.
 
 ## Ecosystem-Native Lifecycle Contract

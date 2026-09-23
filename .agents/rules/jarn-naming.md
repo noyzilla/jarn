@@ -1,5 +1,7 @@
 # Naming Conventions
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Add project-specific naming conventions to your project's `CONTEXT.md` only.
+
 This document defines the naming conventions for configurations, variables, and domains across the project.
 
 ## Configuration Naming Principles

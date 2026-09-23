@@ -1,5 +1,7 @@
 # Coding & Documentation Style
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Add project-specific style rules to your project's `AGENTS.md` or `docs/development/` only.
+
 This document defines the visual hygiene, bilingual annotation rules, and code commenting invariants for all project files.
 
 ## Visual Hygiene Invariant

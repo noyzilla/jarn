@@ -1,5 +1,7 @@
 # Governance, Workflow, and Safety
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Extend governance behavior through your project's `AGENTS.md` and `REVIEW.md` only.
+
 This document establishes the safety boundaries, escalation gates, and core operational lifecycle for all contributors (human engineers and AI agents) operating within this codebase.
 
 ## Safety Boundaries & Non-Negotiable Invariants

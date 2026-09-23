@@ -1,5 +1,7 @@
 # Operational Lifecycle Gates
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Extend project-specific gates through your project's `REVIEW.md` only.
+
 This document defines the four sequential phases every contributor and AI agent must follow from requirement discovery through knowledge capture. See [jarn-governance.md](jarn-governance.md) for safety boundaries and workflow rules.
 
 ## Lifecycle Overview

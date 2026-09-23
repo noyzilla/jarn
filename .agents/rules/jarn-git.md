@@ -1,5 +1,7 @@
 # Git & Commit Conventions
 
+> **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Add project-specific git workflows to your project's `docs/development/` only.
+
 This project strictly follows the Conventional Commits specification coupled with Semantic Versioning (SemVer) and Micro-Commit strategies.
 
 ## Commit Conventions
