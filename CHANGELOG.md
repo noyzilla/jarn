@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [0.6.1] - 2026-09-27
+
+### Templates & Chores
+- **Comprehensive .gitignore Template**: Expanded `templates/.gitignore` and root `.gitignore` to support polyglot runtimes (Python, Node/TS, Java/JVM, Rust, Go, C/C++), modern AI agent state/scratch directories (`.cursor/`, `.windsurf/`, `.cline/`, `.claude/`, `.gemini/`, `.agents/scratch/`), security & secret patterns, local containers/infrastructure overrides, and test coverage caches.
+
 ## [0.6.0] - 2026-09-23
 
 ### Governance & Workflow
