@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## [Unreleased]
+## [0.7.0] - 2026-09-28
 
 ### Governance & Workflow
 - **Two-Tier Review Model & Working Tree Loop**: Established the Working Tree Loop as the default protocol across all tasks. Codified Plan Approval != Commit Authority, requiring explicit confirmation before committing sub-task milestones in GATE 2 (Dev Pairing), and delineated Senior/Lead Pre-Merge Audit in GATE 3 in `jarn-lifecycle.md`, `jarn-governance.md`, `jarn-git.md`, `AGENTS.md`, and `CONTRIBUTING.md`.
