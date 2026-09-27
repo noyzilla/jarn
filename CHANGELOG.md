@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## [Unreleased]
+## [0.6.2] - 2026-09-27
 
 ### Documentation & Architecture
 - **Linear Version Lifecycle Philosophy**: Codified Jarn's linear version model ("A new release supersedes the previous release. Development proceeds forward on a single canonical line; Jarn does not maintain parallel version branches unless explicitly required by an external compatibility obligation.") in `README.md`, `ARCHITECTURE.md`, `templates/ARCHITECTURE.md`, and [ADR-0006](docs/decisions/0006-linear-version-lifecycle.md).
