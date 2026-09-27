@@ -9,6 +9,7 @@
 > **MANDATORY PRE-FLIGHT GUARD [มาตรฐานจุดตรวจก่อนเริ่มงาน]**:
 > - **Step 0 Branch Isolation**: NEVER edit or commit on `main`. Verify `git branch --show-current` before modifying any files. Branch out (`git checkout -b <type>/<slug>`) immediately if on `main`.
 > - **Inquiry vs Directive**: Treat discussions as Inquiry Mode (read-only analysis). Do NOT mutate code without an explicit Directive trigger (e.g. "ทำเลย", "อนุมัติ", "proceed").
+> - **Working Tree Loop Default**: Keep changes uncommitted in the Working Tree by default. Plan approval authorizes coding in the working tree, NOT committing. Never run `git commit` without explicit sub-task review confirmation, unless an auto-commit directive was given upfront.
 > - **Operational Workflow Gates**: Adhere strictly to **GATE 1** (Living Spec & Mission Approval) -> **GATE 2** (Surgical Execution & Self-Verification) -> **GATE 3** (Knowledge Capture & Pre-Merge Audit).
 
 This document is the primary machine-readable entrypoint for AI coding agents collaborating on this codebase.

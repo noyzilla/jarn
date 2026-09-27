@@ -34,28 +34,34 @@ GATE 1 → GATE 2 → GATE 3
 
 ---
 
-### GATE 2: Surgical Execution & Self-Verification (The Coding Gate)
+### GATE 2: Surgical Execution & Self-Verification (The Dev Pairing Gate)
 
 - **Step 0 Branch Isolation**: Before modifying, creating, or deleting any codebase file, verify `git branch --show-current`. If on `main`, immediately execute `git checkout -b <type>/<slug>`. Working directly on `main` is strictly prohibited.
-- **Incremental Micro-Commits**: Save commits in small, logical, atomic increments as intermediate milestones are verified. Never hold large uncommitted changes until final completion.
-- Make minimal, modular edits focused strictly on the approved scope.
+- **Working Tree Loop by Default**: All changes across the codebase (regardless of task type, layer, or file extension) remain in the working tree uncommitted by default. Approving an implementation plan (GATE 1 green light) authorizes coding and self-verification in the working tree only; it does NOT grant blanket commit authority.
+- **Sub-task Micro-Commit Sequencing**: When a task encompasses multiple sub-tasks, the Driver agent works on Sub-task 1 in the working tree, runs targeted verification, and presents the uncommitted diff and status for the Navigator (Human Lead or Peer Reviewer Agent) to review. Only upon explicit confirmation (e.g., "approved", "commit ได้") does the agent commit Sub-task 1 before advancing to Sub-task 2.
+- **Extended Verification on Demand**: The Navigator may request whole-system tests, downstream regression checks, or integration inspections while code is in the working tree. Defect fixes occur immediately in the working tree with zero undo-commit overhead.
+- **No Fixup Noise (Amend Invariant)**: If adjustments are requested on a recently completed commit within the active branch, amend or soft-reset (`git reset --soft HEAD~1`) to maintain clean, atomic commits rather than stacking fragmented fixup commits.
+- **Auto-Commit Exception**: The agent may commit automatically without stopping for review only when an explicit auto-commit directive was provided upfront.
+- **Surgical Edits**: Make minimal, modular edits focused strictly on the approved scope.
 - **Targeted Verification**: Check `git status` before running verification commands. Execute project-native test suites and linters via terminal to verify Exit Code 0 and zero regression.
 
 ---
 
-### GATE 3: Knowledge Capture & Pre-Merge Audit (The Delivery Gate)
+### GATE 3: Knowledge Capture & Pre-Merge Audit (The Senior / Lead Review Gate)
 
+- **Senior / Lead Authority**: Macro-level system inspection conducted by the Senior Lead (human tech lead currently, or specialized AI Auditor/Security agent in multi-agent topologies) before integrating changes into `main`.
+- **System-wide Integrity & Security**: Verify that modified modules do not cause downstream regressions, secret leaks, or contract breakages across the entire application.
 - **Code-Spec Parity Verification**: Ensure code implementations match living specs in `docs/specs/`.
 - **Evidence Attachment**: Attach empirical test execution logs demonstrating clean passing results (Exit Code 0).
 - **Pre-Merge Audit Execution**: Activate and fulfill the universal quality gate checklist in [jarn-quality.md](jarn-quality.md) and project extensions in `REVIEW.md` via the `jarn-review` skill.
-- **Continuous Flow (Default)**: By default, agents complete GATE 3, audit against `REVIEW.md`, and execute the merge autonomously.
+- **Continuous Flow (Default)**: By default, agents complete GATE 3, audit against `REVIEW.md`, and execute the merge autonomously once authorized by the Senior/Lead role.
 - **Handoff Interruption (Brake Flow)**: An agent MUST NOT merge the code, and instead MUST halt execution and perform a handoff if:
-  1. `CONTRIBUTING.md` explicitly lists project roles that mandate a handoff at this stage (e.g., a required QA step).
-  2. The human user explicitly instructs the agent to halt or perform a handoff.
+  - `CONTRIBUTING.md` explicitly lists project roles that mandate a handoff at this stage (e.g., a required QA step).
+  - The human user explicitly instructs the agent to halt or perform a handoff.
 - **Handoff Execution**: To hand off work, the agent must:
-  1. Update the branch-scoped `TASK.md` to reflect the completed state for the next role.
-  2. Execute a `handoff(<target>): <message>` commit (e.g., `git commit -m "handoff(qa): ready for testing"`).
-  3. Push to origin and halt execution, waiting for the target role to pick up the branch.
+  - Update the branch-scoped `TASK.md` to reflect the completed state for the next role.
+  - Execute a `handoff(<target>): <message>` commit (e.g., `git commit -m "handoff(qa): ready for testing"`).
+  - Push to origin and halt execution, waiting for the target role to pick up the branch.
 - **Task State Pruning**: Before final merge into `main`, branch-scoped `TASK.md` files should be deleted (or their checklists cleared) to keep the repository history clean. The root `TASK.md` serves only as a high-level project roadmap.
 - Provide a concise walkthrough of changes and test results, then conclude the task cleanly.
 
