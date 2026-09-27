@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Documentation & Architecture
+- **Linear Version Lifecycle Philosophy**: Codified Jarn's linear version model ("A new release supersedes the previous release. Development proceeds forward on a single canonical line; Jarn does not maintain parallel version branches unless explicitly required by an external compatibility obligation.") in `README.md`, `ARCHITECTURE.md`, `templates/ARCHITECTURE.md`, and [ADR-0006](docs/decisions/0006-linear-version-lifecycle.md).
+- **Minimizing Concurrent State**: Formalized serial-by-default execution and graph-governed concurrency, permitting parallelism strictly when tasks are proven orthogonal via the Dependency & Blast-Radius Matrix.
+
 ## [0.6.1] - 2026-09-27
 
 ### Templates & Chores

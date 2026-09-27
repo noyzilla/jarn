@@ -32,8 +32,14 @@
 1. **Consult Before Code (ปรึกษาก่อนทำ)**: AI ของ Jarn ถูกกฎบังคับให้สวมหมวก "ที่ปรึกษา" เมื่อคุณสั่งงาน AI จะไม่รีบปั่นโค้ดมั่วๆ ออกมา แต่มันจะตั้งคำถาม ชวนคุณคิด หาจุดบอด และเสนอทางเลือกพร้อมข้อดีข้อเสียก่อนเสมอ
 2. **Spec is Law (คุมงานด้วยสเปค)**: แหล่งอ้างอิงความจริงสูงสุดคือเอกสารใน `docs/specs/` AI จะเขียนสเปคให้เสร็จและรอให้คุณอนุมัติก่อนถึงจะเริ่มเขียนโค้ด การทำแบบนี้ช่วยจำกัดความเสียหาย (Blast Radius) ไม่ให้ AI ไปแก้ไฟล์อื่นที่ไม่เกี่ยวข้อง
 3. **Record the "Why" (บันทึกการตัดสินใจด้วย ADR)**: ทุกการตัดสินใจสำคัญระดับสถาปัตยกรรมจะถูกเก็บไว้ใน `docs/decisions/` (Architectural Decision Records) เพื่อให้ AI ตัวใหม่ๆ หรือคนในทีมในอนาคต รู้ประวัติศาสตร์ว่า "ทำไมเราถึงเลือกใช้วิธีนี้"
-4. **1 Branch = 1 Task (ภารกิจแยกส่วน)**: การทำงานทุกครั้งต้องแตก Branch ใหม่เสมอ และมีไฟล์ `TASK.md` คอยติดตามสถานะ (State Tracker) ภายใน Branch นั้นๆ
-5. **Continuous & Brake Flow**: โดยค่าเริ่มต้น AI จะลุยงานตั้งแต่ต้นจนจบและ Merge โค้ดให้เลย (Continuous Flow) แต่หากคุณตั้งค่าให้มีผู้ตรวจสอบ (เช่น QA) AI จะส่งไม้ต่อด้วยคำสั่ง `git commit -m "handoff(qa): ..."` (Brake Flow) เพื่อหยุดรอให้คนมารับช่วงต่อ
+4. **Linear Version Lifecycle (เดินหน้าเป็นเส้นเดียว ไม่แตกแขนง)**:
+   > *"A new release supersedes the previous release. Development proceeds forward on a single canonical line; Jarn does not maintain parallel version branches unless explicitly required by an external compatibility obligation."*
+   - โค้ดทั้งหมดเดินหน้าบน Single Canonical Line เส้นเดียว เมื่อมีเวอร์ชันใหม่ออกมา เวอร์ชันก่อนหน้าจะกลายเป็นประวัติศาสตร์ (Historical Snapshot) ทันที ไม่เก็บสถานะคู่ขนานที่ทำให้เกิดความคลุมเครือ
+5. **Minimize Concurrent State (ลดสถานะที่ซ้อนทับกัน)**:
+   - **Serial by Default**: เราเลือกทำงานทีละงานเป็นค่าเริ่มต้น เพราะ AI ทำงานได้แม่นยำที่สุดเมื่อบริบทนิ่งสนิท การตัดงานที่ทับซ้อนกันช่วยลดภาระสมองของคน และกำจัดปัญหาภาพหลอน (Hallucination) จากการที่โค้ดเปลี่ยนใต้เท้า AI
+   - **Graph-Governed Parallelism**: การทำหลายงานพร้อมกันจะเกิดขึ้นได้ก็ต่อเมื่อ **Dependency & Blast-Radius Matrix** ในสเปคพิสูจน์แล้วว่างานเหล่านั้นเป็นอิสระต่อกันโดยสิ้นเชิง ($\text{BlastRadius}(A) \cap \text{BlastRadius}(B) = \emptyset$)
+6. **1 Branch = 1 Task (ภารกิจแยกส่วน)**: การทำงานทุกครั้งต้องแตก Branch ใหม่เสมอ (`<type>/<slug>`) และมีไฟล์ `TASK.md` คอยติดตามสถานะ (State Tracker) ภายใน Branch นั้นๆ
+7. **Continuous & Brake Flow**: โดยค่าเริ่มต้น AI จะลุยงานตั้งแต่ต้นจนจบและ Merge โค้ดให้เลย (Continuous Flow) แต่หากคุณตั้งค่าให้มีผู้ตรวจสอบ (เช่น QA) AI จะส่งไม้ต่อด้วยคำสั่ง `git commit -m "handoff(qa): ..."` (Brake Flow) เพื่อหยุดรอให้คนมารับช่วงต่อ
 
 ---
 
