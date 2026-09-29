@@ -1,3 +1,8 @@
+---
+trigger: always_on
+description: "Ecosystem-native lifecycle, documentation topology, and configuration architecture."
+---
+
 # Architecture & Lifecycle Standards
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Document project-specific architectural decisions in `docs/decisions/` and topology in `docs/architecture/` only.

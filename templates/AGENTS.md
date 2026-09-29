@@ -57,7 +57,7 @@ When modifying specific layers or subsystems, update the designated locations an
 | **Architectural Decisions (ADR)** | `docs/decisions/` | `git diff --check` and verify filename status lifecycle |
 | **Development & Runbooks** | `docs/development/` | `git diff --check` and test script execution |
 | **Automation & Shell Scripts** | `scripts/*.sh`, `.agents/scripts/*.sh` | `sh -n <touched_script>` and dry-run execution |
-| **Universal Standards & Rules** | `.agents/rules/jarn-*.md`, `AGENTS.md` | `git diff --check` and verify Markdown links |
+| **Universal Standards & Rules** | `.agents/rules/jarn-*.md`, `AGENTS.md` | `git diff --check` and verify rule frontmatter/links |
 | **Jarn Skills** | `.agents/skills/jarn-*` | `git diff --check` and verify skill frontmatter/links |
 | **Documentation Only** | `docs/`, `*.md` | `git diff --check` and verify Markdown links |
 

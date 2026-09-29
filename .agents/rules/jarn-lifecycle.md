@@ -1,3 +1,8 @@
+---
+trigger: always_on
+description: "Operational lifecycle gates (GATE 1 to GATE 3) and Definition of Done."
+---
+
 # Operational Lifecycle Gates
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Extend project-specific gates through your project's `REVIEW.md` only.

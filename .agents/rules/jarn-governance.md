@@ -1,3 +1,8 @@
+---
+trigger: always_on
+description: "Core governance, safety boundaries, escalation gates, and workflow state machine."
+---
+
 # Governance, Workflow, and Safety
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Extend governance behavior through your project's `AGENTS.md` and `REVIEW.md` only.

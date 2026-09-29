@@ -1,3 +1,8 @@
+---
+trigger: always_on
+description: "Naming conventions for files, environment variables, and ubiquitous domain language."
+---
+
 # Naming Conventions
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Add project-specific naming conventions to your project's `CONTEXT.md` only.

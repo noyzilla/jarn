@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Changed
+- **Rules Frontmatter**: Added YAML frontmatter (`trigger: always_on`, `description`) to all 7 `.agents/rules/jarn-*.md` files for compatibility with Antigravity Customization System and prevention of silent rule discarding.
+- **Agent File Standards**: Updated [docs/specs/agent-file-standards.md](docs/specs/agent-file-standards.md) to require YAML frontmatter on all `.agents/rules/*.md` files.
+
 ## [0.7.0] - 2026-09-28
 
 ### Governance & Workflow

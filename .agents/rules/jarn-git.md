@@ -1,3 +1,8 @@
+---
+trigger: always_on
+description: "Git branch isolation, conventional commits, and micro-commit strategy."
+---
+
 # Git & Commit Conventions
 
 > **Do not modify this file.** It is part of the Jarn framework and will be overwritten during framework updates (`jarn-framework-update` skill). Add project-specific git workflows to your project's `docs/development/` only.

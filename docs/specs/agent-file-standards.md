@@ -62,7 +62,7 @@ When splitting an agent file:
 ### Frontmatter
 
 - Skill files require YAML frontmatter with `name` and `description` fields.
-- Rule files do not require frontmatter but must begin with a level-1 heading.
+- Rule files (`.agents/rules/*.md`) require YAML frontmatter with `trigger` (`always_on` for core Jarn governance) and `description` fields. Standalone `AGENTS.md` and `GEMINI.md` at project roots do not use frontmatter.
 
 ## Dependency & Blast-Radius Matrix
 
