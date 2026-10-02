@@ -9,7 +9,6 @@ synapses: ["ARCHITECTURE.md", "README.md", "CONTRIBUTING.md", ".agents/rules/jar
 
 - **Date**: 2026-09-27
 - **Status**: Accepted
-- **Parent Reference**: [ARCHITECTURE.md](../../ARCHITECTURE.md)
 
 ## Context & Problem Statement
 In an AI-native engineering environment, managing codebase and task concurrency requires high predictability, deterministic reference points, and minimal context ambiguity. Multi-track branching structures with long-lived parallel integration branches and unbounded task concurrency introduce several operational challenges:

@@ -9,7 +9,6 @@ synapses: ["AGENTS.md", "CONTRIBUTING.md"]
 
 - **Date**: 2026-09-23
 - **Status**: Accepted
-- **Parent Reference**: [CONTRIBUTING.md](../../CONTRIBUTING.md)
 
 ## Context & Problem Statement
 Open-source projects and AI-driven development workflows require flexible collaboration models. Traditional rigid "Solo" vs "Team" configurations fail to capture the fluid nature of decentralized contributions. When an AI agent or a solo developer works on a task, they should not be burdened with bureaucratic handoff steps. However, when a project requires specific quality gates (e.g., QA testing) or when a human contributor wishes to intervene, there must be a standardized mechanism to pause the flow and hand over the context.

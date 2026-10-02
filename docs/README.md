@@ -28,9 +28,10 @@ Every document in this directory answers a specific dimensional question:
   - Target: Developers, operators, and DevOps engineers.
 
 - **`docs/specs/` (WHAT - Living Subsystem Specifications)**:
-  - Answers: What does this feature do, what are its domain rules, state machines, API contracts, and database impacts?
+  - Answers: What does this subsystem do today, what are its domain rules, state machines, API contracts, and database impacts?
+  - Core Principle (Spec is Law): Living specifications represent **Current System Truth**, never transient feature requests or task backlogs (e.g., `docs/specs/authentication.md` is valid; creating `docs/specs/add-google-login.md` is strictly forbidden). Code implementations must never conflict with the active spec.
   - Structure: Vertical slices combining domain invariants, endpoints, schemas, and bounded blast radiuses into a single cohesive specification per subsystem.
-  - Governance: Strictly bound by the Code-Spec Parity Invariant. Changes to business logic or interfaces must update the corresponding spec in lockstep.
+  - Governance: Strictly bound by the Code-Spec Parity Invariant. When a new capability or behavioral change is completed, the corresponding subsystem spec is updated in place to reflect the new system truth.
   - Template: Follows [docs/specs/0000-template.md](specs/0000-template.md).
   - Target: Software engineers and AI coding agents.
 
@@ -52,6 +53,7 @@ To keep the repository organized and structured:
 
 ## Anti-Drift Invariants for AI Coding Agents
 
-- **No Ad-Hoc Directories**: Never create fragmented horizontal directories (such as `docs/domain/`, `docs/database/`, or `docs/api/`). Feature-specific domain rules, API contracts, and storage impacts must be consolidated inside `docs/specs/<feature>.md`.
+- **No Ad-Hoc Directories**: Never create fragmented horizontal directories (such as `docs/domain/`, `docs/database/`, or `docs/api/`). Feature-specific domain rules, API contracts, and storage impacts must be consolidated inside `docs/specs/<subsystem>.md`.
+- **Current System Truth over Task Delta**: Never create transient feature-request specs (e.g. `docs/specs/add-oauth.md`). In-flight tasks live in implementation plans or task trackers; `docs/specs/<subsystem>.md` is updated in place upon feature completion.
 - **Zero-Token Decision Filtering**: When querying `docs/adr/`, inspect file names first. Always exclude files ending in `.deprecated.md` or `.superseded.md` from context ingestion.
-- **Targeted Reading**: When implementing or debugging a feature, read only the matching specification in `docs/specs/<feature>.md` rather than loading unrelated documentation directories.
+- **Targeted Reading**: When implementing or debugging a feature, read only the matching specification in `docs/specs/<subsystem>.md` rather than loading unrelated documentation directories.

@@ -2,6 +2,7 @@
 title: Shallow Scan AI Rules
 status: active
 tags: [ai, rules, customization, limit]
+synapses: []
 ---
 
 # ADR 0002: Flat AI Rule Directory Architecture

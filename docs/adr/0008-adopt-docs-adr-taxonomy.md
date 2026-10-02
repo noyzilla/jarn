@@ -9,7 +9,6 @@ synapses: ["ARCHITECTURE.md", "AGENTS.md", ".agents/rules/jarn-architecture.md",
 
 - **Date**: 2026-10-02
 - **Status**: Accepted
-- **Parent Reference**: [ARCHITECTURE.md](../../ARCHITECTURE.md)
 
 ## Context & Problem Statement
 Previously, Jarn organized architectural decision records under `docs/decisions/` to maintain explicit, fully written English names without acronyms.

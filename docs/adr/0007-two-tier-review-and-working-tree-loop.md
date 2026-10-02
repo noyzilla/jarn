@@ -9,7 +9,6 @@ synapses: ["CONTRIBUTING.md", "AGENTS.md", ".agents/rules/jarn-lifecycle.md", ".
 
 - **Date**: 2026-09-28
 - **Status**: Accepted
-- **Parent Reference**: [CONTRIBUTING.md](../../CONTRIBUTING.md)
 
 ## Context & Problem Statement
 In AI-assisted engineering workflows, premature commits introduce significant operational friction:

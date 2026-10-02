@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Added
+- **Spec is Law & Current System Truth Invariant**: Formalized that `docs/specs/<subsystem>.md` represents permanent current subsystem truth, strictly prohibiting transient feature-request specs (e.g. `docs/specs/add-oauth.md`). Enforced that code implementations must never conflict with living specs in `README.md`, `docs/README.md`, `templates/docs/README.md`, and `.agents/rules/jarn-governance.md`.
+
+### Changed
+- **Unified Frontmatter Synapses**: Consolidated parent/related document references into YAML frontmatter `synapses: [...]` as single source of truth across all templates and ADRs, eliminating redundant body link sections.
+
 ## [0.8.1] - 2026-10-02
 
 ### Changed

@@ -2,7 +2,7 @@
 title: Agent File Standards
 status: active
 tags: [spec, agent-rules, file-standards, context-window]
-synapses: [".agents/rules/jarn-coding.md", ".agents/rules/jarn-governance.md", "REVIEW.md"]
+synapses: [".agents/rules/jarn-coding.md", ".agents/rules/jarn-governance.md", "REVIEW.md", "CONTEXT.md", "docs/adr/0004-consult-phase.md"]
 ---
 
 # Specification: Agent File Standards
@@ -10,8 +10,6 @@ synapses: [".agents/rules/jarn-coding.md", ".agents/rules/jarn-governance.md", "
 - **Status**: Active
 - **Last Verified**: 2026-09-23
 - **Target Audience**: Developers and AI Coding Agents
-- **Parent Reference**: [CONTEXT.md](../../CONTEXT.md)
-- **Related ADRs**: [docs/adr/0004-consult-phase.md](../adr/0004-consult-phase.md)
 
 ## Overview & Scope
 

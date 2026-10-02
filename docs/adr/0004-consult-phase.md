@@ -2,14 +2,13 @@
 title: Add Consultation Phase as Explicit Pre-Gate-0 Workflow
 status: active
 tags: [workflow, ai-agent, junior-developer, consultation]
-synapses: [".agents/rules/jarn-governance.md", ".agents/skills/jarn-consult/SKILL.md"]
+synapses: ["ARCHITECTURE.md", ".agents/rules/jarn-governance.md", ".agents/skills/jarn-consult/SKILL.md"]
 ---
 
 # ADR 0004: Add Consultation Phase as Explicit Pre-Gate-0 Workflow
 
 - **Date**: 2026-09-23
 - **Status**: Accepted
-- **Parent Reference**: [ARCHITECTURE.md](../../ARCHITECTURE.md)
 
 ## Context & Problem Statement
 

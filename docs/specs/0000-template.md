@@ -5,13 +5,11 @@ tags: [spec, template]
 synapses: ["CONTEXT.md", "docs/adr/0000-template.md"]
 ---
 
-# Specification: [Subsystem or Feature Name]
+# Specification: [Subsystem Name]
 
 - **Status**: Active | Draft
 - **Last Verified**: [YYYY-MM-DD or Git Commit Hash]
 - **Target Audience**: Developers and AI Coding Agents
-- **Parent Reference**: [CONTEXT.md](../../CONTEXT.md)
-- **Related ADRs**: [docs/adr/0000-template.md](../adr/0000-template.md)
 
 ## Overview & Scope
 Concise description of what this feature or subsystem does, the problem it solves, and its system boundaries.

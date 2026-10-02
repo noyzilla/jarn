@@ -2,6 +2,7 @@
 title: Shadow Merge Architecture
 status: active
 tags: [architecture, deployment, ai-agent, zero-conflict]
+synapses: []
 ---
 
 # ADR 0003: Zero-Conflict Seeding and Shadow Merge Architecture
