@@ -8,6 +8,9 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ### Added
 - **Spec is Law & Current System Truth Invariant**: Formalized that `docs/specs/<subsystem>.md` represents permanent current subsystem truth, strictly prohibiting transient feature-request specs (e.g. `docs/specs/add-oauth.md`). Enforced that code implementations must never conflict with living specs in `README.md`, `docs/README.md`, `templates/docs/README.md`, and `.agents/rules/jarn-governance.md`.
+- **Transient Task Memory & .scratch Architecture**: Established git-ignored `.scratch/<task-slug>/` directory layout (`plan.md`, `issues/`, `tmp/`), discrete issue execution, and Never Derail workflow. Codified in [docs/adr/0009-transient-task-memory-and-scratch-architecture.md](docs/adr/0009-transient-task-memory-and-scratch-architecture.md) and [docs/specs/transient-task-memory.md](docs/specs/transient-task-memory.md).
+- **Zero-Token Filename Lifecycle Postfixes**: Formally specified lifecycle postfixes (`.done.md`, `.blocked.md`, `.deferred.md`, `.dropped.md`) with Anti-Cycle DAG and Max Block Depth = 2 safety invariants.
+- **Root Cleanliness Invariant**: Enforced prohibition against creating temporary scripts, mock payloads, or test runners in project root; all throwaway artifacts must reside in `.scratch/<task-slug>/tmp/`.
 
 ### Changed
 - **Unified Frontmatter Synapses**: Consolidated parent/related document references into YAML frontmatter `synapses: [...]` as single source of truth across all templates and ADRs, eliminating redundant body link sections.

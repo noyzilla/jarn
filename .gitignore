@@ -59,7 +59,7 @@ out/
 .claude/
 .continue/
 .gemini/
-scratch/
+/.scratch/
 .agents/scratch/
 .agents/local/
 

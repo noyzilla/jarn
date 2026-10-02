@@ -54,3 +54,11 @@ This document defines the naming conventions for configurations, variables, slug
 - **Domain Alignment**: All new or modified entity names, database columns, and API parameters match the ubiquitous language defined in `CONTEXT.md`.
 - **Intent-Based Naming**: Variables and functions reflect domain intent, not mechanism. Generic placeholders (`data`, `temp`, `helper`, `manager`, `process`) are avoided.
 - **Boolean Predicates**: Boolean variables and functions use clear prefixes (`is_active`, `has_access`, `can_modify`, `should_retry`).
+
+## Filename Lifecycle Postfixes (Zero-Token Status Filtering)
+
+- **Rule**: Filename extensions may include a lifecycle postfix immediately preceding `.md` (`XXXX-<slug>.<postfix>.md`) to communicate document and task state for instant zero-token filtering via `ls` or globbing without reading file contents.
+- **Stable Numeric Prefix**: The leading `XXXX-` sequence identifier MUST NOT change when a postfix is appended or transitioned.
+- **Standard Postfixes**:
+  - **Architectural Decision Records (`docs/adr/`)**: `[none]` (Active / Accepted), `.superseded.md` (Replaced by newer ADR), `.deprecated.md` (Retired without direct replacement).
+  - **Task Issues (`.scratch/<slug>/issues/`)**: `[none]` (Pending / In Queue), `.done.md` (Completed & Committed), `.blocked.md` (Blocked by prerequisite issue), `.deferred.md` (Postponed to future milestone), `.dropped.md` (Cancelled / Won't do).
