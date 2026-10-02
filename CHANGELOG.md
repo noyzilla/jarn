@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Changed
+- **Taxonomy Migration to docs/adr/**: Adopted `docs/adr/` as canonical taxonomy directory for Architectural Decision Records, superseding `docs/decisions/` across all rules, templates, specs, and skills.
+- **ADR-0008**: Codified adoption of `docs/adr/` taxonomy in [docs/adr/0008-adopt-docs-adr-taxonomy.md](docs/adr/0008-adopt-docs-adr-taxonomy.md).
+
 ## [0.8.0] - 2026-09-29
 
 ### Added
@@ -16,12 +22,12 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ### Governance & Workflow
 - **Two-Tier Review Model & Working Tree Loop**: Established the Working Tree Loop as the default protocol across all tasks. Codified Plan Approval != Commit Authority, requiring explicit confirmation before committing sub-task milestones in GATE 2 (Dev Pairing), and delineated Senior/Lead Pre-Merge Audit in GATE 3 in `jarn-lifecycle.md`, `jarn-governance.md`, `jarn-git.md`, `AGENTS.md`, and `CONTRIBUTING.md`.
-- **ADR-0007**: Codified Two-Tier Review Model and Working Tree Loop Protocol in [docs/decisions/0007-two-tier-review-and-working-tree-loop.md](docs/decisions/0007-two-tier-review-and-working-tree-loop.md).
+- **ADR-0007**: Codified Two-Tier Review Model and Working Tree Loop Protocol in [docs/adr/0007-two-tier-review-and-working-tree-loop.md](docs/adr/0007-two-tier-review-and-working-tree-loop.md).
 
 ## [0.6.2] - 2026-09-27
 
 ### Documentation & Architecture
-- **Linear Version Lifecycle Philosophy**: Codified Jarn's linear version model ("A new release supersedes the previous release. Development proceeds forward on a single canonical line; Jarn does not maintain parallel version branches unless explicitly required by an external compatibility obligation.") in `README.md`, `ARCHITECTURE.md`, `templates/ARCHITECTURE.md`, and [ADR-0006](docs/decisions/0006-linear-version-lifecycle.md).
+- **Linear Version Lifecycle Philosophy**: Codified Jarn's linear version model ("A new release supersedes the previous release. Development proceeds forward on a single canonical line; Jarn does not maintain parallel version branches unless explicitly required by an external compatibility obligation.") in `README.md`, `ARCHITECTURE.md`, `templates/ARCHITECTURE.md`, and [ADR-0006](docs/adr/0006-linear-version-lifecycle.md).
 - **Minimizing Concurrent State**: Formalized serial-by-default execution and graph-governed concurrency, permitting parallelism strictly when tasks are proven orthogonal via the Dependency & Blast-Radius Matrix.
 
 ## [0.6.1] - 2026-09-27
@@ -197,11 +203,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 ### Added
 - Official **Jarn (`jarn`)** identity: AI-Driven Software Development Blueprint & Baseline Environment.
 - Companion Test Invariant and Zero-Regression Guarantee in `AGENTS.md` and `REVIEW.md` requiring AI agents to automatically create unit/integration tests alongside logic modifications and verify zero breakage via Terminal logs before handoff.
-- Architectural Decision Record `docs/decisions/0001-project-identity-jarn.md` documenting Jarn identity adoption.
+- Architectural Decision Record `docs/adr/0001-project-identity-jarn.md` documenting Jarn identity adoption.
 - **Why Jarn (จารย์)** philosophy and background section in `README.md`.
 - Jarn Skills Suite under `.agents/skills/jarn-*/`:
   - `jarn-spec`: Interactive runbook to debate, author, and maintain vertical slice living specifications (`docs/specs/`) with Code-Spec Parity and blast-radius matrices.
-  - `jarn-decisions`: Manage the lifecycle of Architectural Decision Records (`docs/decisions/`) with zero-token filtering.
+  - `jarn-decisions`: Manage the lifecycle of Architectural Decision Records (`docs/adr/`) with zero-token filtering.
   - `jarn-review`: Autonomous quality gate audit runbook to inspect `git status`, map touched surfaces to the Change Routing Matrix, execute targeted verification, audit commit conventions, and synthesize pre-merge evidence.
   - `jarn-diagnostics`: Isolated defect investigation procedure bounded strictly to the living spec's blast-radius matrix without blind codebase scans.
 - Jarn Update Utility script under `.agents/scripts/jarn-update.sh` for atomic downstream synchronization.

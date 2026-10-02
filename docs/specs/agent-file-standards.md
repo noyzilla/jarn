@@ -11,7 +11,7 @@ synapses: [".agents/rules/jarn-coding.md", ".agents/rules/jarn-governance.md", "
 - **Last Verified**: 2026-09-23
 - **Target Audience**: Developers and AI Coding Agents
 - **Parent Reference**: [CONTEXT.md](../../CONTEXT.md)
-- **Related ADRs**: [docs/decisions/0004-consult-phase.md](../decisions/0004-consult-phase.md)
+- **Related ADRs**: [docs/adr/0004-consult-phase.md](../adr/0004-consult-phase.md)
 
 ## Overview & Scope
 

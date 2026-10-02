@@ -47,7 +47,7 @@ This document defines the naming conventions for configurations, variables, slug
 ### Slug Formatting Invariants
 - **Lowercase & Hyphens Only**: Strictly lowercase `a-z`, digits `0-9`, and single hyphens `-`. No uppercase, spaces, or underscores.
 - **Concise Scope**: 2–5 words focusing on domain intent. Omit conversational filler words (`the`, `a`, `and`, `how-to`).
-- **Numeric Prefixes**: When sequential order or identifier tracking is required (ADRs in `docs/decisions/` and runbooks in `docs/development/`), use a 4-digit zero-padded prefix: `XXXX-<slug>.md` (e.g., `0001-project-identity.md`).
+- **Numeric Prefixes**: When sequential order or identifier tracking is required (ADRs in `docs/adr/` and runbooks in `docs/development/`), use a 4-digit zero-padded prefix: `XXXX-<slug>.md` (e.g., `0001-project-identity.md`).
 
 ## Domain & Intent-Based Naming
 
