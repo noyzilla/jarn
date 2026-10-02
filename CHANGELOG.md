@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## [Unreleased]
+## [0.9.0] - 2026-10-02
 
 ### Added
 - **Spec is Law & Current System Truth Invariant**: Formalized that `docs/specs/<subsystem>.md` represents permanent current subsystem truth, strictly prohibiting transient feature-request specs (e.g. `docs/specs/add-oauth.md`). Enforced that code implementations must never conflict with living specs in `README.md`, `docs/README.md`, `templates/docs/README.md`, and `.agents/rules/jarn-governance.md`.
