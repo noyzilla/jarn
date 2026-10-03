@@ -88,6 +88,14 @@ rm -rf "${TARGET_ABS_DIR}/.agents/rules/jarn" 2>/dev/null || true
 rm -f "${TARGET_ABS_DIR}/.agents/rules/jarn-"* 2>/dev/null || true
 rm -rf "${TARGET_ABS_DIR}/.agents/skills/jarn-"* 2>/dev/null || true
 rm -f "${TARGET_ABS_DIR}/.agents/scripts/jarn-framework-update.sh" 2>/dev/null || true
+if [ -f "${TARGET_ABS_DIR}/scratch/issues/0000-template.md" ]; then
+  rm -f "${TARGET_ABS_DIR}/scratch/issues/0000-template.md"
+  rmdir "${TARGET_ABS_DIR}/scratch/issues" 2>/dev/null || true
+fi
+if [ -f "${TARGET_ABS_DIR}/scratch/plan.md" ]; then
+  rm -f "${TARGET_ABS_DIR}/scratch/plan.md"
+  rmdir "${TARGET_ABS_DIR}/scratch" 2>/dev/null || true
+fi
 
 # Synchronize core .agents/ directory (rules, skills)
 mkdir -p "${TARGET_ABS_DIR}/.agents/rules"
