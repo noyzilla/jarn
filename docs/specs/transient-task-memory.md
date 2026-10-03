@@ -42,6 +42,7 @@ This specification defines the runtime structure, lifecycle postfix invariants, 
 - **`issues/` Invariant**: Contains strictly `.md` issue files. Scripts, JSON payloads, and logs are strictly prohibited inside `issues/`.
 - **`tmp/` Invariant**: Contains all temporary helper scripts (`.py`, `.sh`), payloads (`.json`, `.sql`), and log dumps. Loose throwaway files placed directly in `.scratch/<task-slug>/` or the repository root are strictly prohibited.
 - **Root Cleanliness Invariant**: Zero temporary or scratch files permitted in the project root.
+- **Dynamic Scoping & Template Archetypes**: The `.scratch/<task-slug>/` directory is created dynamically during GATE 1. Static blueprints for plans and issues reside in `.agents/templates/scratch/plan.md` and `.agents/templates/scratch/issue.md`. No static template files reside inside `.scratch/`.
 
 ### 2. Filename Lifecycle Postfix Invariants (Zero-Token Scanning)
 The leading 4-digit zero-padded index (`XXXX-`) remains permanent and must not change during state transitions:

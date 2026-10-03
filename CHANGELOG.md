@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Added
+- **Unified Template Registry (`.agents/templates/`)**: Centralized all framework boilerplate templates under `.agents/templates/` (`.agents/templates/scratch/` for transient task memory and `.agents/templates/docs/` for living specs, ADRs, architecture, design, and runbooks).
+- **Installer Template Synchronization**: Updated `scripts/jarn.sh` to automatically synchronize `.agents/templates/` and clean up legacy static template files from `.scratch/` and `scratch/`.
+
+### Changed
+- **Separation of Templates and Documentation**: Removed placeholder `0000-template.md` files from `docs/` and `templates/docs/`, ensuring `docs/` contains strictly production project documentation while templates are tracked in `.agents/templates/`.
+- **Pure Transient Scratch Runtime**: Removed static template files from `templates/.scratch/`, ensuring `.scratch/` remains 100% dynamic runtime memory created on-demand during GATE 1.
+
 ## [0.9.1] - 2026-10-04
 
 ### Fixes

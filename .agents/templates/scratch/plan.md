@@ -2,14 +2,14 @@
 title: [Branch / Task Name] Implementation Plan
 status: in_progress
 task_slug: [task-slug]
-synapses: ["docs/specs/0000-template.md"]
+synapses: []
 ---
 
 # Implementation Plan: [Branch / Task Name]
 
 - **Branch**: `feat/[task-slug]` | `fix/[task-slug]`
 - **Status**: Planning | In Progress | Ready for GATE 3
-- **Primary Living Spec**: [docs/specs/...](../../docs/specs/0000-template.md)
+- **Primary Living Spec**: [docs/specs/...](../../docs/specs/subsystem.md)
 
 ## Objective & Mission Bounds
 Concise summary of what this branch delivers, the core user/system problem it solves, and explicit out-of-scope boundaries.

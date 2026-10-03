@@ -2,7 +2,7 @@
 title: [Architecture Topic / Subsystem Topology]
 status: draft
 tags: [architecture, topology, boundaries, template]
-synapses: ["ARCHITECTURE.md", "docs/adr/0000-template.md"]
+synapses: ["ARCHITECTURE.md"]
 ---
 
 # Architecture Deep-Dive: [Topic Name]

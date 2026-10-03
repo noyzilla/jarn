@@ -2,7 +2,7 @@
 title: [Component or Design Topic Name]
 status: draft
 tags: [design, component, ui, template]
-synapses: ["DESIGN.md", "docs/specs/0000-template.md"]
+synapses: ["DESIGN.md"]
 ---
 
 # Design Spec: [Component Name]

@@ -2,7 +2,7 @@
 title: [Subsystem or Feature Name]
 status: draft
 tags: [spec, template]
-synapses: ["CONTEXT.md", "docs/adr/0000-template.md"]
+synapses: ["CONTEXT.md"]
 ---
 
 # Specification: [Subsystem Name]

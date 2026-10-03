@@ -87,17 +87,14 @@ fi
 rm -rf "${TARGET_ABS_DIR}/.agents/rules/jarn" 2>/dev/null || true
 rm -f "${TARGET_ABS_DIR}/.agents/rules/jarn-"* 2>/dev/null || true
 rm -rf "${TARGET_ABS_DIR}/.agents/skills/jarn-"* 2>/dev/null || true
+rm -rf "${TARGET_ABS_DIR}/.agents/templates" 2>/dev/null || true
 rm -f "${TARGET_ABS_DIR}/.agents/scripts/jarn-framework-update.sh" 2>/dev/null || true
-if [ -f "${TARGET_ABS_DIR}/scratch/issues/0000-template.md" ]; then
-  rm -f "${TARGET_ABS_DIR}/scratch/issues/0000-template.md"
-  rmdir "${TARGET_ABS_DIR}/scratch/issues" 2>/dev/null || true
-fi
-if [ -f "${TARGET_ABS_DIR}/scratch/plan.md" ]; then
-  rm -f "${TARGET_ABS_DIR}/scratch/plan.md"
-  rmdir "${TARGET_ABS_DIR}/scratch" 2>/dev/null || true
-fi
+rm -f "${TARGET_ABS_DIR}/scratch/issues/0000-template.md" "${TARGET_ABS_DIR}/scratch/plan.md" 2>/dev/null || true
+rm -f "${TARGET_ABS_DIR}/.scratch/issues/0000-template.md" "${TARGET_ABS_DIR}/.scratch/plan.md" 2>/dev/null || true
+rmdir "${TARGET_ABS_DIR}/scratch/issues" "${TARGET_ABS_DIR}/scratch" 2>/dev/null || true
+rmdir "${TARGET_ABS_DIR}/.scratch/issues" 2>/dev/null || true
 
-# Synchronize core .agents/ directory (rules, skills)
+# Synchronize core .agents/ directory (rules, skills, templates)
 mkdir -p "${TARGET_ABS_DIR}/.agents/rules"
 for rule_file in "${TMP_DIR}/.agents/rules/jarn-"*; do
   if [ -f "${rule_file}" ]; then
@@ -112,6 +109,11 @@ for skill_dir in "${TMP_DIR}/.agents/skills/jarn-"*; do
     cp -R "${skill_dir}/." "${TARGET_ABS_DIR}/.agents/skills/${skill_name}/"
   fi
 done
+
+if [ -d "${TMP_DIR}/.agents/templates" ]; then
+  mkdir -p "${TARGET_ABS_DIR}/.agents/templates"
+  cp -R "${TMP_DIR}/.agents/templates/." "${TARGET_ABS_DIR}/.agents/templates/"
+fi
 
 # Synchronize Shadow Templates
 SHADOW_DIR="${TARGET_ABS_DIR}/.agents/.jarn-templates"
