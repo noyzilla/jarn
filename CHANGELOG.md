@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## [Unreleased]
+## [0.9.2] - 2026-10-04
 
 ### Added
 - **Unified Template Registry (`.agents/templates/`)**: Centralized all framework boilerplate templates under `.agents/templates/` (`.agents/templates/scratch/` for transient task memory and `.agents/templates/docs/` for living specs, ADRs, architecture, design, and runbooks).
