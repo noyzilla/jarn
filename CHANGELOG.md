@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [0.9.1] - 2026-10-04
+
+### Fixes
+- **Scratch Templates Path**: Moved template files from `templates/scratch/` to `templates/.scratch/` to prevent seeding an un-ignored `scratch/` directory at the project root during installation or framework update.
+- **Installer Cleanup**: Added automatic cleanup in `scripts/jarn.sh` for legacy `scratch/issues/0000-template.md` and `scratch/plan.md` created by earlier versions.
+
 ## [0.9.0] - 2026-10-02
 
 ### Added
