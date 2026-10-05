@@ -25,9 +25,24 @@ jobs:
         run: |
           sha256sum jarn.tar.gz > checksums.txt
 
+      - name: Extract Release Notes
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          VERSION="${TAG_NAME#v}"
+          awk -v ver="$VERSION" '
+            /^## \[/ { if (found) exit; if (index($0, "## [" ver "]") == 1) { found = 1; next } }
+            found { print }
+          ' CHANGELOG.md > dist/release-notes.md
+          if [ ! -s dist/release-notes.md ]; then
+            echo "No CHANGELOG section found for ${VERSION}" >&2
+            exit 1
+          fi
+
       - name: Publish Release Assets
         uses: softprops/action-gh-release@v2
         with:
+          body_path: dist/release-notes.md
           files: |
             dist/jarn.tar.gz
             dist/checksums.txt

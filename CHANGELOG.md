@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Changed
+- **Release Notes from CHANGELOG**: The release workflow now publishes the matching `CHANGELOG.md` version section as GitHub Release notes and fails the run if no section exists for the tag.
+
 ## [0.10.1] - 2026-10-05
 
 ### Changed
