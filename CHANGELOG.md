@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Added
+- **Blueprint Release Asset Packaging (`jarn.tar.gz`)**: Automated packaging of `.agents/` and `templates/` into `jarn.tar.gz` attached to GitHub Releases for fast, lightweight distribution.
+- **Living Spec for Installer Asset Distribution**: Formalized distribution architecture and fallback invariants in `docs/specs/installer-asset-distribution.md`.
+
+### Changed
+- **Root Installer Relocation (`install.sh`)**: Moved unified installer from `scripts/jarn.sh` to root `install.sh` for standard one-line curl installation (`curl -fsSL .../install.sh | sh`).
+- **Dual-Tier Download Hierarchy**: Upgraded `install.sh` to download release asset `jarn.tar.gz` as primary tier with automated fallback to repository tarballs for branches and legacy tags.
+
 ## [0.9.2] - 2026-10-04
 
 ### Added

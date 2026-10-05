@@ -3,11 +3,11 @@
 # Pure basic shell (POSIX sh) with zero external runtime dependencies.
 # Usage:
 #   Public / HTTP (Default):
-#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh
-#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh -s -- <project-directory>
+#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/install.sh | sh
+#     curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/install.sh | sh -s -- <project-directory>
 #   Private / GitHub CLI (gh):
-#     gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
-#     gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh <project-directory>
+#     gh api repos/noyzilla/jarn/contents/install.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh
+#     gh api repos/noyzilla/jarn/contents/install.sh -H "Accept: application/vnd.github.raw+json" | sh -s -- gh <project-directory>
 
 set -eu
 
@@ -47,8 +47,6 @@ if [ "${VERSION}" = "latest" ]; then
   fi
 fi
 
-TARBALL_URL="https://github.com/${REPO}/tarball/${VERSION}"
-
 mkdir -p "${TARGET_DIR}"
 TARGET_ABS_DIR=$(cd "${TARGET_DIR}" && pwd)
 
@@ -64,22 +62,47 @@ TMP_DIR=$(mktemp -d)
 RECORD_DIR=$(mktemp -d)
 trap 'rm -rf "${TMP_DIR}" "${RECORD_DIR}"' EXIT INT TERM
 
+DOWNLOADED=false
+
 if [ "${METHOD}" = "gh" ]; then
   if ! command -v gh >/dev/null 2>&1; then
     echo "Error: GitHub CLI 'gh' is required for gh mode but is not installed or not in PATH." >&2
     exit 1
   fi
-  echo "Downloading Jarn blueprint archive via GitHub CLI (gh api)..."
-  gh api "repos/${REPO}/tarball/${VERSION}" | tar -xz -C "${TMP_DIR}" --strip-components 1
+
+  echo "Downloading Jarn blueprint package via GitHub CLI..."
+  if gh release download "${VERSION}" --repo "${REPO}" --pattern "jarn.tar.gz" --dir "${TMP_DIR}" 2>/dev/null && [ -s "${TMP_DIR}/jarn.tar.gz" ]; then
+    tar -xzf "${TMP_DIR}/jarn.tar.gz" -C "${TMP_DIR}"
+    rm -f "${TMP_DIR}/jarn.tar.gz"
+    DOWNLOADED=true
+  else
+    echo "Notice: Blueprint release asset not found; falling back to repository tarball..."
+    gh api "repos/${REPO}/tarball/${VERSION}" | tar -xz -C "${TMP_DIR}" --strip-components 1 || true
+    if [ -d "${TMP_DIR}/.agents" ]; then
+      DOWNLOADED=true
+    fi
+  fi
 else
-  echo "Downloading Jarn blueprint archive via HTTP (curl)..."
-  curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components 1 || true
+  echo "Downloading Jarn blueprint package via HTTP (curl)..."
+  ASSET_URL="https://github.com/${REPO}/releases/download/${VERSION}/jarn.tar.gz"
+  if curl -fsSL "${ASSET_URL}" -o "${TMP_DIR}/jarn.tar.gz" 2>/dev/null && [ -s "${TMP_DIR}/jarn.tar.gz" ]; then
+    tar -xzf "${TMP_DIR}/jarn.tar.gz" -C "${TMP_DIR}"
+    rm -f "${TMP_DIR}/jarn.tar.gz"
+    DOWNLOADED=true
+  else
+    echo "Notice: Blueprint release asset not found; falling back to repository tarball..."
+    TARBALL_URL="https://github.com/${REPO}/tarball/${VERSION}"
+    curl -fsSL "${TARBALL_URL}" | tar -xz -C "${TMP_DIR}" --strip-components 1 || true
+    if [ -d "${TMP_DIR}/.agents" ]; then
+      DOWNLOADED=true
+    fi
+  fi
 fi
 
-if [ ! -d "${TMP_DIR}/.agents" ]; then
-  echo "Error: Failed to download Jarn blueprint archive from '${REPO}'." >&2
+if [ "${DOWNLOADED}" != "true" ] || [ ! -d "${TMP_DIR}/.agents" ]; then
+  echo "Error: Failed to download Jarn blueprint from '${REPO}'." >&2
   echo "  If '${REPO}' is a private repository, run with GitHub CLI (gh) mode:" >&2
-  echo "    gh api repos/${REPO}/contents/scripts/jarn.sh -H \"Accept: application/vnd.github.raw+json\" | sh -s -- gh" >&2
+  echo "    gh api repos/${REPO}/contents/install.sh -H \"Accept: application/vnd.github.raw+json\" | sh -s -- gh" >&2
   exit 1
 fi
 

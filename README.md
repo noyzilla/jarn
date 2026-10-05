@@ -53,14 +53,14 @@ Jarn ออกแบบมาให้ทำงานร่วมกับ AI Co
 ### 1. Starting a New Project (สร้างโปรเจกต์ใหม่)
 สร้างหรือเข้าไปที่โฟลเดอร์เปล่า แล้วส่ง Prompt นี้ให้ AI ของคุณ:
 
-> *"Run this command to install the Jarn blueprint: `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`. After installation, please read all Jarn rules in `.agents/rules/`. Let's co-design the architecture for this project. Once we align, please update `AGENTS.md` (Language Presets), `README.md` (Project Identity), and `ARCHITECTURE.md` according to Jarn guidelines."*
+> *"Run this command to install the Jarn blueprint: `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/install.sh | sh`. After installation, please read all Jarn rules in `.agents/rules/`. Let's co-design the architecture for this project. Once we align, please update `AGENTS.md` (Language Presets), `README.md` (Project Identity), and `ARCHITECTURE.md` according to Jarn guidelines."*
 
 ### 2. Adopting into an Existing Project (ติดตั้งทับโปรเจกต์เดิม)
 หากคุณมีโปรเจกต์อยู่แล้ว และอยากนำความมีระเบียบของ Jarn เข้าไปใช้:
 
-> *"Run this command to adopt Jarn: `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/scripts/jarn.sh | sh`. Then, please load and read all Jarn rules in `.agents/rules/`. I want to adopt the Jarn blueprint into this existing project. First, study the current codebase. Then, perform a Shadow Merge from `.agents/.jarn-templates/` into the root. Finally, refactor and update our existing documentation to fully comply with the Jarn guidelines."*
+> *"Run this command to adopt Jarn: `curl -fsSL https://raw.githubusercontent.com/noyzilla/jarn/main/install.sh | sh`. Then, please load and read all Jarn rules in `.agents/rules/`. I want to adopt the Jarn blueprint into this existing project. First, study the current codebase. Then, perform a Shadow Merge from `.agents/.jarn-templates/` into the root. Finally, refactor and update our existing documentation to fully comply with the Jarn guidelines."*
 
-*(**Tip**: หากติดตั้งจาก Private Repository ให้เปลี่ยนคำสั่ง `curl` ใน Prompt เป็น `gh api repos/noyzilla/jarn/contents/scripts/jarn.sh -H "Accept: application/vnd.github.raw+json" | sh`)*
+*(**Tip**: หากติดตั้งจาก Private Repository ให้เปลี่ยนคำสั่ง `curl` ใน Prompt เป็น `gh api repos/noyzilla/jarn/contents/install.sh -H "Accept: application/vnd.github.raw+json" | sh`)*
 
 ### 3. Updating Jarn Standards (อัปเดตเวอร์ชัน)
 หากมีการอัปเดตกฎใหม่ๆ จากส่วนกลาง คุณสามารถสั่งให้ AI อัปเดตตัวเองได้เลย:
@@ -85,8 +85,8 @@ This repository is organized into distinct communication and governance layers:
 | **`CHANGELOG.md`** | Releases & Stakeholders | Historical log of releases following Keep a Changelog |
 | **`.agents/`** | Agent Governance & Skills | Universal rules kernel, Jarn skills (`jarn-*`), and shadow templates (`.jarn-templates/`) |
 | **`docs/`** | System Documentation Repository | Architecture, design system, living specs, ADR decisions, and runbooks |
-| **`scripts/jarn.sh`** | Project Initialization & Update | Universal one-liner command to initialize or update a project |
+| **`install.sh`** | Project Initialization & Update | Universal one-liner command to initialize or update a project |
 
 ---
 
-> *"ขอให้สนุกกับการทำงานร่วมกับ AI ครับ... ไร้บั๊ก ไร้โศก และขอจารย์จงสถิตอยู่กับท่าน!"* 🚀
+> *"ขอให้สนุกกับการทำงานร่วมกับ AI ครับ... ไร้บั๊ก ไร้โศก และขอจารย์จงสถิตอยู่กับท่าน!"*
