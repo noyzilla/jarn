@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## [Unreleased]
+## [0.10.1] - 2026-10-05
 
 ### Changed
 - **Declared Release Mode**: `jarn-release` now resolves a project-declared `Release Mode` (`tag-only`, `host-release`, `ci-release`) from `AGENTS.md` instead of treating platform release creation as optional. Missing mode is inferred and confirmed, or the pipeline halts, so releases no longer degrade silently to tag-only.
