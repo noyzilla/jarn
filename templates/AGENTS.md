@@ -41,6 +41,7 @@ Configure the active lifecycle commands below for your specific tech stack. Run 
 - **Run Linter / Style**: `<lint command, e.g. pnpm lint, ./gradlew check, golangci-lint run>`
 - **Build Project**: `<build command, e.g. pnpm build, ./gradlew assemble, go build ./...>`
 - **Run Local Dev**: `<dev command, e.g. pnpm dev, ./gradlew bootRun, go run main.go>`
+- **Release Mode**: `<tag-only | host-release | ci-release>` (see `jarn-release` skill; must be chosen during setup)
 
 ## Change Routing Matrix
 

@@ -41,6 +41,7 @@ Configure the active lifecycle commands below for your specific tech stack. Run 
 - **Run Linter / Style**: `shellcheck *.sh .agents/scripts/*.sh`
 - **Build Project**: `N/A`
 - **Run Local Dev**: `N/A`
+- **Release Mode**: `ci-release`
 
 ## Change Routing Matrix
 
