@@ -24,7 +24,7 @@ Please review and check all items defined in the Universal Quality Gates: [.agen
 
 The items below apply to contributors modifying the **Jarn framework itself**. Downstream projects should replace these with their own project-specific checks.
 
-- [ ] **Shell Script Compatibility**: Tested `jarn.sh` on both macOS (`zsh`) and Linux (`bash`).
+- [ ] **Shell Script Compatibility**: Tested `install.sh` on both macOS (`zsh`) and Linux (`bash`).
 - [ ] **No Unbound Variables**: Checked that all variables are correctly quoted and scripts run safely under `set -e`.
 - [ ] **Template Sanitization**: Ensured that any new `.md` files that are project-specific are also placed into `templates/` as blank generics so downstream users don't inherit Jarn-specific metadata.
 - [ ] **Agent File Size Compliance**: All `.agents/rules/` and `.agents/skills/` files are below the 8,000 character soft limit — verified with `wc -m .agents/rules/jarn-*.md .agents/skills/jarn-*/SKILL.md`. Any file between 8,000–12,000 characters has a documented split plan. No file exceeds the 12,000 character hard limit. See [docs/specs/agent-file-standards.md](docs/specs/agent-file-standards.md).

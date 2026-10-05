@@ -9,6 +9,9 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 ### Changed
 - **Declared Release Mode**: `jarn-release` now resolves a project-declared `Release Mode` (`tag-only`, `host-release`, `ci-release`) from `AGENTS.md` instead of treating platform release creation as optional. Missing mode is inferred and confirmed, or the pipeline halts, so releases no longer degrade silently to tag-only.
 
+### Removed
+- **Legacy Installer Stub (`scripts/jarn.sh`)**: Deleted the redirect stub; `install.sh` at the repository root is the only installer entrypoint. Live references in `REVIEW.md` and `docs/specs/installer-asset-distribution.md` were updated.
+
 ## [0.10.0] - 2026-10-05
 
 ### Added

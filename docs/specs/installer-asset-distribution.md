@@ -50,7 +50,7 @@ Defines the installation, update, and release packaging distribution lifecycle f
 ## Dependency & Blast-Radius Matrix
 - **Upstream Callers**: End-user terminal sessions, CI workflows, AI initialization prompts.
 - **Downstream Dependencies**: GitHub Releases API, `curl`, `tar`, `gh` CLI.
-- **Bounded Blast Radius**: `install.sh`, `scripts/jarn.sh`, `.agents/skills/jarn-release/SKILL.md`, `README.md`, `ARCHITECTURE.md`, `AGENTS.md`, `docs/adr/`.
+- **Bounded Blast Radius**: `install.sh`, `.agents/skills/jarn-release/SKILL.md`, `README.md`, `ARCHITECTURE.md`, `AGENTS.md`, `docs/adr/`.
 
 ## Verification & Acceptance Criteria
 - **Syntax Check**: `sh -n install.sh` passes with Exit Code 0.
