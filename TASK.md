@@ -16,7 +16,7 @@ This document serves as the high-level roadmap and backlog for the project.
 - Configure GitHub branch protection rules on `main` (require PR, require status checks) to enforce Step 0 Branch Isolation Invariant.
 
 ## Completed Milestones
-- Established root `install.sh` installer with `jarn.tar.gz` asset distribution and tarball fallback (`docs/specs/installer-asset-distribution.md`).
+- None currently (Cleared after v0.10.0 release).
 
 ## Blocked & Under Discussion
 - None currently.
