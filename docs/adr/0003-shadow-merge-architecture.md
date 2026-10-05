@@ -18,7 +18,7 @@ Previously, the framework relied on separate scripts (`init.sh` for new projects
 ## Decision
 We implement a **Unified Installer with Zero-Conflict Seeding and AI-Driven Shadow Merge**:
 
-- **Unified Installer (`scripts/jarn.sh`)**: A single script handles both Greenfield initialization and Brownfield adoption/updates.
+- **Unified Installer (`install.sh`)**: A single script handles both Greenfield initialization and Brownfield adoption/updates.
 - **Zero-Conflict Seeding**: 
   - If a core template (e.g., `AGENTS.md`) does not exist in the root, it is seeded natively.
   - If it already exists, the script strictly bypasses the root file to prevent destruction.
@@ -39,4 +39,4 @@ We implement a **Unified Installer with Zero-Conflict Seeding and AI-Driven Shad
 ## Alternatives Evaluated & Trade-offs
 - **[Overwriting Files Directly]**: Rejected due to catastrophic data loss in brownfield projects.
 - **[.pending-merge Files in Root]**: The previous architecture. Rejected because it cluttered the root directory, frustrated developers, and forced users to manually clean up dangling files if the AI failed to merge them.
-- **[Dedicated CLI Tool]**: Rejected because it violates the "Zero Python/Node dependency" rule for the bootstrap phase. The POSIX basic shell script (`jarn.sh`) ensures universal compatibility out-of-the-box.
+- **[Dedicated CLI Tool]**: Rejected because it violates the "Zero Python/Node dependency" rule for the bootstrap phase. The POSIX basic shell script (`install.sh`) ensures universal compatibility out-of-the-box.

@@ -1,0 +1,33 @@
+name: Release Blueprint Package
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Package Blueprint Asset
+        run: |
+          mkdir -p dist
+          COPYFILE_DISABLE=1 tar --exclude='.DS_Store' --exclude='*/.DS_Store' -czf dist/jarn.tar.gz .agents templates
+
+      - name: Generate Checksums
+        working-directory: dist
+        run: |
+          sha256sum jarn.tar.gz > checksums.txt
+
+      - name: Publish Release Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/jarn.tar.gz
+            dist/checksums.txt

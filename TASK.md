@@ -11,13 +11,12 @@ This document serves as the high-level roadmap and backlog for the project.
 ## High-Level Backlog
 - Add `AGENTS.md` language preset section with ecosystem-native test runner, linter, and build commands for a concrete target stack (e.g., Go, TypeScript, or Python) to replace current `N/A` placeholders.
 - Create a sample domain implementation under `src/` with accompanying unit tests to demonstrate the living spec workflow (`docs/specs/` code-spec parity, blast-radius matrix, and GATE 1-3 lifecycle).
-- Add GitHub Actions CI workflow (`.github/workflows/ci.yml`) running `shellcheck scripts/*.sh` and Markdown link validation on push and PR.
+- Add GitHub Actions CI workflow (`.github/workflows/ci.yml`) running `shellcheck *.sh` and Markdown link validation on push and PR.
 - Extend `.editorconfig` with `[*.md]` section defining `max_line_length` and `trim_trailing_whitespace` rules for Markdown files, the primary artifact type of this project.
-- Write Jarn's first living specification (`docs/specs/0001-jarn-installer.md`) documenting the `jarn.sh` lifecycle: version resolution, archive download, Zero-Conflict Seeding algorithm, and Shadow Template synchronization protocol.
 - Configure GitHub branch protection rules on `main` (require PR, require status checks) to enforce Step 0 Branch Isolation Invariant.
 
 ## Completed Milestones
-- None currently (Cleared after v0.6.0 release).
+- Established root `install.sh` installer with `jarn.tar.gz` asset distribution and tarball fallback (`docs/specs/installer-asset-distribution.md`).
 
 ## Blocked & Under Discussion
 - None currently.
