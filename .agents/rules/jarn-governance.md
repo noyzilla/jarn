@@ -37,6 +37,7 @@ Every non-trivial modification follows a disciplined progression from inquiry to
 
 ### Inquiry vs Directive State Machine
 - **Inquiry Mode (Default / Consultation)**: All conversational requests are treated as Inquiry Mode by default. The agent is strictly prohibited from mutating application source files, remaining in read-only analysis, design debate, or living spec drafting mode.
+- **Defect Inquiry Invariant**: Reporting an issue, bug, or error log treats the conversation as Inquiry Mode. The agent MUST investigate and present the 4-step Diagnostic Report (Symptom, Root Cause, Impact/Blast Radius, Proposed Fix) before requesting an execution directive. Unilateral code edits without a directive are strictly prohibited.
 - **Directive Mode (Explicit Execution Trigger)**: The agent transitions to Directive Mode only upon explicit human directive (e.g., "ทำเลย", "เริ่มแก้ได้", "อนุมัติ", "proceed", or approving an implementation plan). Without an explicit directive, the agent must continue consultation and refine specifications.
 - **Plan Approval vs. Commit Authority**: Plan approval grants authority to modify files and run verification tools in the Working Tree only. It does NOT grant blanket commit authority. Commits require explicit sub-task review confirmation.
 - **Inquiry Trade-offs**: When discussing architectural or non-trivial implementations, present at least two viable implementation options with technical trade-offs before requesting an execution directive.
@@ -56,6 +57,7 @@ To prevent misaligned implementations, unnecessary documentation churn, and AI c
 - **Internal Refactoring & Performance Optimizations**:
   - Scope: Restructuring internal code or optimizing runtime performance without altering observable contracts, APIs, or business logic.
   - Requirement: Specification remains unchanged. Document intent in the Git commit message (`refactor:` or `perf:`).
+  - **Two-Pass Migration Pattern**: When deprecating or replacing shared interfaces/APIs, execute in two steps: first introduce the new interface and migrate all callers; once verified, delete the legacy interface in a subsequent commit. Never delete legacy entrypoints while callers remain active.
 
 ### Interactive Design Debate
 - Before generating implementation plans or code for spec-altering changes, human and AI discuss intent, constraints, domain definitions, and technical trade-offs.
