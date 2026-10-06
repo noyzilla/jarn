@@ -40,9 +40,9 @@ Every non-trivial modification follows a disciplined progression from inquiry to
 - **Defect Inquiry Invariant**: Reporting an issue, bug, or error log treats the conversation as Inquiry Mode. The agent MUST investigate and present the 4-step Diagnostic Report (Symptom, Root Cause, Impact/Blast Radius, Proposed Fix) before requesting an execution directive. Unilateral code edits without a directive are strictly prohibited.
 - **Directive Mode (Explicit Execution Trigger)**: The agent transitions to Directive Mode only upon explicit human directive (e.g., "ทำเลย", "เริ่มแก้ได้", "อนุมัติ", "proceed", or approving an implementation plan). Without an explicit directive, the agent must continue consultation and refine specifications.
 - **Directive Shortcuts (Aliases)**: To reduce friction, the following short commands are recognized as explicit directives (requiring a prefix to prevent accidental triggers):
-  - `/p` or `!p`: Proceed (Approve plan and execute in the working tree).
-  - `/ok` or `!ok`: Approve and proceed.
-  - `/c` or `!c`: Commit (Approve the uncommitted diff and authorize `git commit`).
+  - `\p` or `!p`: Proceed (Approve plan and execute in the working tree).
+  - `\ok` or `!ok`: Approve and proceed.
+  - `\c` or `!c`: Commit (Approve the uncommitted diff and authorize `git commit`).
 - **Plan Approval vs. Commit Authority**: Plan approval grants authority to modify files and run verification tools in the Working Tree only. It does NOT grant blanket commit authority. Commits require explicit sub-task review confirmation.
 - **Inquiry Trade-offs**: When discussing architectural or non-trivial implementations, present at least two viable implementation options with technical trade-offs before requesting an execution directive.
 - **Ambiguous Directive Fallback (Safety Brake)**: If a vague directive is given without established context or approved plan, fall back to Inquiry Mode and ask for clarification.
