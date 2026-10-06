@@ -11,15 +11,15 @@ This document establishes the safety boundaries, escalation gates, and core oper
 
 ## Safety Boundaries & Non-Negotiable Invariants
 
-The following actions are strictly prohibited without prior explicit human confirmation:
+The following actions require prior explicit human confirmation:
 
-- **Database Destruction**: Dropping databases, schemas, or tables, executing table truncation, or applying unverified data-destructive migrations.
-- **Git History Rewrite**: Force-pushing (`git push --force` or `--force-with-lease`) to remote branches, deleting remote branches, or hard-resetting shared branches.
-- **Direct Edits & Commits to Main (Step 0 Invariant)**: Modifying, creating, or committing files directly on the `main` or production branch. Before making any codebase changes, contributors and agents MUST verify `git branch --show-current` and branch out (`git checkout -b <type>/<slug>`). **Exception**: `chore(release): vX.Y.Z` commits are permitted directly on `main` as a post-merge ceremony, since they contain only mechanical changelog and metadata updates with zero logic risk. This exception is governed exclusively by the `jarn-release` skill.
-- **Credential Exposure**: Adding, modifying, reading, or printing production secrets, private keys, authentication tokens, API keys, or `.env` files containing sensitive credentials.
-- **Uncontrolled Dependencies**: Introducing new third-party libraries, packages, or external dependencies that have not been explicitly discussed and agreed upon.
-- **Unbounded Deletion**: Recursively deleting directories or bulk deleting source files outside of designated build output or scratch folders.
-- **Root Pollution**: Creating temporary scratch files, mock payloads, reproduction scripts, or logs in the project root. All transient artifacts must reside strictly in `.scratch/<task-slug>/tmp/`.
+- **Database Destruction**: Dropping databases, schemas, or tables, truncating tables, or applying unverified data-destructive migrations.
+- **Git History Rewrite**: Force-pushing (`git push --force` or `--force-with-lease`), deleting remote branches, or hard-resetting shared branches.
+- **Direct Edits & Commits to Main (Step 0 Invariant)**: Modifying or committing directly on `main`. Verify `git branch --show-current` and branch out (`git checkout -b <type>/<slug>`) before editing. **Exception**: `chore(release): vX.Y.Z` post-merge commits via `jarn-release`.
+- **Credential Exposure**: Adding, modifying, reading, or printing production secrets, private keys, API keys, or `.env` files.
+- **Uncontrolled Dependencies**: Adding new third-party libraries without architectural approval.
+- **Unbounded Deletion**: Recursively deleting directories or bulk deleting files outside build or scratch folders.
+- **Root Pollution**: Creating scratch files, payloads, scripts, or logs in project root. Place artifacts in `.scratch/<task-slug>/tmp/`.
 
 ## Stop and Ask Escalation Gates
 
