@@ -6,6 +6,8 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-10-06
+
 ### Added
 - **Safety Hook Guard**: `.agents/hooks.json` registers a `PreToolUse` hook (`.agents/scripts/hook-guard.sh`, POSIX sh) that denies edits and commits on `main`, force pushes, `.env` access, and root-level scratch files.
 
