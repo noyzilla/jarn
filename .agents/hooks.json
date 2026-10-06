@@ -1,0 +1,16 @@
+{
+  "jarn-safety-guard": {
+    "PreToolUse": [
+      {
+        "matcher": "run_command|write_to_file|replace_file_content|multi_replace_file_content|view_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh ./scripts/hook-guard.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
