@@ -6,7 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+### Added
+- **Safety Hook Guard**: `.agents/hooks.json` registers a `PreToolUse` hook (`.agents/scripts/hook-guard.sh`, POSIX sh) that denies edits and commits on `main`, force pushes, `.env` access, and root-level scratch files.
+
 ### Changed
+- **Skill Authoring Alignment**: All skill descriptions use third person; `jarn-review`, `jarn-release`, and `jarn-diagnostics` gain a tickable checklist with go-back lines; `jarn-release` and `jarn-consult` gain a contents list.
 - **Release Notes from CHANGELOG**: The release workflow now publishes the matching `CHANGELOG.md` version section as GitHub Release notes and fails the run if no section exists for the tag.
 
 ## [0.10.1] - 2026-10-05
