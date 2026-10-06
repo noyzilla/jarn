@@ -6,6 +6,18 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-10-07
+
+### Added
+- **Foundational Domain Principles**: Enforced `Data-First Design`, `State Machine Invariant`, and `Domain Isolation` in `jarn-architecture.md`.
+- **Directive Shortcuts (Aliases)**: Added `\p` (Proceed), `\ok`, and `\c` (Commit) to `jarn-governance.md` for explicit execution without typing out full directives.
+- **Technical Communication Standard**: Added `jarn-communication.md` enforcing the Diátaxis structure, strict word economy, and exact codebase vocabulary for all agent outputs.
+
+### Changed
+- **Ubiquitous Language Invariant**: Formalized `Domain Alignment` into a strict invariant in `jarn-naming.md` prohibiting invented synonyms.
+- **Two-Pass Migration Pattern**: Mandated first introducing new interfaces before deleting legacy ones during refactors in `jarn-governance.md`.
+- **Defect Inquiry Invariant**: Enforced that agents MUST present a 4-step Diagnostic Report and wait for authorization before writing bug fixes, shifting defect resolution to a read-only Inquiry Mode default.
+
 ## [0.11.0] - 2026-10-06
 
 ### Added
