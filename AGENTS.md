@@ -90,3 +90,4 @@ When specialized expertise or operational procedures are required, activate the 
 - [jarn-diagnostics](.agents/skills/jarn-diagnostics/SKILL.md): Isolated defect investigation procedure bounded strictly to the living spec's blast-radius matrix without blind codebase scans.
 - [jarn-release](.agents/skills/jarn-release/SKILL.md): End-to-end automated release lifecycle, including SemVer calculation, CHANGELOG drafting, and tag publishing across any Git host.
 - [jarn-framework-update](.agents/skills/jarn-framework-update/SKILL.md): Update the installed Jarn framework, execute Shadow Merge, and identify required project migrations.
+- [jarn-summary](.agents/skills/jarn-summary/SKILL.md): Analyze chat history, living specs (docs/specs/), and task state to synthesize a structured digest of agreed scope, action items, and next steps.
