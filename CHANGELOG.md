@@ -6,6 +6,17 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-10-08
+
+### Added
+- **Task & Spec Summary Skill (`jarn-summary`)**: Added `.agents/skills/jarn-summary` to analyze chat conversations, living specs, and task state to synthesize structured scope, status, and action item digests.
+- **Drafts & Working Knowledge Taxonomy (`docs/drafts/`)**: Introduced `docs/drafts/` for active brainstorming and unclassified working knowledge, accompanied by `.agents/templates/docs/draft.md`.
+- **Knowledge Preservation via Archiving (`docs/archived/`)**: Formalized archiving lifecycle to move finalized drafts containing significant reasoning to `docs/archived/` rather than discarding them.
+- **Architectural Decision Record 0010**: Documented token-optimized draft lifecycle and status-in-filename protocol in `docs/adr/0010-token-optimized-draft-lifecycle.md`.
+
+### Changed
+- **ADR Lifecycle Postfixes**: Added `.rejected.md` to ADR lifecycle in `jarn-naming.md` and `jarn-architecture.md` for zero-token AI filtering of non-accepted proposals.
+
 ## [0.12.0] - 2026-10-07
 
 ### Added
