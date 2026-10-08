@@ -47,7 +47,7 @@ This document defines the naming conventions for configurations, variables, slug
 ### Slug Formatting Invariants
 - **Lowercase & Hyphens Only**: Strictly lowercase `a-z`, digits `0-9`, and single hyphens `-`. No uppercase, spaces, or underscores.
 - **Concise Scope**: 2–5 words focusing on domain intent. Omit conversational filler words (`the`, `a`, `and`, `how-to`).
-- **Numeric Prefixes**: When sequential order or identifier tracking is required (ADRs in `docs/adr/` and runbooks in `docs/development/`), use a 4-digit zero-padded prefix: `XXXX-<slug>.md` (e.g., `0001-project-identity.md`).
+- **Numeric Prefixes**: When sequential order or identifier tracking is required (ADRs in `docs/adr/` and runbooks in `docs/development/`), use a 4-digit zero-padded prefix: `XXXX-<slug>.md` (e.g., `0001-project-identity.md`). **Drafts do NOT receive a numeric prefix** (e.g., `docs/drafts/project-identity.md`). A number is permanently assigned only upon finalization (when moved to its permanent directory) to prevent unused gaps and preserve historical records.
 
 ## Domain & Intent-Based Naming
 
@@ -60,7 +60,8 @@ This document defines the naming conventions for configurations, variables, slug
 ## Filename Lifecycle Postfixes (Zero-Token Status Filtering)
 
 - **Rule**: Filename extensions may include a lifecycle postfix immediately preceding `.md` (`XXXX-<slug>.<postfix>.md`) to communicate document and task state for instant zero-token filtering via `ls` or globbing without reading file contents.
-- **Stable Numeric Prefix**: The leading `XXXX-` sequence identifier MUST NOT change when a postfix is appended or transitioned.
+- **Stable Numeric Prefix**: The leading `XXXX-` sequence identifier MUST NOT change when a status postfix is transitioned (e.g., active to `.superseded.md`). Note: Drafts do not possess numeric prefixes.
 - **Standard Postfixes**:
-  - **Architectural Decision Records (`docs/adr/`)**: `[none]` (Active / Accepted), `.superseded.md` (Replaced by newer ADR), `.deprecated.md` (Retired without direct replacement).
+  - **Drafts & Unclassified Knowledge (`docs/drafts/`)**: `<slug>.md` (No postfix or numeric prefix needed. The directory location defines its draft status. Upon finalization, the file is moved to its permanent location and assigned a sequence number).
+  - **Architectural Decision Records (`docs/adr/`)**: `[none]` (Active / Accepted), `.superseded.md` (Replaced by newer ADR), `.deprecated.md` (Retired without direct replacement), `.rejected.md` (Proposed but not accepted, kept for historical record).
   - **Task Issues (`.scratch/<slug>/issues/`)**: `[none]` (Pending / In Queue), `.done.md` (Completed & Committed), `.blocked.md` (Blocked by prerequisite issue), `.deferred.md` (Postponed to future milestone), `.dropped.md` (Cancelled / Won't do).
