@@ -70,7 +70,7 @@ Always organize documentation under `docs/` according to the system documentatio
 - Global design tokens and UI component guides go into `docs/design/<topic>.md` (mirroring `DESIGN.md`)
 - Developer onboarding, runbooks, and operational workflows go into `docs/development/<id>-<slug>.md` (mirroring `CONTRIBUTING.md`)
 - Macro architectural decision records go into `docs/adr/<id>-<slug>.md` (with explicit `.deprecated.md` or `.superseded.md` lifecycle naming for zero-token AI filtering)
-- Unclassified working knowledge, brainstorming, and pending decisions go into `docs/drafts/<slug>.md`. Once finalized (accepted or rejected), they are moved to their permanent directory and assigned a sequence number.
+- Unclassified working knowledge, brainstorming, and pending decisions go into `docs/drafts/<slug>.md`. Once finalized, the formal document (Spec/ADR) is generated in its respective folder. The draft itself MUST NOT be destroyed if it contains valuable reasoning; instead, move it to `docs/archived/<slug>.md` to permanently preserve the historical "why".
 
 ### Two-Way Linking Requirement
 Whenever a sub-document is created under `docs/<name>/`:
