@@ -13,35 +13,35 @@ crystallization:
 - **Target**: Undecided
 
 ## Problem
-อธิบายปัญหาที่เจอ หรือสาเหตุที่ต้องหยิบเรื่องนี้ขึ้นมาคิด
+Describe the problem encountered or the reason this topic is being raised.
 
 ## Motivation
-แรงจูงใจ (ทำไปทำไม? หากแก้ปัญหานี้ได้โปรเจคหรือทีมจะได้ประโยชน์อะไร?)
+Motivation (Why do this? What benefit will the project or team gain if this problem is solved?)
 
 ## Ideas (Options & Alternatives)
-แนวคิดหลัก หรือทางเลือกต่างๆ ที่โยนขึ้นมาบนโต๊ะ (List แยกเป็นข้อๆ และอัปเดตสถานะเมื่อมีการปัดตก)
-- `[ ]` **Idea 1**: [ชื่อไอเดีย / คอนเซ็ปต์] - ไอเดียที่เสนอ (Proposed)
-- `[!]` **Idea 2**: [ชื่อไอเดีย] - อธิบายสั้นๆ (ถูกปัดตก / Rejected เพราะอะไร)
-- `[*]` **Idea 3**: [ชื่อไอเดีย] - อธิบายสั้นๆ (ทางเลือกที่ชนะ / Selected และนำไปเขียน Spec/ADR)
+Core concepts or alternatives presented on the table (List them out and update the status when rejected).
+- `[ ]` **Idea 1**: [Idea Name / Concept] - Proposed idea.
+- `[!]` **Idea 2**: [Idea Name] - Brief explanation (Why it was rejected).
+- `[*]` **Idea 3**: [Idea Name] - Brief explanation (The selected option that will be written into a Spec/ADR).
 
 ## Discussion
-พื้นที่สำหรับการถกเถียง (Debate) และบันทึกวิวัฒนาการของความคิด (Persistent reasoning memory)
-*(หมายเหตุ: ให้พิมพ์ Timestamp เป็นหัวข้อย่อยเสมอ เพื่อให้ AI และทีมเห็นพัฒนาการของการตัดสินใจเมื่อเวลาผ่านไป)*
+A space for debate and recording the evolution of thoughts (Persistent reasoning memory).
+*(Note: Always use Timestamps as subheadings so AI and the team can see the progression of decisions over time).*
 
 ### YYYY-MM-DD
-- เริ่มพิจารณาไอเดีย... เพราะ...
-- พบข้อกังวลเรื่อง...
+- Started considering the idea... because...
+- Found concerns regarding...
 
 ### YYYY-MM-DD
-- ตัดสินใจปัดตก Idea X เนื่องจากพบว่า...
-- กลับมาพิจารณา Idea Y อีกครั้งหลังจาก...
+- Decided to reject Idea X because...
+- Reconsidered Idea Y after...
 
 ## Open Questions
-คำถามที่ยังไม่มีคำตอบ หรือต้องหาข้อมูลเพิ่มก่อนที่จะตัดสินใจได้
+Unanswered questions or information that needs to be gathered before a decision can be made.
 - [ ] ...
 - [ ] ...
 
 ## Next Steps
-Action item ถัดไปเพื่อให้เรื่องนี้ตกผลึก
+Next action items to finalize this draft.
 - [ ] ...
 - [ ] ...
