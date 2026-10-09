@@ -59,8 +59,11 @@ Collaborate with the human lead to evaluate viable options:
 - Record the approved Context, Problem Statement, Decision, Consequences, and Evaluated Alternatives.
 - Keep status marked as `Proposed` until human lead sign-off.
 
-### Phase: Superseding & Deprecation Lifecycle
-When a new decision replaces or invalidates an existing ADR:
+### Phase: Superseding, Deprecation, & Rejection Lifecycle
+When a decision's lifecycle ends, update its filename to enable zero-token filtering:
+- **Rejection**:
+  - If a proposed architectural approach is formally evaluated but explicitly rejected (i.e. a decision to NOT adopt a topology or tool), create or rename the ADR with the `.rejected.md` postfix: `docs/adr/<id>-<slug>.rejected.md`.
+  - Record the rationale for rejection so future AI agents scanning the directory know the idea was already evaluated.
 - **Superseding**:
   - Locate the existing active ADR (e.g., `0002-mongodb.md`).
   - Rename the file using Git: `git mv docs/adr/0002-mongodb.md docs/adr/0002-mongodb.superseded.md`.
