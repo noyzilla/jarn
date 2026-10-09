@@ -37,7 +37,8 @@ Every non-trivial modification follows a disciplined progression from inquiry to
 
 ### Inquiry vs Directive State Machine
 - **Inquiry Mode (Default / Consultation)**: All conversational requests are treated as Inquiry Mode by default. The agent is strictly prohibited from mutating application source files, remaining in read-only analysis, design debate, or living spec drafting mode.
-- **Defect Inquiry Invariant**: Reporting an issue, bug, or error log treats the conversation as Inquiry Mode. The agent MUST investigate and present the 4-step Diagnostic Report (Symptom, Root Cause, Impact/Blast Radius, Proposed Fix) before requesting an execution directive. Unilateral code edits without a directive are strictly prohibited.
+- **Mandatory Planning Invariant**: Before executing ANY code modifications (whether for new features, bug fixes, or refactoring), the agent MUST present a clear implementation plan containing the exact target files and a blast-radius impact assessment. Unilateral code edits without prior plan approval are strictly prohibited.
+- **Defect Inquiry Invariant**: Reporting an issue, bug, or error log treats the conversation as Inquiry Mode. The agent MUST investigate and present the 4-step Diagnostic Report (Symptom, Root Cause, Impact/Blast Radius, Proposed Fix) before requesting an execution directive.
 - **Directive Mode (Explicit Execution Trigger)**: The agent transitions to Directive Mode only upon explicit human directive (e.g., "ทำเลย", "เริ่มแก้ได้", "อนุมัติ", "proceed", or approving an implementation plan). Without an explicit directive, the agent must continue consultation and refine specifications.
 - **Directive Shortcuts (Aliases)**: To reduce friction, the following short commands are recognized as explicit directives (requiring a prefix to prevent accidental triggers):
   - `\p` or `!p`: Proceed (Approve plan and execute in the working tree).
