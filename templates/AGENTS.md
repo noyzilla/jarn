@@ -16,6 +16,20 @@
 
 This document is the primary machine-readable entrypoint for AI coding agents collaborating on this codebase.
 
+## Documentation Language Policy
+
+**Language: en**
+
+Follow the selected language policy when creating or modifying project documentation.
+The policy applies to documentation authored by AI agents, including specifications, plans, and technical notes.
+`jarn-coding.md` defines the annotation format and terminology conventions.
+`jarn-quality.md` validates compliance with the active policy.
+
+Supported values:
+- `en` — English only.
+- `th` — Thai-first documentation, but all technical terminology, variables, API paths, and code symbols MUST be written in English to preserve AI comprehension.
+- `en-th` — English-first documentation with Thai annotations in square brackets `[...]`.
+
 ## Current Rule Manifest [รายการกฎที่ใช้งานอยู่]
 
 Directory discovery in the pre-flight guard determines the active rules. This manifest describes the expected Jarn baseline and MUST remain synchronized with `.agents/rules/jarn-*.md`.
