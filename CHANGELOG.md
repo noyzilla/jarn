@@ -6,6 +6,14 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.13.1] - 2026-10-09
+
+### Changed
+- **Governance & Safety Boundaries**: Strengthened "Step 0 Branch Isolation" to mandate empirical `git branch --show-current` checks before file modification tools are invoked.
+- **Workflow State Machine**: Added new **Context Switching Guard** to prevent the agent from abandoning uncommitted work when transitioning tasks.
+- **Planning Lifecycle**: Added **Mandatory Planning Invariant** to enforce formal blast-radius impact analysis and execution plans before any target files are modified.
+- **Directive Shortcuts**: Expanded shorthand aliases in `jarn-governance.md` to include `\a` (amend), `\s` (status), `\t` (test), `\d` (discard), `\m` (merge), and `\y` (yield/auto-pilot).
+
 ## [0.13.0] - 2026-10-08
 
 ### Added
