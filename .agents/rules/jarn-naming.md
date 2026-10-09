@@ -57,11 +57,21 @@ This document defines the naming conventions for configurations, variables, slug
 - **Domain Separation Invariant**: Shared utilities MUST remain strictly stateless and technical. Placing domain-specific business rules, entity logic, or database access inside shared utility files is strictly prohibited.
 - **Boolean Predicates**: Boolean variables and functions use clear prefixes (`is_active`, `has_access`, `can_modify`, `should_retry`).
 
-## Filename Lifecycle Postfixes (Zero-Token Status Filtering)
+## The Status Dictionary (Zero-Token Status Filtering)
 
 - **Rule**: Filename extensions may include a lifecycle postfix immediately preceding `.md` (`XXXX-<slug>.<postfix>.md`) to communicate document and task state for instant zero-token filtering via `ls` or globbing without reading file contents.
 - **Stable Numeric Prefix**: The leading `XXXX-` sequence identifier MUST NOT change when a status postfix is transitioned (e.g., active to `.superseded.md`). Note: Drafts do not possess numeric prefixes.
-- **Standard Postfixes**:
-  - **Drafts & Unclassified Knowledge (`docs/drafts/`)**: `<slug>.md` (Active brainstorming). เมื่อ Draft ตกผลึกและมี "Reasoning สำคัญ" ที่ควรเก็บรักษาไว้ ให้ย้ายไฟล์ไปที่ `docs/archived/<slug>.md` (เพื่อแช่แข็งเป็น Knowledge System แทนที่จะปล่อยให้ Git กลืนหายไป) และอัปเดต `resolved_to` ชี้ไปยังเอกสารปลายทาง. หากไม่มีเนื้อหาสำคัญสามารถลบทิ้งได้.
-  - **Architectural Decision Records (`docs/adr/`)**: `[none]` (Active / Accepted), `.superseded.md` (Replaced by newer ADR), `.deprecated.md` (Retired without direct replacement), `.rejected.md` (Proposed but not accepted, kept for historical record).
-  - **Task Issues (`.scratch/<slug>/issues/`)**: `[none]` (Pending / In Queue), `.done.md` (Completed & Committed), `.blocked.md` (Blocked by prerequisite issue), `.deferred.md` (Postponed to future milestone), `.dropped.md` (Cancelled / Won't do).
+
+### Status Dictionary Table
+
+| Postfix | Target Domain | Definition & Usage |
+| :--- | :--- | :--- |
+| `[none]` | All | Active, ongoing, accepted, or pending state. |
+| `.done.md` | Task Issues | The task has been completed, verified, and committed. |
+| `.blocked.md` | Task Issues | The task cannot proceed due to a prerequisite or external blocker. |
+| `.deferred.md` | Task Issues | The task is postponed to a future milestone. |
+| `.dropped.md` | Task Issues | The task is cancelled or "won't do". |
+| `.superseded.md` | ADRs | The decision was active but is replaced by a newer ADR. |
+| `.deprecated.md` | ADRs | The decision is retired without a direct replacement. |
+| `.rejected.md` | ADRs | The proposal was evaluated but formally rejected. Kept for historical record. |
+| *(Archive)* | Drafts | Active brainstorming drafts (`docs/drafts/<slug>.md`) that finalize with significant reasoning are moved to `docs/archived/<slug>.md` to freeze as a knowledge system. |

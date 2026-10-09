@@ -50,7 +50,7 @@ After completing all checks below, continue with your project's `REVIEW.md` for 
   - For Spec-Conforming bug fixes: `docs/specs/` is not modified unnecessarily; the defect root cause and fix are detailed in the Git commit logbook with regression tests.
 - [ ] **The Non-Subtractive Principle**: Existing technical specifics, configuration values, port mappings, and architectural rationales have been preserved.
 - [ ] **The Mirror Index Pattern**: Root documentation files (`ARCHITECTURE.md`, `DESIGN.md`, `CONTRIBUTING.md`) remain lean summaries under ~200 lines; deep specs reside in `docs/` with two-way links.
-- [ ] **ADR Status Lifecycle**: When modifying or superseding architectural decisions, updated the filename with `.deprecated.md`, `.superseded.md`, or `.rejected.md` to enable zero-token AI filtering.
+- [ ] **Filename Status Lifecycle**: When modifying documents or tasks, verified that all filename lifecycle postfixes strictly conform to the Status Dictionary in `jarn-naming.md` to enable zero-token AI filtering.
 - [ ] **Bilingual Annotation Standard**: User-facing documents use English lead technical language with Thai annotations `[...]` for human clarity. Files inside `.agents/` use English only — verified with `grep -rn '^#.*[ก-๙]' .agents/` returning zero matches.
 - [ ] **Semantic Numbering & Stable References**: Verified that numbers are not used merely for reading or execution order; numbers are used only when they possess semantic identity (phases, versions, retries, priorities, gates); all cross-references avoid positional coupling and use semantic headings or direct links.
 - [ ] **Changelog Synchronized**: User-facing changes are recorded under the `[Unreleased]` section of `CHANGELOG.md`.
