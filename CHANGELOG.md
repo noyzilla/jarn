@@ -6,6 +6,14 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-10-09
+
+### Features
+- **Documentation Language Policy**: Added a dynamic language policy configuration to `AGENTS.md` supporting `en`, `th`, and `en-th`, and updated the framework rules to enforce it.
+
+### Changed
+- **Draft Template**: Translated the draft template (`draft.md`) from Thai to English to support international teams by default.
+
 ## [0.13.2] - 2026-10-09
 
 ### Changed
