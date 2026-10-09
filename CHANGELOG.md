@@ -6,6 +6,15 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.13.2] - 2026-10-09
+
+### Changed
+- **Status Dictionary Standard**: Transitioned inline document status postfix examples to a centralized Status Dictionary table in `jarn-naming.md` to ensure DRY compliance and prevent AI hallucination.
+- **Rules & Skills Alignment**: Refactored `jarn-architecture.md`, `jarn-lifecycle.md`, `jarn-quality.md`, and `jarn-decisions` skill to strictly enforce naming referencing the Status Dictionary instead of explicit examples.
+
+### Rejected
+- **Global Installation Architecture (ADR-0011)**: Rejected `~/.jarn` global injection architecture in favor of the current `.agents` local-repo encapsulation to maintain portability.
+
 ## [0.13.1] - 2026-10-09
 
 ### Changed
