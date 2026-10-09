@@ -75,6 +75,6 @@ When a decision's lifecycle ends, update its filename to enable zero-token filte
 
 ### Phase: Verification & Zero-Token Filtering
 - Verify that only active decisions use the clean `[ID]-[slug].md` naming convention.
-- Ensure all inactive decisions use `.deprecated.md` or `.superseded.md`.
+- Ensure all inactive decisions use `.deprecated.md`, `.superseded.md`, or `.rejected.md`.
 - Run `git diff --check` to ensure no whitespace defects or broken links.
 - Commit the decision with conventional commit prefix `docs(decision): ...`.
