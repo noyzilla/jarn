@@ -40,7 +40,7 @@ GATE 1 → GATE 2 → GATE 3
 
 ### GATE 2: Surgical Execution & Self-Verification (The Dev Pairing Gate)
 
-- **Step 0 Branch Isolation**: Before modifying, creating, or deleting any codebase file, verify `git branch --show-current`. If on `main`, immediately execute `git checkout -b <type>/<slug>`. Working directly on `main` is strictly prohibited.
+- **Step 0 Branch Isolation**: System restriction: File modification on `main` is blocked. You must execute `git branch --show-current` as your first action. If on `main`, immediately execute `git checkout -b <type>/<slug>` before proceeding with ANY issue execution.
 - **Working Tree Loop by Default**: All changes across the codebase remain in the working tree uncommitted by default. Approving an implementation plan authorizes coding and self-verification in the working tree only; it does NOT grant blanket commit authority.
 - **Discrete Issue Execution**: Work through issue files in `.scratch/<task-slug>/issues/` in sequence. Upon completion and passing verification, micro-commit and transition the issue file to `XXXX-<slug>.done.md`.
 - **Never Derail Workflow**: Mid-flight discoveries or missing sub-tasks must be appended as new issue files in `.scratch/<task-slug>/issues/` rather than derailing the active work.

@@ -7,7 +7,7 @@
 > First, use your directory listing tool on `.agents/rules/` to discover all active `jarn-*.md` files. Then, read each of them.
 >
 > **MANDATORY PRE-FLIGHT GUARD [มาตรฐานจุดตรวจก่อนเริ่มงาน]**:
-> - **Step 0 Branch Isolation**: NEVER edit or commit on `main`. Verify `git branch --show-current` before modifying any files. Branch out (`git checkout -b <type>/<slug>`) immediately if on `main`.
+> - **Step 0 Branch Isolation (CRITICAL)**: STOP. Before you invoke ANY file-editing tools, you MUST use `run_command` to execute `git branch --show-current`. If the output is `main`, you are strictly forbidden from modifying files. You MUST run `git checkout -b <type>/<slug>` first. There are zero exceptions.
 > - **Inquiry vs Directive**: Treat discussions as Inquiry Mode (read-only analysis). Do NOT mutate code without an explicit Directive trigger (e.g. "ทำเลย", "อนุมัติ", "proceed").
 > - **Working Tree Loop Default**: Keep changes uncommitted in the Working Tree by default. Plan approval authorizes coding in the working tree, NOT committing. Never run `git commit` without explicit sub-task review confirmation, unless an auto-commit directive was given upfront.
 > - **Operational Workflow Gates**: Adhere strictly to **GATE 1** (Living Spec & Mission Approval) -> **GATE 2** (Surgical Execution & Self-Verification) -> **GATE 3** (Knowledge Capture & Pre-Merge Audit).

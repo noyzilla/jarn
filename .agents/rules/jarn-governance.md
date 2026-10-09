@@ -15,7 +15,7 @@ The following actions require prior explicit human confirmation:
 
 - **Database Destruction**: Dropping databases, schemas, or tables, truncating tables, or applying unverified data-destructive migrations.
 - **Git History Rewrite**: Force-pushing (`git push --force` or `--force-with-lease`), deleting remote branches, or hard-resetting shared branches.
-- **Direct Edits & Commits to Main (Step 0 Invariant)**: Modifying or committing directly on `main`. Verify `git branch --show-current` and branch out (`git checkout -b <type>/<slug>`) before editing. **Exception**: `chore(release): vX.Y.Z` post-merge commits via `jarn-release`.
+- **Direct Edits & Commits to Main (Step 0 Invariant)**: Modifying or committing directly on `main` is structurally forbidden. You MUST empirically verify the active branch via terminal before invoking any edit tool. If on `main`, branch out (`git checkout -b <type>/<slug>`) immediately. **Exception**: `chore(release): vX.Y.Z` post-merge commits via `jarn-release`.
 - **Credential Exposure**: Adding, modifying, reading, or printing production secrets, private keys, API keys, or `.env` files.
 - **Uncontrolled Dependencies**: Adding new third-party libraries without architectural approval.
 - **Unbounded Deletion**: Recursively deleting directories or bulk deleting files outside build or scratch folders.
