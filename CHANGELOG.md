@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.14.1] - 2026-10-10
+
+### Changed
+- **Governance (Spec is Law)**: Added `Strict Spec Adherence (No Spec, No Code)` invariant to strictly prohibit speculative coding, aliases, and unauthorized backward compatibility.
+
 ## [0.14.0] - 2026-10-09
 
 ### Features
