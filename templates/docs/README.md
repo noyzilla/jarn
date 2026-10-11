@@ -20,12 +20,12 @@ Every document in this directory answers a specific dimensional question:
   - Template: Follows [.agents/templates/docs/design.md](../.agents/templates/docs/design.md).
   - Target: Frontend engineers, UI designers, and AI coding agents.
 
-- **`docs/development/` (HOW - Developer Manual, Workflows & Runbooks)**:
-  - Answers: How do developers configure environments, run database migrations, execute tests, or perform deployments?
-  - Content: Local setup guides, database migration runbooks, incident response playbooks, and operational workflows mirroring [CONTRIBUTING.md](../CONTRIBUTING.md).
-  - Naming: Named with standard 4-digit numeric slug (e.g., `0001-local-setup.md`, `0002-db-migration.md`).
-  - Template: Follows [.agents/templates/docs/development.md](../.agents/templates/docs/development.md).
-  - Target: Developers, operators, and DevOps engineers.
+- **`docs/howto/` (HOW - Procedural How-to Guides, Operations & Wiki)**:
+  - Answers: How do developers and operators configure environments, run database migrations, execute tests, deploy, or troubleshoot incidents?
+  - Content: Actionable procedures, onboarding guides, database runbooks, deployment playbooks, and operations wiki.
+  - Structure & TOC: Pure slug (`<slug>.md`) navigation. Root `README.md` acts as master TOC. High-density topics expand into sub-directories (`docs/howto/<subtopic>/`) with a local `README.md`.
+  - Template: Follows [.agents/templates/docs/howto.md](../.agents/templates/docs/howto.md).
+  - Target: Developers, operators, DevOps engineers, and AI coding agents.
 
 - **`docs/specs/` (WHAT - Living Subsystem Specifications)**:
   - Answers: What does this subsystem do today, what are its domain rules, state machines, API contracts, and database impacts?
@@ -65,7 +65,7 @@ All documents and transient tasks adhere to this unified identifier and naming c
 | :--- | :--- | :--- | :--- | :--- |
 | **Architectural Decisions** | `docs/adr/` | `XXXX-<slug>.md` | `adr-XXXX` (e.g., `adr-0001`) | `adr-0001` or `[adr-0001](docs/adr/0001-*.md)` |
 | **Explorations** | `docs/exp/` | `YYMM-<seq>-<slug>.md` | `exp-YYMM-<seq>` (e.g., `exp-2610-1`) | `exp-2610-1` or `[exp-2610-1](docs/exp/2610-1-*.md)` |
-| **Development Runbooks** | `docs/development/` | `XXXX-<slug>.md` | `dev-XXXX` (e.g., `dev-0001`) | `dev-0001` or `[dev-0001](docs/development/0001-*.md)` |
+| **How-to Guides & Wiki** | `docs/howto/` | `<slug>.md` | `<slug>` (e.g., `local-setup`) | `howto/local-setup` |
 | **Transient Issues** | `.scratch/<task>/issues/` | `XXXX-<slug>.md` | `issue-XXXX` (e.g., `issue-0001`) | `issue-0001` or `depends_on: ["issue-0001"]` |
 | **Living Specifications** | `docs/specs/` | `<feature>.md` | `<feature>` (e.g., `auth`) | `spec/auth` |
 | **Architecture Deep-Dives** | `docs/architecture/` | `<topic>.md` | `<topic>` (e.g., `topology`) | `arch/topology` |

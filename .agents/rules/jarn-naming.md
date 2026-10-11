@@ -47,7 +47,7 @@ This document defines the naming conventions for configurations, variables, slug
 ### Slug Formatting Invariants
 - **Lowercase & Hyphens Only**: Strictly lowercase `a-z`, digits `0-9`, and single hyphens `-`. No uppercase, spaces, or underscores.
 - **Concise Scope**: 2–5 words focusing on domain intent. Omit conversational filler words (`the`, `a`, `and`, `how-to`).
-- **Numeric & Timestamp Prefixes**: When sequential order or identifier tracking is required (ADRs in `docs/adr/` and runbooks in `docs/development/`), use a 4-digit zero-padded prefix: `XXXX-<slug>.md` (e.g., `0001-project-identity.md`). **Explorations in `docs/exp/`** use a lightweight timestamped sequence prefix: `YYMM-<seq>-<slug>.md` (e.g., `2610-1-shadow-merge.md`) with a corresponding YAML `id` (`exp-2610-1`) to track age and prevent long-term WIP stagnation. A permanent 4-digit sequence is assigned only upon finalization/crystallization into `docs/adr/` or `docs/development/`.
+- **Numeric & Timestamp Prefixes**: When sequential order or identifier tracking is required (ADRs in `docs/adr/`), use a 4-digit zero-padded prefix: `XXXX-<slug>.md` (e.g., `0001-project-identity.md`). **Explorations in `docs/exp/`** use a lightweight timestamped sequence prefix: `YYMM-<seq>-<slug>.md` (e.g., `2610-1-shadow-merge.md`) with a corresponding YAML `id` (`exp-2610-1`) to track age and prevent long-term WIP stagnation. A permanent 4-digit sequence is assigned only upon finalization/crystallization into `docs/adr/`.
 - **Exploration Sequence Invariants (Uniqueness & Immutability)**:
   - **Monthly Reset**: Sequence index `<seq>` resets to `1` at the beginning of each calendar month (e.g., `2610-1`, `2610-2`, then `2611-1` next month).
   - **Never Reused (Monotonic)**: An issued ID within the month is never reused or recycled under any circumstances, even if the exploration is cancelled, rejected, or deleted. Always allocate `max(seq) + 1`.
@@ -63,7 +63,7 @@ All documents and transient issues must follow this centralized identifier conve
 | :--- | :--- | :--- | :--- | :--- |
 | **Architectural Decisions** | `docs/adr/` | `XXXX-<slug>.md` | `adr-XXXX` (e.g., `adr-0001`) | `adr-0001` or `[adr-0001](docs/adr/0001-*.md)` |
 | **Explorations** | `docs/exp/` | `YYMM-<seq>-<slug>.md` | `exp-YYMM-<seq>` (e.g., `exp-2610-1`) | `exp-2610-1` or `[exp-2610-1](docs/exp/2610-1-*.md)` |
-| **Development Runbooks** | `docs/development/` | `XXXX-<slug>.md` | `dev-XXXX` (e.g., `dev-0001`) | `dev-0001` or `[dev-0001](docs/development/0001-*.md)` |
+| **How-to Guides & Wiki** | `docs/howto/` | `<slug>.md` | `<slug>` (e.g., `local-setup`) | `howto/local-setup` |
 | **Transient Issues** | `.scratch/<task>/issues/` | `XXXX-<slug>.md` | `issue-XXXX` (e.g., `issue-0001`) | `issue-0001` or `depends_on: ["issue-0001"]` |
 | **Living Specifications** | `docs/specs/` | `<feature>.md` | `<feature>` (e.g., `auth`) | `spec/auth` |
 | **Architecture Deep-Dives** | `docs/architecture/` | `<topic>.md` | `<topic>` (e.g., `topology`) | `arch/topology` |
