@@ -6,11 +6,15 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-10-11
+
 ### Changed
 - **Exploration Taxonomy (`docs/exp/`)**: Transitioned `docs/drafts/` to `docs/exp/` (Explorations) for architectural spikes, discovery, and high-level planning with `YYMM-<seq>-<slug>.md` naming and YAML `id` (`exp-YYMM-<seq>`) to prevent work stagnation.
-- **How-to Guides & Wiki Taxonomy (`docs/howto/`)**: Transitioned `docs/development/` to `docs/howto/` as an actionable procedural wiki and runbook hub using Pure Slug naming (`<slug>.md`), backed by a master `README.md` table of contents and hierarchical sub-topic directories for progressive disclosure.
+- **How-to Guides & Operations Wiki (`docs/howto/`)**: Transitioned `docs/development/` to `docs/howto/` as an actionable procedural wiki and runbook hub using Pure Slug naming (`<slug>.md`), backed by a master `README.md` table of contents and hierarchical sub-topic directories for progressive disclosure.
 - **Document ID & Taxonomy Dictionary**: Established centralized Document ID Dictionary Table across `.agents/rules/jarn-naming.md` and `docs/README.md`, standardizing lowercase domain prefixes (`adr-XXXX`, `exp-YYMM-<seq>`, `issue-XXXX`) in YAML frontmatter and in-document references while keeping filenames DRY.
 - **Template Metadata Standardization**: Standardized default `status` across documentation templates, added `superseded_by` support in `adr.md`, standardized `issue-XXXX` for task units in `transient-task-memory.md`, and eradicated redundant Status bullets from Markdown bodies.
+
+## [0.15.0] - 2026-10-11
 
 ### Features
 - **Scratch Hygiene Enforcement**: Added hook-guard checks and rule invariants preventing loose files directly under `.scratch/` and `.scratch/<task-slug>/`, requiring all throwaway files to reside inside `tmp/`.
