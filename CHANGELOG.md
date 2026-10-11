@@ -6,10 +6,13 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
-### Added
+## [0.15.0] - 2026-10-11
+
+### Features
 - **Scratch Hygiene Enforcement**: Added hook-guard checks and rule invariants preventing loose files directly under `.scratch/` and `.scratch/<task-slug>/`, requiring all throwaway files to reside inside `tmp/`.
 - **Dual-Tier Transient Sandbox**: Defined formal topology distinguishing global task-agnostic scratch (`.scratch/tmp/`) from branch-scoped scratch (`.scratch/<task-slug>/tmp/`).
 
+## [0.14.1] - 2026-10-10
 
 ### Changed
 - **Governance (Spec is Law)**: Added `Strict Spec Adherence (No Spec, No Code)` invariant to strictly prohibit speculative coding, aliases, and unauthorized backward compatibility.
