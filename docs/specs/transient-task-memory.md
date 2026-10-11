@@ -76,7 +76,7 @@ Each issue file in `.scratch/<task-slug>/issues/` must contain valid YAML frontm
 
 ```yaml
 ---
-id: "0001"
+id: "issue-0001"
 title: "Issue Title"
 status: ready               # ready | in_progress | blocked | done | deferred | dropped
 target_files:

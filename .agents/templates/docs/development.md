@@ -1,13 +1,13 @@
 ---
+id: "dev-0000"
 title: [Runbook / Development Workflow Title]
 status: draft
 tags: [development, runbook, template]
 synapses: ["CONTRIBUTING.md"]
 ---
 
-# Development Guide: [Runbook / Workflow Title]
+# dev-0000: [Runbook / Workflow Title]
 
-- **Status**: Active | Draft
 - **Type**: Setup Guide | Migration Runbook | Operational Playbook | Incident Guide
 - **Target Audience**: Developers, Operators, and AI Coding Agents
 

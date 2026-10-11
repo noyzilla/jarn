@@ -8,7 +8,6 @@ synapses: []
 # Implementation Plan: [Branch / Task Name]
 
 - **Branch**: `feat/[task-slug]` | `fix/[task-slug]`
-- **Status**: Planning | In Progress | Ready for GATE 3
 - **Primary Living Spec**: [docs/specs/...](../../docs/specs/subsystem.md)
 
 ## Objective & Mission Bounds

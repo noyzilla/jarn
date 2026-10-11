@@ -1,5 +1,5 @@
 ---
-id: "XXXX"
+id: "issue-0000"
 title: "[Issue Title]"
 status: ready
 target_files:
@@ -11,7 +11,7 @@ tags: [topic]
 synapses: []
 ---
 
-# Issue XXXX: [Issue Title]
+# issue-0000: [Issue Title]
 
 ## Intent & Context
 Clear summary of the problem, required behavior, and scope for this discrete slice of work.

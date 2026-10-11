@@ -24,9 +24,9 @@ A highly efficient, token-aware workflow is required to collaborate with AI agen
 Adopt the **Token-Optimized Draft Lifecycle** for all document ideation and specification drafting. The use of web-based "Artifact Mode" for iterative drafting is strictly deprecated in favor of a native file-patching workflow.
 
 The workflow consists of three phases:
-1. **Initiate (Drafting)**: The AI generates the initial draft directly into the project filesystem under `docs/drafts/<slug>.md` (without numeric prefixes).
-2. **Iterate (Targeted Patching)**: The human developer reviews the draft inside their native IDE. For structural or logic changes, the developer highlights specific blocks or copies snippets into the chat and directs the AI. The AI MUST respond using targeted patching tools (e.g., `replace_file_content`) to surgically edit only the requested lines.
-3. **Finalize (Promotion & Archival)**: Once consensus is achieved, the specification is generated in its proper taxonomy (e.g., `docs/specs/` or `docs/adr/XXXX-slug.md`). The raw draft is migrated to `docs/archived/<slug>.md` if it contains valuable unextracted architectural reasoning (The Non-Subtractive Principle) or deleted if obsolete.
+1. **Initiate (Exploration)**: The AI generates the initial exploration record directly into the project filesystem under `docs/exp/exp-YYMM-<seq>-<slug>.md` (with timestamped sequence and YAML `id`).
+2. **Iterate (Targeted Patching)**: The human developer reviews the exploration in their native IDE. For structural or logic changes, the developer highlights specific blocks or copies snippets into the chat and directs the AI. The AI MUST respond using targeted patching tools (e.g., `replace_file_content`) to surgically edit only the requested lines.
+3. **Finalize (Crystallization & Archival)**: Once consensus is achieved, the specification or decision is generated in its proper taxonomy (e.g., `docs/specs/` or `docs/adr/XXXX-slug.md`). The raw exploration record is migrated to `docs/archived/<slug>.md` if it contains valuable unextracted architectural reasoning (The Non-Subtractive Principle) or deleted if obsolete.
 
 ## Consequences
 
