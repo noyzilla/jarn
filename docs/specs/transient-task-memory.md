@@ -15,32 +15,39 @@ synapses: ["docs/adr/0009-transient-task-memory-and-scratch-architecture.md", ".
 This specification defines the runtime structure, lifecycle postfix invariants, and workflow state machines for transient task execution workspaces residing under `.scratch/<task-slug>/`. It formalizes the discrete issue model, the Never Derail workflow, sandbox isolation for throwaway artifacts, and the zero-token filtering protocol for both CLI agents and GUI Kanban dashboards.
 
 ## Domain Context & Ubiquitous Language
-- **Transient Memory**: Scratch space ignored from Git (`.gitignore`) dedicated to active in-flight task execution.
+- **Transient Memory**: Scratch space ignored from Git (`.gitignore`) dedicated to active in-flight task execution and temporary artifacts.
 - **Task Workspace**: A dedicated directory `.scratch/<task-slug>/` scoped 1:1 to the active Git branch.
+- **Branch-Scoped Sandbox**: Transient helper scripts and artifacts tied to a specific branch/task, located strictly in `.scratch/<task-slug>/tmp/`.
+- **Global Transient Sandbox**: Task-agnostic throwaway artifacts, located strictly in `.scratch/tmp/`.
 - **Issue Unit**: An isolated, vertical slice markdown file inside `issues/` containing explicit intent, target files, acceptance criteria, and targeted verification commands.
 - **Lifecycle Postfix**: A semantic extension appended before `.md` (`XXXX-<slug>.<postfix>.md`) indicating issue state for zero-token scanning.
 - **Zero Root Pollution**: A strict invariant prohibiting the creation of temporary scripts, mock payloads, or test runners directly in the repository root.
+- **Zero Loose Scratch Files**: A strict invariant prohibiting loose files directly under `.scratch/` or `.scratch/<task-slug>/` (except `plan.md`). All throwaway files must reside inside a `tmp/` directory.
 
 ## Architecture & Directory Topology
 
 ```text
-.scratch/<task-slug>/
-├── plan.md               # Branch mission overview, scope bounds, and issue manifest
-├── issues/               # Strictly discrete issue markdown files (XXXX-*.md)
-│   ├── 0001-user-schema.done.md
-│   ├── 0002-jwt-token.blocked.md
-│   └── 0003-login-endpoint.md
-└── tmp/                  # Strictly throwaway scripts, mock payloads, and diagnostic logs
-    ├── repro.py
-    ├── mock-payload.json
-    └── trace.log
+.scratch/
+├── tmp/                          # Task-agnostic throwaway scripts, mock payloads, and logs
+│   └── scratch-experiment.py
+└── <task-slug>/                  # Branch-scoped workspace (1:1 with active git branch)
+    ├── plan.md                   # Branch mission overview, scope bounds, and issue manifest
+    ├── issues/                   # Strictly discrete issue markdown files (XXXX-*.md)
+    │   ├── 0001-user-schema.done.md
+    │   ├── 0002-jwt-token.blocked.md
+    │   └── 0003-login-endpoint.md
+    └── tmp/                      # Strictly branch-specific throwaway scripts and artifacts
+        ├── repro.py
+        ├── mock-payload.json
+        └── trace.log
 ```
 
 ## Business Rules & Logic Invariants
 
 ### 1. Directory Structure Invariants
 - **`issues/` Invariant**: Contains strictly `.md` issue files. Scripts, JSON payloads, and logs are strictly prohibited inside `issues/`.
-- **`tmp/` Invariant**: Contains all temporary helper scripts (`.py`, `.sh`), payloads (`.json`, `.sql`), and log dumps. Loose throwaway files placed directly in `.scratch/<task-slug>/` or the repository root are strictly prohibited.
+- **`tmp/` Invariant (No Loose Files)**: All temporary helper scripts (`.py`, `.sh`), payloads (`.json`, `.sql`), and log dumps must reside inside a `tmp/` directory. Loose throwaway files placed directly in `.scratch/`, `.scratch/<task-slug>/`, or the repository root are strictly prohibited.
+- **Branch Sandbox Invariant**: When working within an active Git branch, all temporary scripts, mock data, and test artifacts created specifically for that branch's scope must reside strictly in `.scratch/<task-slug>/tmp/`.
 - **Root Cleanliness Invariant**: Zero temporary or scratch files permitted in the project root.
 - **Dynamic Scoping & Template Archetypes**: The `.scratch/<task-slug>/` directory is created dynamically during GATE 1. Static blueprints for plans and issues reside in `.agents/templates/scratch/plan.md` and `.agents/templates/scratch/issue.md`. No static template files reside inside `.scratch/`.
 

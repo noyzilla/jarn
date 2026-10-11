@@ -42,6 +42,16 @@ case "$tool" in
           ;;
       esac
     fi
+    # Scratch Hygiene: no loose files in .scratch/ or .scratch/<task-slug>/ (except plan.md)
+    if [ "$(dirname "$target")" = "$repo_root/.scratch" ]; then
+      deny "Scratch hygiene: loose files directly under .scratch/ are forbidden. Use .scratch/tmp/ or .scratch/<task-slug>/tmp/."
+    fi
+    if [ "$(dirname "$(dirname "$target")")" = "$repo_root/.scratch" ]; then
+      subdir=$(basename "$(dirname "$target")")
+      if [ "$subdir" != "tmp" ] && [ "$(basename "$target")" != "plan.md" ]; then
+        deny "Scratch hygiene: loose files under .scratch/<task-slug>/ are forbidden. Place transient files in .scratch/<task-slug>/tmp/."
+      fi
+    fi
     ;;
 esac
 
