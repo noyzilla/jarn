@@ -6,6 +6,9 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 
 ## [Unreleased]
 
+### Added
+- **Project-Relative Path Invariant**: Mandated project-relative paths for all internal project file references, documentation links, code comments, and frontmatter synapses across `.agents/rules/jarn-coding.md`, `.agents/rules/jarn-communication.md`, and `.agents/rules/jarn-quality.md`, strictly prohibiting host-specific absolute paths (`/home/...`, `/Users/...`, `file://`) with an explicit exception for operating system filesystem concepts.
+
 ## [0.16.0] - 2026-10-11
 
 ### Changed
